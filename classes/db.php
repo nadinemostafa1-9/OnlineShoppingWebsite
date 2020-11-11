@@ -2,7 +2,7 @@
 //extend this class whenever you need the db
 class db{
   private $host = "localhost";
-  private $user = "root";
+  private $user = "proj";
   private $pwd = "zap";
   private $dbName = "eCommerce";
 
