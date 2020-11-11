@@ -8,22 +8,26 @@
  * 
  */
 class seller extends user{
+
     //Properties
     private $SellerId;
     private $stock;
     private $rank;
+
     //Methods
+
     //Getters
     public function getStock($id){
-        $sql = "SELECT SellerStock FROM sellers WHERE SellerId=$id";
+        $sql = "SELECT SellerStock FROM sellers WHERE SellerId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function getRank($id){
-        $sql = "SELECT SellerRank FROM sellers WHERE SellerId=$id";
+        $sql = "SELECT SellerRank FROM sellers WHERE SellerId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
+
     //Setters
     public function setStock($id, $stk){
         $sql = "UPDATE users SET SellerStock = ? WHERE SellerId = ?";

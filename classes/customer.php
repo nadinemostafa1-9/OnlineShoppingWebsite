@@ -8,6 +8,7 @@
  * 
  */
 class customer extends user{
+    
     //Properties
     private $address;
     private $creditCard;
@@ -15,33 +16,36 @@ class customer extends user{
     private $rank;
     private $freeDeliver = False;
     private $orders;
+
     //Methods
+
     //Getters
     public function getAddress($id){
-        $sql = "SELECT CustomerAddress FROM users WHERE UserId=?";
+        $sql = "SELECT CustomerAddress FROM users WHERE UserId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function getCreditcard($id){
-        $sql = "SELECT CustomerCreditcard FROM users WHERE UserId=?";
+        $sql = "SELECT CustomerCreditcard FROM users WHERE UserId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function getBalance($id){
-        $sql = "SELECT CustomerBalance FROM users WHERE UserId=?";
+        $sql = "SELECT CustomerBalance FROM users WHERE UserId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function getRank($id){
-        $sql = "SELECT CustomerRank FROM users WHERE UserId=?";
+        $sql = "SELECT CustomerRank FROM users WHERE UserId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function getOrders($id){
-        $sql = "SELECT CustomerOrders FROM users WHERE UserId=?";
+        $sql = "SELECT CustomerOrders FROM users WHERE UserId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
+
     //Setters
     public function setAddress($id, $addr){
         $sql = "UPDATE users SET CustomerAddress = ? WHERE UserId = ?";
