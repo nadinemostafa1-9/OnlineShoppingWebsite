@@ -19,7 +19,7 @@ search engine
 <?php
 require_once('searchFn.php');
 require_once('db.php');
-$mdb=new db('localhost','root','','products');
+$mdb=new db();
 $mPDO=$mdb->connect();
 $k=$_GET['k']; // getting the search keyword
 searchStart($k,$mPDO);
