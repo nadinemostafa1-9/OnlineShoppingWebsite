@@ -11,7 +11,7 @@
 <h2>
 search engine
 </h2>
-<form action='./search.php' method="get">
+<form action='./secondSearchPage.php' method="get">
   <input type="text" name="k" size="50" value='<?php echo $_GET['k']?>'/>
 <button type=" button">search</button>
 </form>
