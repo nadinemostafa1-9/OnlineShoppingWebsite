@@ -54,9 +54,11 @@ CREATE TABLE `sellers` (
   `seller_id` int(11) NOT NULL,
   `first_name` varchar(128) DEFAULT NULL,
   `last_name` varchar(128) DEFAULT NULL,
-  `gender` varchar(200) NOT NULL,
+  `brand_name` varchar(128) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
-  `password` varchar(128) DEFAULT NULL
+  `password` varchar(128) DEFAULT NULL,
+  `rank` int(11) DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
