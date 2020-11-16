@@ -1,6 +1,5 @@
 
 <?php
-// if the path chages , like if the file inside my incude folder
 
 function searchStart($k,$mPDO){
   $i=0;
