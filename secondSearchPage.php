@@ -18,7 +18,7 @@ search engine
 <hr/>
 <?php
 require_once('searchFn.php');
-require_once('database.php');
+require_once('db.php');
 $mdb=new db('localhost','root','','products');
 $mPDO=$mdb->connect();
 $k=$_GET['k']; // getting the search keyword
