@@ -1,0 +1,73 @@
+
+* {box-sizing: border-box}
+
+  body{
+  background-image:url("https://www.plasticstoday.com/sites/cet.com/files/PTI-ecommerce-AdobeStock_207963206.jpg");
+  background-size:cover;
+  }
+
+  form{
+   width:40%;
+   margin:0 auto;
+   margin-top:2%;
+   border-radius: 20px;
+   background: rgba(0,0,0,0.4);
+   color:#DDD;
+   font-weight: bold;
+   font-size:15px;
+  }
+  label{
+   margin-left: 20px;
+  }
+
+  .sh{
+ font-size: 50px;
+ text-align: center;
+ color:rgb(61,96,64);
+
+}
+
+ input[type=radio]
+ {
+  display: inline;
+  margin-left: 5px;
+  margin-top:8px;
+ }
+
+  input[type=email], input[type=password], input[type=text] {
+  width: 40%;
+  margin: 10px 20px ;
+  display:block;
+  padding-left:5px;
+  background-color:transparent;
+  border: 1px solid #DDD;
+  color: #DDD;
+  font-size: 20px;
+  border-radius: 10px;
+  outline:0;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for all buttons */
+.clearfix{
+ text-align: center;
+}
+button {
+  background-color: rgb(61,96,64);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  margin:8px;
+}
+button:hover {
+  opacity:1;
+}
+/* Extra styles for the cancel button */
+.cancelbtn {
+  background-color: #f44336;
+}
