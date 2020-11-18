@@ -4,7 +4,7 @@
 function searchStart($k,$mPDO){
   $i=0;
   $term=explode(" ",$k);
-  $q="SELECT * FROM `search` WHERE ";
+  $q="SELECT * FROM `products` WHERE ";
   foreach ($term as $each) {
     $i++;
 
