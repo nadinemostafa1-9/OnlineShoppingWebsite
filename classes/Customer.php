@@ -16,6 +16,12 @@
     $this->password = $this->hashPwd($p);
   }
   }
+  protected function hashPwd($password){
+    $salt = 'XyZzy12*_';
+    $hash=hash('md5', $salt.$password);
+    $this->password = $hash;
+    return $hash;
+  }
 
   //check correct login
  public static function getUser($email, $password){
@@ -41,6 +47,30 @@
       echo 'Hello ' . Session::get('fname')."\n";
       return true;
     }
+  public function CheckEmail(){
+      $sql = "SELECT * FROM customers WHERE email=?";
+      $stmt = $this->connect()->prepare($sql);
+      $stmt->execute([$this->email]);
+      $allData = $stmt->fetchAll();
+      if($allData==false){
+        return true; }
+        else {
+            Session::set('error',"This email is already used");
+            header("Location: ../signup.php");
+            return;
+        }
+      }
+      public function setUser(){
+
+        $insert =$this->connect()->prepare("INSERT INTO customers (first_name,last_name,email,password)
+        values(:first_name,:last_name,:email,:password) ");
+        $insert->bindParam(':first_name',$this->firstName);
+        $insert->bindParam(':last_name',$this->lastName);
+        $insert->bindParam(':email',$this->email);
+        $insert->bindParam(':password',$this->password);
+               $insert->execute();
+        }
+
   }
 
 }
