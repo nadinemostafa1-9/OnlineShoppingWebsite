@@ -48,6 +48,6 @@ function searchStart($k,$mPDO){
     }
 
   }
-  if($f2==1)echo "no res";
+  if($f2==1)echo "No Results, Try Again";
 
 }
