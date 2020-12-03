@@ -2,7 +2,7 @@
 <?php
 require 'product.php';
   function connecting(){
-  require_once('database.php');
+  require_once('db.php');
   $mdb=new db();
   $mPDO=$mdb->connect();
 return $mPDO;
