@@ -15,6 +15,11 @@ search engine
   <button type=" button">search</button>
 </form>
 </center>
+<?php
+require_once('productController.php');
+require_once('product.php');
+displayProductsByCategory('makeup');
+ ?>
 
  </body>
 
