@@ -5,5 +5,5 @@ include 'class-autoload.inc.php';
 Session::init();
 
 if(isset($_POST['login'])){
-  Customer::getUser($_POST['em'],$_POST['pass']);
+  Customer::CheckLogin($_POST['em'],$_POST['pass']);
 }
