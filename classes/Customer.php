@@ -24,7 +24,7 @@
   }
 
   //check correct login
- public static function getUser($email, $password){
+ public static function CheckLogin($email, $password){
 
     $instance = new self();
     $pass = $instance->hashPwd($password);
@@ -47,6 +47,7 @@
       echo 'Hello ' . Session::get('fname')."\n";
       return true;
     }
+ }
   public function CheckEmail(){
       $sql = "SELECT * FROM customers WHERE email=?";
       $stmt = $this->connect()->prepare($sql);
@@ -71,6 +72,6 @@
                $insert->execute();
         }
 
-  }
+  
 
 }
