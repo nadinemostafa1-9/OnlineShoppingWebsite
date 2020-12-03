@@ -1,6 +1,7 @@
 
 <?php
-
+require_once('productController.php');
+require_once('product.php');
 function searchStart($k,$mPDO){
   $i=0;
   $term=explode(" ",$k);
@@ -43,11 +44,14 @@ function searchStart($k,$mPDO){
      }
     if($f==1 || $f==2)
     {
-    echo "<h3>" . $r['title']. "</h3>" . "<br>" . $r['description']. "<br>";
+   
+    $product=new Product($r['name'],$r['category'],
+   $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
+   displayProduct($product);
      $f2=0;
     }
 
   }
-  if($f2==1)echo "No Results, Try Again";
+  if($f2==1)echo "No Results";
 
 }
