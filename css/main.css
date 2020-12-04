@@ -160,7 +160,18 @@ a:hover{
     display: block;
     transition: 0.3s;
 }
-
+.dropdown-btn{
+	margin-top: 30px;
+	border: none;
+	border-bottom: 1px solid #BBB;
+	width:100%;
+	text-align: left;
+	padding: 8px 8px 8px 32px;
+	display: block;
+	font-size: 25px;
+	background-color: #333;
+	color:#BBB;
+}
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
 	color: white;
@@ -185,6 +196,18 @@ a:hover{
 
 .openbtn:hover {
   color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #333;
+  border-bottom:1px solid #BBB;
+  padding-left: 8px;
+}
+
+/* Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
 }
 .footer{
 	width: 100%;
