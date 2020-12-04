@@ -43,7 +43,7 @@
       Session::set('Email', $email);
       Session::set('fname', htmlentities($allData['first_name']));
       Session::set('lname', htmlentities($allData['last_name']));
-      Session::set('id', htmlentities($allData['customer_id']));
+      Session::set('customer_id', htmlentities($allData['customer_id']));
 
       echo 'Hello ' . Session::get('fname')."\n";
       return true;
