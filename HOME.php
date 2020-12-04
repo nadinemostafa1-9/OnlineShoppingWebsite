@@ -26,11 +26,17 @@
 		  
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#" class="category">Clothes</a>
-        <a href="#" class="category">Bags</a>
-        <a href="#" class="category">Shoes</a>
+        <button class="dropdown-btn">Clothes
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+        </div>
         <a href="#" class="category">Makeup</a>
         <a href="#" class="category">Accessories</a>
+        <a href="#" class="category">Toys</a>
+        <a href="#" class="category">Baby Care</a>
         <a href="#" class="category">Electronics</a>
         <a href="#" class="category">Home and Office</a>
       </div>
@@ -41,6 +47,19 @@
       </div>
  
       <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+              } else {
+                        dropdownContent.style.display = "block";
+                      }
+          });
+        }
 
         function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
