@@ -96,9 +96,12 @@
 
 		  </div>
 
-		  <div class="search_bar">
-        <input type="search" placeholder="Search" name="" value="">
-    	</div>
+      <!-------search bar-------->
+      <form class="search_bar" action="secondSearchPage.php">
+        <input type="text" placeholder="Search.." name="k">
+        <!-----search bar button------>
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
 
     	<div class="log_in">
         <a href="shrook2.html">Sign Up</a>
