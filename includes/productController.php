@@ -1,6 +1,6 @@
 
 <?php
-require 'product.php';
+
   function connecting(){
   require_once('database.php');
   $mdb=new db();
@@ -26,6 +26,39 @@ return $product;
     echo $product->price . '$';
     echo '<br></br>';
 }
+
+//Display all products in the main page
+function displayAllProducts(){
+  $mPDO=connecting();
+  $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30;";
+  $run = $mPDO->prepare($get_product);
+  $run->execute();
+  while ($row = $run->fetch()) {
+
+    $product = new Product($row['id'],$row['name'],$row['category'],
+   $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
+//Remember to add ID as GET....
+   echo '<div class = "col-md-3 col-sm-6">
+          <div class="card">
+          <a href="cardtest.php">
+          <img src="data:image/jpg;base64,'.base64_encode($product->img).'" class="card-img-top" alt="product"/>
+          </a>
+          <div class="card-body">
+          <p class="card-text">' .$product->name.'</p>
+          <p class="item-price"> $'.$product->price.'</p>
+          </div>
+          <div class="add-btn">
+            <button href="#" class="card-btn">Add to Cart</button>
+          </div>
+          </div>
+
+        </div>
+
+   ';
+  }
+return true;
+}
+
 function displayProductsByCategory($bywhat){
   $mPDO=connecting();
   $q='SELECT * FROM `products`';
