@@ -1,17 +1,17 @@
 
 <?php
-
+require "cart.php";
 class Product {
-public $name;
-public $id;
-public $price;
-public $keywords;
-public $description;
-public $img;
-public $category;
-public $inOffer;
-public $outOfstock;
-public $count;
+private $name;
+private $id;
+private $price;
+private $keywords;
+private $description;
+private $img;
+private $category;
+private $inOffer;
+private $outOfstock;
+private $count;
 public function __construct($name,$category,$price,$count, $img,$keywords,$description){
   $this->name=$name;
   $this->price=$price;
@@ -21,22 +21,76 @@ public function __construct($name,$category,$price,$count, $img,$keywords,$descr
   $this->description=$description;
   $this->category=$category;
 }
+public function getName(){
+  return $this->name;
+}
+public function getPrice(){
+  return $this->price;
+}
+public function getImage(){
+  return $this->img;
+}
+public function getCategory(){
+  return $this->category;
+}
+public function getCount(){
+  return $this->count;
+}
+public function getKeywords(){
+  return $this->keywords;
+}
+public function getDescription(){
+  return $this->description;
+}
+public function getID(){
+  return $this->id;
+}
+public function addToCart($cart,$quantity){
+  return $cart->addProduct($this,$quantity);
+}
+public function removeFromCart($cart){
+  return $cart->removeProduct($this);
+}
 public function setOutOfstock($out){
-  $outOfstock=$out;
+  $this->outOfstock=$out;
+}
+public function setPrice($price){
+  $this->price=$price;
+}
+public function setDescription($description){
+  $this->description=$description;
+}
+public function setName($name){
+  $this->name=$name;
+}
+public function setID($id){
+  $this->id=$id;
+}
+public function setKeywords($keywords){
+  $this->keywords=$keywords;
+}
+public function setImage($image){
+  $this->img=$image;
+}
+public function setCategory($category){
+  $this->category=$category;
 }
 
 
 public function isProductOutOfStock(){
-    return $outOfstock;
+    return $this->outOfstock;
   }
 
 
 public function setOffer($attenuation){
-  $newprice=$price-$attenuation;
-  $inOffer=true;
+  $newprice=$this->price-$attenuation;
+  $this->inOffer=true;
   return $newprice;
 }
 public function isProductinOffer(){
-  return $inOffer;
+  return $this->inOffer;
 }
+
 }
+
+
