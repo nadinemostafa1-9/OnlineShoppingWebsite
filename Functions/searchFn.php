@@ -39,7 +39,7 @@ function searchStart($k,$mPDO){
       foreach($re as $value)
       {
         //finding it by keyword sound
-      if(metaphone(strtolower($value))==metaphone($searchMetaphone))
+      if(metaphone(strtolower($value))==metaphone($searchMetaphone,2))
         $f=1;
      }
     if($f==1 || $f==2)
