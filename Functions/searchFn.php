@@ -52,6 +52,6 @@ function searchStart($k,$mPDO){
     }
 
   }
-  if($f2==1)echo "No Results";
+  if($f2==1)echo "No results for " . "$k";
 
 }
