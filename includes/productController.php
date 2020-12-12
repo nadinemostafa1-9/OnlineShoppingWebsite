@@ -48,10 +48,10 @@ function displayProductsByCategory($theValue){
 
     $product = new Product($row['id'],$row['name'],$row['category'],
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
-//Remember to add ID as GET....
+
    displayProduct($product);
     echo ' <div class="add-btn" id = "card_form">
-          <form method = "post" action ="cartController.php"/>
+          <form method = "post" action ="includes/cartController.php?action=add&id='.$row['id'].'"/>
           QTY: <input type = "text" name = "qty" value = "1"/>
           <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
           <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
