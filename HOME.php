@@ -97,7 +97,7 @@
 		  </div>
 
       <!-------search bar-------->
-      <form class="search_bar" action="secondSearchPage.php">
+      <form class="search_bar" action="secondSearchPage.php" method="get>
         <input type="text" placeholder="Search.." name="k">
         <!-----search bar button------>
         <button type="submit"><i class="fa fa-search"></i></button>
