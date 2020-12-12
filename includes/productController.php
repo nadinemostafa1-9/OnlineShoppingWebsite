@@ -1,16 +1,10 @@
 
 <?php
-require 'product.php';
-  function connecting(){
-  require_once('db.php');
-  $mdb=new db();
-  $mPDO=$mdb->connect();
-return $mPDO;
-}
+
 function getProductBy($bywhat,$theValue){
-  $mPDO=connecting();
+ $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
-  $prepare=$mPDO->prepare($q);
+  $prepare=$mPDO->connect()->prepare($q);
   $prepare->execute();
   $r=$prepare->fetch(PDO::FETCH_ASSOC);
   if($r){
@@ -39,9 +33,9 @@ return $product;
    ';
 }
 function displayProductsByCategory($theValue){
-  $mPDO=connecting();
+ $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . 'category' . ' LIKE  ' . "'$theValue'";
-  $prepare=$mPDO->prepare($q);
+  $prepare=$mPDO->connect()->prepare($q);
   $prepare->execute();
   while($r=$prepare->fetch(PDO::FETCH_ASSOC)){
     $product=new Product($r['name'],$r['category'],
@@ -51,9 +45,9 @@ function displayProductsByCategory($theValue){
     }
   }
   function displayAllProducts(){
-  $mPDO=connecting();
+ $mPDO=new db();
   $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30";
-  $run = $mPDO->prepare($get_product);
+  $run = $mPDO->connect()->prepare($get_product);
   $run->execute();
   while ($row = $run->fetch(PDO::FETCH_ASSOC)) {
 
