@@ -23,12 +23,7 @@ return $product;
           <p class="card-text">' .$product->getName().'</p>
           <p class="item-price"> $'.$product->getPrice().'</p>
           </div>
-          <div class="add-btn">
-            <button href="#" class="card-btn">Add to Cart</button>
-          </div>
-          </div>
-
-        </div>
+          
 
    ';
 }
@@ -55,6 +50,23 @@ function displayProductsByCategory($theValue){
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
 //Remember to add ID as GET....
    displayProduct($product);
+    echo ' <div class="add-btn" id = "card_form">
+          <form method = "post" action ="cartController.php"/>
+          QTY: <input type = "text" name = "qty" value = "1"/>
+          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
+          <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
+          <input type ="hidden" name = "name" value ='.$product->getName().'/>
+            <input type ="hidden" name = "image" value ='.base64_encode($product->getImage()).'/>
+            <button type = "submit" name="add_to_cart" class="card-btn">Add to Cart</button>
+          </form>
+
+
+          </div>
+          </div>
+
+        </div>
+
+   ';
    }
 return true;
 }
