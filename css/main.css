@@ -1,11 +1,8 @@
-
 body{
 	background-color: #333;
-	
 	width: 100%;
 	overflow-x: hidden;
 }
-
 /*Bootstrap navbar*/
 div[id="main"]{
 	display: inline;
@@ -13,6 +10,7 @@ div[id="main"]{
 }
 .bg-dark {
 	width: 100%;
+	height: 50px;
     background-color:  #333!important;
     display: inline-block;
 }
@@ -69,7 +67,7 @@ form.search_bar button{
 /*sign in & sign up*/
 .log_in{
 	width:150px;
-	margin-left: 250px;
+	margin-left: 230px;
 	display: inline-block;
 	text-align: right;
 }
@@ -95,15 +93,20 @@ a{
 a:hover{
 	color: white;
 }
+.col-md-3{
+	border:none;
+	padding: 0;
+	border-radius: 0;
+}
 .card{
 	border:none;
-	margin: 10px;
+	border-radius: 0;
+	margin: 5px;
 	background-color: white;
 	color: #333;
 	padding-bottom: 20px;
-	
 }
-.card-text{
+.card-title{
 	padding-top: 10px;
 	border-top: 1px solid #333;
 	border-width: 80%;
@@ -137,7 +140,6 @@ a:hover{
 	color: white;
 }
 .card img{
-
 	width:100%;
 	height: 360px;
 }
