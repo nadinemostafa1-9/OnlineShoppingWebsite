@@ -20,7 +20,7 @@ return $product;
           <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="product"/>
           </a>
           <div class="card-body">
-          <p class="card-text">' .$product->getName().'</p>
+          <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
           </div>
           
