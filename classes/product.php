@@ -12,7 +12,8 @@ private $category;
 private $inOffer;
 private $outOfstock;
 private $count;
-public function __construct($name,$category,$price,$count, $img,$keywords,$description){
+public function __construct($id,$name,$category,$price,$count, $img,$keywords,$description){
+  $this->id = $id;
   $this->name=$name;
   $this->price=$price;
   $this->count=$count;

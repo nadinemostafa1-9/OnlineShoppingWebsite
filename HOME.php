@@ -97,7 +97,7 @@
 		  </div>
 
       <!-------search bar-------->
-      <form class="search_bar" action="secondSearchPage.php">
+      <form class="search_bar" action="secondSearchPage.php" method="get">
         <input type="text" placeholder="Search.." name="k">
         <!-----search bar button------>
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -146,125 +146,135 @@
   <div class="card-group">
   
       <!-------image1------>
-     
+      <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
             <img src="bag_test.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+          <h3 class="card-title"> Card title</h3>
           <p class="item-price">$295</p>
           </div>
           <div class="add-btn">
             <button href="#" class="card-btn">Add to Cart</button>
           </div>
         </div>
+      </div>
     
 
       <!-------image2------>
-      
+      <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
             <img src="7.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+            <h3 class="card-title"> Card title</h3>
             <p class="item-price">$Price</p>
           </div>
           <div class="add-btn">
             <button href="#" class="card-btn">Add to Cart</button>
           </div>
         </div>
-      
+      </div>
 
       <!-------image3------>
-     
+      <div class="col-md-3">
         <div class="card" >
           <a href="cardtest.html">
             <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+            <h3 class="card-title"> Card title</h3>
             <p class="item-price">$Price</p>
           </div>
           <div class="add-btn">
             <button href="#" class="card-btn">Add to Cart</button>
           </div>
         </div>
-     
+      </div>
 
       <!-------image4------>
-     
+      <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
             <img src="3.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+            <h3 class="card-title"> Card title</h3>
             <p class="item-price">$Price</p>
           </div>
           <div class="add-btn">
             <button href="#" class="card-btn">Add to Cart</button>
           </div>
-        </div>      
+        </div>
+      </div>      
   </div>
 
   <div class="card-group">
+
     <!-------image5------>
-    <div class="card">
-      <a href="cardtest.html">
-        <img src="4.PNG" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <p class="item-price">$Price</p>
-      </div>
-      <div class="add-btn">
-        <button href="#" class="card-btn">Add to Cart</button>
+    <div class="col-md-3">
+      <div class="card">
+        <a href="cardtest.html">
+          <img src="4.PNG" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+        </div>
+        <div class="add-btn">
+          <button href="#" class="card-btn">Add to Cart</button>
+        </div>
       </div>
     </div>
-    
     <!-------image6------>  
-    <div class="card">
-      <a href="cardtest.html">
-        <img src="5.PNG" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <p class="item-price">$Price</p>
-      </div>
-      <div class="add-btn">
-        <button href="#" class="card-btn">Add to Cart</button>
+    <div class="col-md-3">  
+      <div class="card">
+        <a href="cardtest.html">
+          <img src="5.PNG" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+        </div>
+        <div class="add-btn">
+          <button href="#" class="card-btn">Add to Cart</button>
+        </div>
       </div>
     </div>
      
     <!-------image7------>
-    <div class="card">
-      <a href="cardtest.html">
-        <img src="2.PNG" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <p class="item-price">$Price</p>
-      </div>
-      <div class="add-btn">
-        <button href="#" class="card-btn">Add to Cart</button>
+    <div class="col-md-3">  
+      <div class="card">
+        <a href="cardtest.html">
+          <img src="2.PNG" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+        </div>
+        <div class="add-btn">
+          <button href="#" class="card-btn">Add to Cart</button>
+        </div>
       </div>
     </div>
 
     <!-------image8------> 
-    <div class="card">
-      <a href="cardtest.html">
-        <img src="6.PNG" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <p class="item-price">$Price</p>
-      </div>
-      <div class="add-btn">
+    <div class="col-md-3">
+      <div class="card">
+        <a href="cardtest.html">
+          <img src="6.PNG" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+        </div>
+        <div class="add-btn">
           <button href="#" class="card-btn">Add to Cart</button>
+        </div>
       </div>
-    </div>
+    </div> 
   </div>
   
   <div class="footer">

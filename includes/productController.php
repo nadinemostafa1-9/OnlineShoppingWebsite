@@ -1,16 +1,10 @@
 
 <?php
-require 'product.php';
-  function connecting(){
-  require_once('db.php');
-  $mdb=new db();
-  $mPDO=$mdb->connect();
-return $mPDO;
-}
+
 function getProductBy($bywhat,$theValue){
-  $mPDO=connecting();
+ $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
-  $prepare=$mPDO->prepare($q);
+  $prepare=$mPDO->connect()->prepare($q);
   $prepare->execute();
   $r=$prepare->fetch(PDO::FETCH_ASSOC);
   if($r){
@@ -26,22 +20,17 @@ return $product;
           <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="product"/>
           </a>
           <div class="card-body">
-          <p class="card-text">' .$product->getName().'</p>
+          <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
           </div>
-          <div class="add-btn">
-            <button href="#" class="card-btn">Add to Cart</button>
-          </div>
-          </div>
-
-        </div>
+          
 
    ';
 }
 function displayProductsByCategory($theValue){
-  $mPDO=connecting();
+ $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . 'category' . ' LIKE  ' . "'$theValue'";
-  $prepare=$mPDO->prepare($q);
+  $prepare=$mPDO->connect()->prepare($q);
   $prepare->execute();
   while($r=$prepare->fetch(PDO::FETCH_ASSOC)){
     $product=new Product($r['name'],$r['category'],
@@ -51,16 +40,33 @@ function displayProductsByCategory($theValue){
     }
   }
   function displayAllProducts(){
-  $mPDO=connecting();
+ $mPDO=new db();
   $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30";
-  $run = $mPDO->prepare($get_product);
+  $run = $mPDO->connect()->prepare($get_product);
   $run->execute();
   while ($row = $run->fetch(PDO::FETCH_ASSOC)) {
 
     $product = new Product($row['id'],$row['name'],$row['category'],
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
-//Remember to add ID as GET....
+
    displayProduct($product);
+    echo ' <div class="add-btn" id = "card_form">
+          <form method = "post" action ="includes/cartController.php?action=add&id='.$row['id'].'"/>
+          QTY: <input type = "text" name = "qty" value = "1"/>
+          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
+          <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
+          <input type ="hidden" name = "name" value ='.$product->getName().'/>
+            <input type ="hidden" name = "image" value ='.base64_encode($product->getImage()).'/>
+            <button type = "submit" name="add_to_cart" class="card-btn">Add to Cart</button>
+          </form>
+
+
+          </div>
+          </div>
+
+        </div>
+
+   ';
    }
 return true;
 }
