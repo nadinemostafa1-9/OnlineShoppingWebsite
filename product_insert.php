@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-//include("/classes/db.php");
 require "db.php";
 ?>
 <html>
@@ -65,7 +64,7 @@ require "db.php";
                             ?>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group"> <!---3 images, edit database------>
                             <label class="col-md-3 control-label">Product Image 1</label>
                             <input type="file" name="product_img1" class="form-control" required="">
                         </div>
@@ -94,7 +93,7 @@ require "db.php";
                             <textarea name="prod_desc" class="form-control" rows="6" cols="19"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" value="Insert Product" 
+                            <input type="submit" name="submit" value="Insert Product"
                             class="btn btn-primary form-control">
                         </div>
                     </form>
@@ -125,7 +124,7 @@ if(isset($_POST['submit'])){
     $temp_name1=$_FILES['product_img1']['tmp_name'];
     $temp_name2=$_FILES['product_img2']['tmp_name'];
     $temp_name3=$_FILES['product_img3']['tmp_name'];
-    
+
     move_uploaded_file($temp_name1, "###/$product_img1"); //instead of ### put the name of
     move_uploaded_file($temp_name2, "###/$product_img2"); // the file which contains the images
     move_uploaded_file($temp_name3, "###/$product_img3");
@@ -134,7 +133,7 @@ if(isset($_POST['submit'])){
     product_img2, product_img3, product_price, product_desc, product_keywords) values('$product_cat',
     '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price',
     '$product_desc', '$product_keywords')";
-
+    //Construct product object!!
     product($id,$product_title,$product_cat,$product_price,$product_count, $product_img1,$product_keywords,$product_desc);
 
     //the next code assumes con is the connection function
