@@ -1,37 +1,46 @@
 <?php
+require_once ("db.php");
 /***
  * Seller class
- * 
+ *
  * This class contains all details of seller account
  * This class encapsulates all seller information
- * 
+ *
  */
-class seller extends db{
-    //Properties                //Names in Database
-    private $sellerId;         //seller_id
-    private $firstName;       //first_name
-    private $lastName;       //last_name
-    private $brand;         //brand_name
-    private $email;        //email
-    private $password;    //password
+class seller extends User{
+    //Properties             //Names in Database
+    private $brand;        //brand_name
     private $stock;      //stock
     private $rank;      //rank
-    //Functions used here
-    private function hashPwd($password){
-        $salt = 'XyZzy12*_';
-        $hash = hash('md5', $salt.$password);
-        $this->password = $hash;
-        return $hash;
-    }
     //Constructor
-    public function __construct($fname, $lname, $bname, $em, $pass){
-        $this->firstName = $fname;
-        $this->lastName = $lname;
-        $this->brand = $bname;
-        $this->email = $em;
-        $this->password = $this->hashPwd($pass); 
+    public function __construct($fname, $lname, $em, $pass, $type){
+        parent::__construct($fname, $lname, $em, $pass, $type);
         $this->stock = 0;
         $this->rank = 0;
+    }
+    //Checking Correct login
+    public static function CheckLogin($email, $password){
+       $pass = parent::hashPwd($password);
+       $dbObj = new db();
+       $sql = "SELECT * FROM sellers WHERE email=? AND password=?";
+       $stmt = $dbObj->connect()->prepare($sql);
+       $stmt->execute([$email, $password]);
+       $data = $stmt->fetch();
+
+       if($data == false){
+           Session::set('error', "Incorrect Email or password");
+           header("Location: ../login.php");
+           return false;
+       }
+       else{
+         Session::set('email', $email);
+         Session::set('fname', htmlentities($data['first_name']));
+         Session::set('lname', htmlentities($data['last_name']));
+         Session::set('type', $data['type']);
+         Session::set('seller_id', htmlentities($data['seller_id']));
+
+         return true;
+       }
     }
     //Add new seller to database
     public function addSeller(){
@@ -45,30 +54,6 @@ class seller extends db{
         $stmt->bindParam(':password', $this->password);
         $stmt->execute();
     }
-    //Getting seller from database to login
-    public static function getSeller($email, $password){
-        $instance = new self();
-        $pass = $instance->hashPwd($password);
-        $dbObj = new db();
-        $sql = "SELECT * FROM sellers WHERE email = ? AND password = ?";
-        $stmt = $dbObj->connect()->prepare($sql);
-        $stmt->execute([$email, $password]);
-        $data = $stmt->fetch();
-    
-        if($data == false){
-          Session::set('error', "Incorrect Email or password");
-          header("Location: ../login.php");
-          return false;
-        }
-        else {
-          Session::set('Email', $email);
-          Session::set('fname', htmlentities($data['first_name']));
-          Session::set('lname', htmlentities($data['last_name']));
-    
-          echo 'Hello ' . Session::get('fname')."\n";
-          return true;
-        }
-    }
     //Check if email is used or not for sign up
     public function checkEmail(){
         $sql = "SELECT * FROM sellers WHERE email = ?";
@@ -76,7 +61,7 @@ class seller extends db{
         $stmt->execute([$this->email]);
         $data = $stmt->fetchAll();
         if($data==false){
-          return true; 
+          return true;
         }
         else {
               Session::set('error',"This email is already used");
@@ -85,6 +70,7 @@ class seller extends db{
         }
     }
     //Seller update profile methods
+    //These should be moved to a controller
     public function updateFirstName($name, $id){
         $sql = "UPDATE sellers SET first_name = ? WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
