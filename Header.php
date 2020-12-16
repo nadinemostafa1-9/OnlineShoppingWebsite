@@ -10,7 +10,7 @@
 	
   <link rel="stylesheet" type="text/css" href="css/Header.css">
 
-	<title>Home Page</title>
+	<title>Header</title>
 </head>
 <body>
   <!--BOOTSTRAP -->
@@ -196,7 +196,7 @@
 
     	<div class="log_out">
         <a href="#">Username</a>
-        <a href="#">Log out</a>
+        <a href="HOME.php">Log out</a>
     	</div>
 	  </div>
 	</nav>
