@@ -19,6 +19,15 @@ class Session{
             }
         }
 
+  public static function logged(){
+  if(!Session::get('email')){
+    die('Not logged in');
+    return false;
+  }else {
+    return true;
+  }
+}
+  
     public static function getMsg(){
       if ( isset($_SESSION["error"]) ) {
           // Look closely at the use of single and double quotes
