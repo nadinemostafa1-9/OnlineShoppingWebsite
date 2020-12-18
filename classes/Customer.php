@@ -53,6 +53,19 @@ require_once ("db.php");
         $insert->bindParam(':email',$this->email);
         $insert->bindParam(':password',self::$password);
                $insert->execute();
+       Session::set('email', $this->email);
+               Session::set('fname', $this->firstName);
+               Session::set('lname', $this->lastName);
+               Session::set('type', $this->type);
+               $stmt = $dbObj->connect()->prepare("SELECT * FROM customers WHERE email=?");
+               $stmt->execute([$this->email]);
+               $r= $stmt->fetch();
+               if($r){
+               Session::set('customer_id', $r['customer_id']);
+               return true;}
+               else {
+                 return false;
+               }
         }
 
   
