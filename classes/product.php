@@ -76,13 +76,9 @@ public function setImage($image){
 public function setCategory($category){
   $this->category=$category;
 }
-
-
 public function isProductOutOfStock(){
     return $this->outOfstock;
-  }
-
-
+ }
 public function setOffer($attenuation){
   $newprice=$this->price-$attenuation;
   $this->inOffer=true;
@@ -93,5 +89,3 @@ public function isProductinOffer(){
 }
 
 }
-
-

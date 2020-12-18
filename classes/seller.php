@@ -85,35 +85,37 @@ class Seller /*extends User*/{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $this->sellerId]);
     }
-    public function updatePwd($new_pwd, $id){
-        $check_sql = "SELECT password FROM sellers WHERE SellerId = ?";
+    public function updatePwd($pwd_old, $new_pwd, $id){
+        $check_sql = "SELECT password FROM sellers WHERE seller_id = ?";
         $sql = "UPDATE sellers SET password = ? WHERE seller_id = ?";
         $pwd = parent::hashPwd($new_pwd);
         $stmt_check = $this->connect()->prepare($check_sql);
-        if($stmt_check->execute([$this->sellerId])){
+        $stmt_check->execute([$this->sellerId]);
+        $old_pwd = $stmt_check->fetch();
+        if($pwd_old == $old_pwd){
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$pwd, $this->sellerId])
         }
     }
     //Seller stock methods
     public function getStock($id){
-        $sql = "SELECT SellerStock FROM sellers WHERE SellerId = ?";
+        $sql = "SELECT seller_stock FROM sellers WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function setStock($id, $stk){
-        $sql = "UPDATE users SET SellerStock = ? WHERE SellerId = ?";
+        $sql = "UPDATE users SET seller_stock = ? WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$stk, $id]);
     }
     //Seller rank methods
     public function getRank($id){
-        $sql = "SELECT SellerRank FROM sellers WHERE SellerId = ?";
+        $sql = "SELECT seller_rank FROM sellers WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
     public function setRank($id, $rnk){
-        $sql = "UPDATE users SET SellerRank = ? WHERE SellerId = ?";
+        $sql = "UPDATE users SET seller_rank = ? WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$rnk, $id]);
     }
