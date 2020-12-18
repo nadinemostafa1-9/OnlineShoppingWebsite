@@ -7,7 +7,7 @@ require_once ("db.php");
  * This class encapsulates all seller information
  *
  */
-class seller extends User{
+class Seller /*extends User*/{
     //Properties             //Names in Database
     private $brand;        //brand_name
     private $stock;      //stock
@@ -70,7 +70,6 @@ class seller extends User{
         }
     }
     //Seller update profile methods
-    //These should be moved to a controller
     public function updateFirstName($name, $id){
         $sql = "UPDATE sellers SET first_name = ? WHERE seller_id = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -86,14 +85,17 @@ class seller extends User{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $this->sellerId]);
     }
-    //still editing, hashing?! -----------------------------------------
     public function updatePwd($new_pwd, $id){
+        $check_sql = "SELECT password FROM sellers WHERE SellerId = ?";
         $sql = "UPDATE sellers SET password = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$new_pwd, $this->sellerId]);
+        $pwd = parent::hashPwd($new_pwd);
+        $stmt_check = $this->connect()->prepare($check_sql);
+        if($stmt_check->execute([$this->sellerId])){
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$pwd, $this->sellerId])
+        }
     }
     //Seller stock methods
-    //still editing
     public function getStock($id){
         $sql = "SELECT SellerStock FROM sellers WHERE SellerId = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -105,11 +107,14 @@ class seller extends User{
         $stmt->execute([$stk, $id]);
     }
     //Seller rank methods
-    //still editing
     public function getRank($id){
         $sql = "SELECT SellerRank FROM sellers WHERE SellerId = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
-
+    public function setRank($id, $rnk){
+        $sql = "UPDATE users SET SellerRank = ? WHERE SellerId = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$rnk, $id]);
+    }
 }
