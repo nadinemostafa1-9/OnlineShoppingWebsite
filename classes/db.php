@@ -6,7 +6,7 @@ class db{
   private $pwd = "zap";
   private $dbName = "eCommerce";
 
-  protected function connect(){
+  public function connect(){
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
     $pdo = new PDO($dsn, $this->user, $this->pwd);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//handle errors
