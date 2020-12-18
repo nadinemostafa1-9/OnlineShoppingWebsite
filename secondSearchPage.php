@@ -1,3 +1,9 @@
+<?php
+
+require "includes/class-autoload.inc.php";
+Session::init();
+
+?>
 <!DOCTYPE html>
 <html> <head>
 
@@ -17,12 +23,18 @@ search engine
 </form>
 <hr/>
 <?php
-require_once('searchFn.php');
-require_once('db.php');
+require_once('Functions/searchFn.php');
+require_once('classes/db.php');
+require "classes/Customer.php";
 $mdb=new db();
 $mPDO=$mdb->connect();
 $k=$_GET['k']; // getting the search keyword
-searchStart($k,$mPDO);
+$product_id_history=searchStart($k,$mPDO);
+$cust_id=Session::get('customer_id');
+if($product_id_history!=NULL && $cust_id!=false)
+{
+  Customer::setHistorySearch($product_id_history,$cust_id);
+}
 ?>
  </body>
 
