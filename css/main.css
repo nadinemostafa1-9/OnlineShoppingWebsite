@@ -1,8 +1,10 @@
 body{
 	background-color: #333;
+	
 	width: 100%;
 	overflow-x: hidden;
 }
+
 /*Bootstrap navbar*/
 div[id="main"]{
 	display: inline;
@@ -51,7 +53,7 @@ svg{
 	border-radius: 60px;
 }
 .search_bar input{
-	width: 600px;
+	
 	border-bottom-left-radius: 30px;
 	border-top-left-radius: 30px;
 	border-right: none;
@@ -64,6 +66,12 @@ form.search_bar button{
 	border-top-right-radius: 30px;
 	font-size: 16px;
 }
+#search1{
+	width: 600px;
+}
+#search2{
+	width:500px;
+}
 /*sign in & sign up*/
 .log_in{
 	width:150px;
@@ -74,6 +82,23 @@ form.search_bar button{
 .log_in a{
 	padding-left: 20px;
 	text-decoration-line: none;
+}
+.log_out{
+	width:180px;
+	margin-left: 200px;
+	display: inline;
+	text-align: right;
+}
+.log_out a{
+	padding-left: 20px;
+	text-decoration-line: none;
+}
+a{
+	color: #BBB;
+}
+/*link hover*/
+a:hover{
+	color: white;
 }
 /*image slider*/
 .image_slider{
@@ -86,13 +111,7 @@ form.search_bar button{
 .image_slider img{
 	height:350px;
 }
-a{
-	color: #BBB;
-}
-/*link hover*/
-a:hover{
-	color: white;
-}
+
 .col-md-3{
 	border:none;
 	padding: 0;
