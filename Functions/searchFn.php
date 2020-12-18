@@ -1,8 +1,9 @@
 
 <?php
-require_once('productController.php');
-require_once('product.php');
+require_once('includes/productController.php');
+require_once('classes/product.php');
 function searchStart($k,$mPDO){
+  $id=NULL;
   $i=0;
   $term=explode(" ",$k);
   $q="SELECT * FROM `products` WHERE ";
@@ -44,8 +45,10 @@ function searchStart($k,$mPDO){
      }
     if($f==1 || $f==2)
     {
-   
-    $product=new Product($r['name'],$r['category'],
+      if($id==NULL){
+        $id=$r['id'];
+      }
+    $product=new Product($r['id'],$r['name'],$r['category'],
    $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
    displayProduct($product);
      $f2=0;
@@ -53,5 +56,6 @@ function searchStart($k,$mPDO){
 
   }
   if($f2==1)echo "No results for " . "$k";
+  return $id;
 
 }
