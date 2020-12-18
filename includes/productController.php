@@ -1,6 +1,6 @@
 
 <?php
-
+include 'class-autoload.inc.php';
 function getProductBy($bywhat,$theValue){
  $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
@@ -14,6 +14,7 @@ return $product;
 }
 }
  function displayProduct($product){
+
    echo '<div class = "col-md-3 col-sm-6">
           <div class="card">
           <a href="cardtest.php">
@@ -23,7 +24,7 @@ return $product;
           <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
           </div>
-          
+
 
    ';
 }
