@@ -1,6 +1,6 @@
 
 <?php
-
+include 'class-autoload.inc.php';
 class Product {
 private $name;
 private $id;
