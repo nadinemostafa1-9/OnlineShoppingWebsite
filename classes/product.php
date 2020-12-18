@@ -9,9 +9,9 @@ private $keywords;
 private $description;
 private $img;
 private $category;
+private $count;
 private $inOffer;
 private $outOfstock;
-private $count;
 public function __construct($id,$name,$category,$price,$count, $img,$keywords,$description){
   $this->id = $id;
   $this->name=$name;
@@ -21,6 +21,8 @@ public function __construct($id,$name,$category,$price,$count, $img,$keywords,$d
   $this->keywords=$keywords;
   $this->description=$description;
   $this->category=$category;
+  $this->outOfstock = false;
+  $this->inOffer = false;
 }
 public function getName(){
   return $this->name;
@@ -52,8 +54,8 @@ public function addToCart($cart,$quantity){
 public function removeFromCart($cart){
   return $cart->removeProduct($this);
 }
-public function setOutOfstock($out){
-  $this->outOfstock=$out;
+public function setOutOfstock(){
+  $this->outOfstock=true;
 }
 public function setPrice($price){
   $this->price=$price;
