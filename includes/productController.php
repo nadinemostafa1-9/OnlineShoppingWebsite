@@ -1,5 +1,6 @@
 
 <?php
+require 'classes/db.php';
 include 'class-autoload.inc.php';
 function getProductBy($bywhat,$theValue){
  $mPDO=new db();
@@ -8,12 +9,14 @@ function getProductBy($bywhat,$theValue){
   $prepare->execute();
   $r=$prepare->fetch(PDO::FETCH_ASSOC);
   if($r){
- $product=new Product($r['name'],$r['category'],
+ $product=new Product($r['id'],$r['name'],$r['category'],
 $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
 return $product;
 }
+else
+return false;
 }
- function displayProduct($product){
+function displayProduct($product){
 
    echo '<div class = "col-md-3 col-sm-6">
           <div class="card">
@@ -27,6 +30,25 @@ return $product;
 
 
    ';
+
+
+}
+function displayCartButton($product){
+  echo ' <div class="add-btn" id = "card_form">
+         <form method = "post" action ="firstSearchPage.php?action=add&id='.$product->getID().'"/>
+         QTY: <input type = "text" name = "qty" value = "1"/>
+         <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
+         <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
+         <input type ="hidden" name = "name" value ='.$product->getName().'/>
+           <input type ="hidden" name = "image" value ='.base64_encode($product->getImage()).'/>
+           <button type = "submit" name="add_to_cart" class="card-btn">Add to Cart</button>
+         </form>
+         </div>
+         </div>
+
+       </div>
+
+  ';
 }
 function displayProductsByCategory($theValue){
  $mPDO=new db();
@@ -51,23 +73,8 @@ function displayProductsByCategory($theValue){
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
 
    displayProduct($product);
-    echo ' <div class="add-btn" id = "card_form">
-          <form method = "post" action ="includes/cartController.php?action=add&id='.$row['id'].'"/>
-          QTY: <input type = "text" name = "qty" value = "1"/>
-          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
-          <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
-          <input type ="hidden" name = "name" value ='.$product->getName().'/>
-            <input type ="hidden" name = "image" value ='.base64_encode($product->getImage()).'/>
-            <button type = "submit" name="add_to_cart" class="card-btn">Add to Cart</button>
-          </form>
+   displayCartButton($product);
 
-
-          </div>
-          </div>
-
-        </div>
-
-   ';
    }
 return true;
 }
