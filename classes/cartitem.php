@@ -8,7 +8,7 @@ public function __construct($product,$amount){
   $wantedAmount=$amount;
 }
 public function getProduct(){
-  return $product;
+  return $this->product;
 }
 public function getQuantity(){
   return $wantedAmount;
@@ -20,7 +20,7 @@ public function setProduct($item){
   $product=$item;
 }
 public function increaseQuantity($amount=1){
-  if($this->wantedAmount+$amount>$this->Product->count){
+  if($this->wantedAmount+$amount>$this->product->getCount()){
     return 0;
   }
   else {
