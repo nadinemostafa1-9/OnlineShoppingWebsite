@@ -1,6 +1,6 @@
 <?php
 
-require "includes/class-autoload.inc.php";
+require "classes/session.php";
 Session::init();
 
 ?>
