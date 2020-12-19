@@ -1,4 +1,7 @@
-<!DOCTYPE html
+<?php
+require "classes/session.php";
+Session::init();
+ ?>
 <html> <head>
 <title> search bar</title>
 
@@ -16,9 +19,14 @@ search engine
 </form>
 </center>
 <?php
-require_once('productController.php');
-require_once('product.php');
-displayProductsByCategory('makeup');
+//require_once('classes/product.php');
+require_once('includes/cartController.php');
+$cust_id=Session::get('customer_id');
+$cart=gettingCart($cust_id);
+updatingCart($cart,$_GET['id'],$cust_id);
+displayCart($cart);
+
+
  ?>
 
  </body>
