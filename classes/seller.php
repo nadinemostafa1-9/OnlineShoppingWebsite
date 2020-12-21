@@ -7,15 +7,12 @@ require_once ("db.php");
  * This class encapsulates all seller information
  *
  */
-class Seller /*extends User*/{
-    //Properties             //Names in Database
-    private $brand;        //brand_name
-    private $stock;      //stock
-    private $rank;      //rank
+class Seller extends User{
+    //Properties
+    private $rank;
     //Constructor
     public function __construct($fname, $lname, $em, $pass, $type){
         parent::__construct($fname, $lname, $em, $pass, $type);
-        $this->stock = 0;
         $this->rank = 0;
     }
     //Checking Correct login
@@ -69,54 +66,80 @@ class Seller /*extends User*/{
               return;
         }
     }
-    //Seller update profile methods
-    public function updateFirstName($name, $id){
-        $sql = "UPDATE sellers SET first_name = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name, $this->sellerId]);
+    //Check if password is correct or not
+    public static function CheckPassword($pass){
+          $id = Session::get('seller_id');
+          $sql = "SELECT * FROM customers WHERE password=? AND seller_id='$id' ";
+          $dbO = new db();
+          $pass = parent::hashPwd($pass);
+          $stmt = $dbO->connect()->prepare($sql);
+          $stmt->execute([$pass]);
+          $allData = $stmt->fetch();
+          if($allData == false)
+            return false;
+          else
+            return true;
     }
-    public function updateLastName($name, $id){
-        $sql = "UPDATE sellers SET last_name = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name, $this->sellerId]);
-    }
-    public function updateBrandName($name, $id){
-        $sql = "UPDATE sellers SET brand_name = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name, $this->sellerId]);
-    }
-    public function updatePwd($pwd_old, $new_pwd, $id){
-        $check_sql = "SELECT password FROM sellers WHERE seller_id = ?";
-        $sql = "UPDATE sellers SET password = ? WHERE seller_id = ?";
-        $pwd = parent::hashPwd($new_pwd);
-        $stmt_check = $this->connect()->prepare($check_sql);
-        $stmt_check->execute([$this->sellerId]);
-        $old_pwd = $stmt_check->fetch();
-        if($pwd_old == $old_pwd){
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$pwd, $this->sellerId])
+    public static function updateInfo($fname, $lname, $email){
+        $id = Session::get('seller_id');
+        $sql = "SELECT * FROM sellers WHERE email=? ";
+        $dbO = new db();
+        $stmt = $dbO->connect()->prepare($sql);
+        $stmt->execute([$email]);
+        $allData = $stmt->fetch();
+        if($allData==true && $allData['seller_id']!==$id)
+            return false;
+        else
+        {
+            $sql = "UPDATE sellers SET first_name=?, last_name=?, email=? WHERE seller_id='$id' ";
+            $stmt = $dbO->connect()->prepare($sql);
+            $stmt->execute([$fname, $lname, $email]);
+
+            Session::set('email', $email);
+            Session::set('fname', $fname);
+            Session::set('lname', $lname);
+            return true;
         }
     }
-    //Seller stock methods
-    public function getStock($id){
-        $sql = "SELECT seller_stock FROM sellers WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$id]);
-    }
-    public function setStock($id, $stk){
-        $sql = "UPDATE users SET seller_stock = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$stk, $id]);
+    public static function updateAll($fname, $lname, $email, $pass, $new){
+        $id=Session::get('seller_id');
+        if(Customer::CheckPassword($pass)){
+            $sql = "UPDATE sellers SET first_name=?, last_name=?, email=?, password=?  WHERE seller_id='$id' ";
+            $new = parent::hashPwd($new);
+            $dbO = new db();
+            $stmt = $dbO->connect()->prepare($sql);
+            $stmt->execute([$fname, $lname, $email, $new]);
+            Session::set('email', $email);
+            Session::set('fname', $fname);
+            Session::set('lname', $lname);
+            return true;
+        }
+    else
+        return false;
+
     }
     //Seller rank methods
-    public function getRank($id){
-        $sql = "SELECT seller_rank FROM sellers WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$id]);
+    public function getRank(){
+        return $this->rank;
     }
-    public function setRank($id, $rnk){
+    public function setRank($rnk){
+        $this->rank=$rnk;
+    }
+    public function updateRank($rnk){
+        $id = Session::get('seller_id');
         $sql = "UPDATE users SET seller_rank = ? WHERE seller_id = ?";
-        $stmt = $this->connect()->prepare($sql);
+        $dbO = new db();
+        $stmt = $dbO->connect()->prepare($sql);
         $stmt->execute([$rnk, $id]);
+        $allData = $stmt->fetch();
+        if($allData==true && $allData['seller_id']!==$id)
+            return false;
+        else
+        {
+            $sql = "UPDATE sellers SET rank=? WHERE seller_id='$id' ";
+            $stmt = $dbO->connect()->prepare($sql);
+            $stmt->execute([$rnk]);
+            return true;
+        }
     }
 }
