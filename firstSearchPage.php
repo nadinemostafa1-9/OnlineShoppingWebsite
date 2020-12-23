@@ -25,7 +25,8 @@ $cust_id=Session::get('customer_id');
 $cart=gettingCart($cust_id);
 updatingCart($cart,$_GET['id'],$cust_id);
 displayCart($cart);
-
+//$c=removeItem(1,$cart,$cust_id);
+//displayCart($c);
 
  ?>
 
