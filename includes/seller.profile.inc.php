@@ -10,30 +10,30 @@ if(isset($_POST['cancel'])){
 else if(isset($_POST['save'])){
     if($_POST['password']==null && $_POST['new']==null) {
 
-        if(Seller::updateInfo($_POST['first_name'],$_POST['last_name'],$_POST['email'])){
-            Session::set('success',"Changes made");
+        if(Seller::updateInfo($_POST['first_name'], $_POST['last_name'], $_POST['email'])){
+            Session::set('success', "Changes successfully made!");
             header("Location: ../profile.php");
             return;
         }
         else if (!Seller::updateInfo($_POST['first_name'],$_POST['last_name'],$_POST['email'])) {
-            Session::set('error',"This Email is already used");
+            Session::set('error',"This e-mail is already used!");
             header("Location: ../profile.php");
             return;
         }
     }
     else if($_POST['password']!=null && $_POST['new']!=null){
-        if(Seller::updateAll($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password'],$_POST['new'])){
-            Session::set('success', "Password Changed");
+        if(Seller::updateAll($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'], $_POST['new'])){
+            Session::set('success', "Password successfully changed!");
             header("Location: ../profile.php");
             return;
         }
-        else if(!Seller::updateAll($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password'],$_POST['new'])) {
+        else if(!Seller::updateAll($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'], $_POST['new'])) {
             Session::set('error', "Wrong password");
             header("Location: ../profile.php");
         }
     }
     else{
-        Session::set('error',"Please fill in all the fields");
+        Session::set('error', "Please fill in all the fields");
         header("Location: ../profile.php");
         }
  }
