@@ -70,7 +70,7 @@ class Seller extends User{
     //Check if password is correct or not
     public static function CheckPassword($pass){
           $id = Session::get('seller_id');
-          $sql = "SELECT * FROM customers WHERE password=? AND seller_id='$id' ";
+          $sql = "SELECT * FROM sellers WHERE password=? AND seller_id='$id' ";
           $dbO = new db();
           $pass = parent::hashPwd($pass);
           $stmt = $dbO->connect()->prepare($sql);
@@ -104,7 +104,7 @@ class Seller extends User{
     }
     public static function updateAll($fname, $lname, $email, $pass, $new){
         $id=Session::get('seller_id');
-        if(Customer::CheckPassword($pass)){
+        if(Seller::CheckPassword($pass)){
             $sql = "UPDATE sellers SET first_name=?, last_name=?, email=?, password=?  WHERE seller_id='$id' ";
             $new = parent::hashPwd($new);
             $dbO = new db();
@@ -128,7 +128,7 @@ class Seller extends User{
     }
     public function updateRank($rnk){
         $id = Session::get('seller_id');
-        $sql = "UPDATE users SET seller_rank = ? WHERE seller_id = ?";
+        $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
         $dbO = new db();
         $stmt = $dbO->connect()->prepare($sql);
         $stmt->execute([$rnk, $id]);
