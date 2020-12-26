@@ -129,6 +129,10 @@
   <!-----------------------------------Product price-------------------------------->
   <h3 class="form-label">Price</h3>
   <input class="form-input" type="text" name="product_price">
+
+  <!-----------------------------------Number of items in stock-------------------------------->
+   <h3 class="form-label">Number of items</h3>
+   <input class="quantity" type="number" id="quantity" name="product-count" min="1">
   
   <!-----------------------------------Product keywords-------------------------------->
   <h3 class="form-label">Keywords</h3>
@@ -141,7 +145,7 @@
   <!-----------------------------------Form buttons-------------------------------->
   <div class="form-btns">
     <button type="submit" name="submit" class="add-btn">Add Product</button>
-    <button class="cancel-btn">Cancel</button>
+    <button type="reset" class="cancel-btn">Cancel</button>
   </div>
 </form>
 
