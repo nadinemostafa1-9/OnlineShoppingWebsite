@@ -156,13 +156,18 @@ a:hover{
 }
 .form-label{
   display:block;
+  margin-bottom: 15px;
 }
-.form-input{
+.form-input,.quantity{
   border: 1px solid #333;
+  margin-bottom: 20px;
   font-size: 20px;
   background-color: transparent;
   width: 350px;
   height: 50px;
+}
+#quantity{
+  color: black !important;
 }
 .product-description{
   border: 1px solid #333;
@@ -173,10 +178,14 @@ a:hover{
 }
 .category-sel{
   border: 1px solid #333;
+  margin-bottom: 20px;
   background-color: transparent;
   font-size: 22px;
   width: 350px;
   height: 50px;
+}
+.product-image{
+  margin-bottom: 20px;
 }
 .img-btn{
   background-color: transparent;
