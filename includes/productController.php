@@ -26,13 +26,12 @@ function displayProduct($product){
           <div class="card-body">
           <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
-          </div>
-</div>
-       </div>
+          </div>';
+         if(Session::get('customer_id') == false){
+           echo ' </div>
+          </div>';
 
-   ';
-
-
+         }
 }
 function displayCartButton($product){
   echo ' <div class="add-btn" id = "card_form">
