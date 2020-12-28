@@ -27,7 +27,8 @@ function displayProduct($product){
           <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
           </div>
-
+</div>
+       </div>
 
    ';
 
@@ -73,7 +74,8 @@ function displayProductsByCategory($theValue){
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
 
    displayProduct($product);
-   displayCartButton($product);
+   if(Session::get('customer_id') !== false){
+   displayCartButton($product);}
 
    }
 return true;
