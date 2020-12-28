@@ -78,3 +78,32 @@ function displayProductsByCategory($theValue){
    }
 return true;
 }
+function productdetails($product){
+$image=$product->getImage();
+$Name=$product->getName();
+$price=$product->getPrice();
+$description= $product-> getDescription();
+$category=$product->getCategory();
+
+echo '  <div class="details">
+<input type ="hidden" name = "image" value ='.base64_encode($image).'/>
+         <input type ="hidden" name = "name" value ='.$Name.'/>
+           <input type ="hidden" name = "price" value ='.$price.'/>
+            <input type ="hidden" name = "description" value ='.$category.'/>  
+            <input type ="hidden" name = "description" value ='.($description).'/>  
+            
+
+ </div>
+
+
+';
+
+}
+
+
+
+
+
+
+
+
