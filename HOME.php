@@ -173,8 +173,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>         
           </div>
         </div>
       </div>
@@ -208,8 +210,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>    
           </div>
         </div>
       </div>
@@ -242,8 +246,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
           </div>
         </div>
       </div>
@@ -276,8 +282,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
           </div>
         </div>
       </div>
@@ -312,8 +320,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
           </div>
         </div>
       </div>
@@ -346,8 +356,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>    
           </div>
         </div>
       </div>
@@ -380,8 +392,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
           </div>
         </div>
       </div>
@@ -414,8 +428,10 @@
           </div>
           </div>
           <div class="add-btn">
-            <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
-            <button href="#" class="card-btn">Add to Cart</button>
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>    
           </div>
         </div>
       </div>

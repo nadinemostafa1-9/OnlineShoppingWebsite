@@ -26,12 +26,12 @@ function displayProduct($product){
           <div class="card-body">
           <h3 class="card-title">' .$product->getName().'</h3>
           <p class="item-price"> $'.$product->getPrice().'</p>
-          </div>
+          </div>';
+         if(Session::get('customer_id') == false){
+           echo ' </div>
+          </div>';
 
-
-   ';
-
-
+         }
 }
 function displayCartButton($product){
   echo ' <div class="add-btn" id = "card_form">
@@ -73,8 +73,38 @@ function displayProductsByCategory($theValue){
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
 
    displayProduct($product);
-   displayCartButton($product);
+   if(Session::get('customer_id') !== false){
+   displayCartButton($product);}
 
    }
 return true;
 }
+function productdetails($product){
+$image=$product->getImage();
+$Name=$product->getName();
+$price=$product->getPrice();
+$description= $product-> getDescription();
+$category=$product->getCategory();
+
+echo '  <div class="details">
+<input type ="hidden" name = "image" value ='.base64_encode($image).'/>
+         <input type ="hidden" name = "name" value ='.$Name.'/>
+           <input type ="hidden" name = "price" value ='.$price.'/>
+            <input type ="hidden" name = "description" value ='.$category.'/>  
+            <input type ="hidden" name = "description" value ='.($description).'/>  
+            
+
+ </div>
+
+
+';
+
+}
+
+
+
+
+
+
+
+

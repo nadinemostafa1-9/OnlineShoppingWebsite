@@ -44,4 +44,8 @@ public function removeProduct($product){
   unset($this->items[$product->getID()]);
 
 }
+  public function removeAllProducts(){
+$this->items= [];
+
+}
 }
