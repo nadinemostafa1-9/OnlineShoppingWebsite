@@ -88,4 +88,27 @@ require_once ("db.php");
               }
 
                   }
+        public static function setOrders(){
+          $id=Session::get('customer_id');
+          $sql = "UPDATE customers SET orders=orders+1 WHERE customer_id='$id' ";
+          $dbO = new db();
+          $stmt = $dbO->connect()->prepare($sql);
+          $stmt->execute();
+        }
+        public static function getRank(){
+          $id=Session::get('customer_id');
+          $sql = "SELECT * FROM customers WHERE  customer_id='$id'   ";
+          $dbO = new db();
+          $stmt = $dbO->connect()->prepare($sql);
+          $stmt->execute();
+          $orders = $stmt->fetch();
+          $order=$orders['orders'];
+          if($order>=5)
+          $Rank='bronze';
+           else if($order>=10)
+          $Rank='silver';
+          else if($order>=15)
+         $Rank='gold'; Session::set('rank',$Rank);
+        return $Rank;
+      }
 }
