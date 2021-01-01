@@ -111,4 +111,48 @@ require_once ("db.php");
          $Rank='gold'; 
         return $Rank;
       }
+  
+  
+    public static function setHistorySearch($id,$cust_id){
+          $count=0;$history=" ";
+          $dbObj = new db();
+          $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
+          $sel =$dbObj->connect()->prepare($qry);
+          $sel->execute();
+          $r=$sel->fetch();
+         if($r){
+            $re= explode(",",$r['search_history']);
+            foreach (array_reverse($re) as $value) {
+              if($value!=$id)
+              {
+
+                $history =$history.$value.",";
+                $count=$count + 1;
+              }
+              if($count == 3)
+              break;
+            }
+
+        }
+
+         $history =$history.$id;
+          $q= 'UPDATE customers SET search_history=:id WHERE customer_id =:cust_id' ;
+          $insert =$dbObj->connect()->prepare($q);
+          $insert->bindParam(':id',$history);
+          $insert->bindParam(':cust_id',$cust_id);
+          $insert->execute();
+        }
+
+public static function get_search_history_array($cust_id){
+  $dbObj = new db();
+  $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
+  $sel =$dbObj->connect()->prepare($qry);
+  $sel->execute();
+  $r=$sel->fetch();
+  if($r){
+     $re= explode(",",$r['search_history']);
+   }
+   return $re;
+}
+
 }
