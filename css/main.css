@@ -1,5 +1,5 @@
 body{
-	background-color: #333;
+	background-color: #BBB;
 	width: 100%;
 	overflow-x: hidden;
 }
@@ -110,10 +110,24 @@ a:hover{
 	height:350px;
 }
 
+/*recommended products*/
+.recommended{
+	height: 80px;
+	margin:30px 10px 10px 10px;
+	box-shadow: 10px 10px 8px inset;
+	padding: 20px 0px;
+	background-color: white;
+	color: rgb(61,96,64);
+	text-align: center;
+}
+
 .col-md-3{
 	border:none;
 	padding: 0;
 	border-radius: 0;
+}
+.col-md-3:hover{
+	border: 1px solid #333;
 }
 .card{
 	border:none;
