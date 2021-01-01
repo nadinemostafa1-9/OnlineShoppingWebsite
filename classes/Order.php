@@ -24,8 +24,6 @@ public function ReturnData(){
 }
 public function placeorder(){
 $id=Session::get('customer_id');
-//$data=new Order;
-//$all=$data->ReturnData();
 $all=$this->ReturnData();
 $cart=gettingCart($id);
 $sum=$cart->getTotalSum();
@@ -38,7 +36,7 @@ $sum=$cart->getTotalSum();
     $delivery=80;
     else  if($all['city']=='aswan')
     $delivery=150;  }
-    $rank=Session::get('rank');
+    $rank=Customer::getRank();
     if($rank=='bronze'){
     $sum=$sum-$sum*0.05;
     $dis='5%'; }
