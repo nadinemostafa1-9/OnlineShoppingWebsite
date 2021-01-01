@@ -108,7 +108,7 @@ require_once ("db.php");
            else if($order>=10)
           $Rank='silver';
           else if($order>=15)
-         $Rank='gold'; Session::set('rank',$Rank);
+         $Rank='gold'; 
         return $Rank;
       }
 }
