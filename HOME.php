@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
 
 	<title>Home Page</title>
 </head>
@@ -141,7 +141,6 @@
     </div>
   </div>
   <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
-   
   
   <div class="card-group">
   
@@ -149,7 +148,7 @@
       <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="0.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -186,7 +185,7 @@
       <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -222,7 +221,7 @@
      <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -258,7 +257,7 @@
       <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -289,6 +288,7 @@
           </div>
         </div>
       </div>
+  </div>
 
   <div class="card-group">
 
@@ -296,7 +296,7 @@
     <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -332,7 +332,7 @@
     <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -368,7 +368,7 @@
     <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -404,7 +404,7 @@
     <div class="col-md-3">
         <div class="card">
           <a href="cardtest.html">
-            <img src="bag_test.PNG" class="card-img-top" alt="...">
+            <img src="8.PNG" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
           <h3 class="card-title"> Card title</h3>
@@ -435,7 +435,125 @@
           </div>
         </div>
       </div>
+  </div>
+
+  <!--------------------------recommended products section-------------------------------->
+  <div class="recommended">
+    <h2>Recommended for You</h2>
+  </div>
+  <!--------------------------------------------------------------------------------------->
   
+  <div class="card-group">
+
+    <!-------image1------>
+    <div class="col-md-3">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+          <div class="txt-center">
+          <form class="stars">
+              <div class="rating">
+                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                <label for="star5">☆</label>
+                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                <label for="star4">☆</label>
+                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                <label for="star3">☆</label>
+                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                <label for="star2">☆</label>
+                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                <label for="star1">☆</label>
+              <div class="clear"></div>
+            </div>
+          </form>
+          </div>
+          </div>
+          <div class="add-btn">
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
+          </div>
+        </div>
+      </div>
+
+    <!-------image2------>  
+    <div class="col-md-3">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+          <div class="txt-center">
+          <form class="stars">
+              <div class="rating">
+                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                <label for="star5">☆</label>
+                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                <label for="star4">☆</label>
+                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                <label for="star3">☆</label>
+                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                <label for="star2">☆</label>
+                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                <label for="star1">☆</label>
+              <div class="clear"></div>
+            </div>
+          </form>
+          </div>
+          </div>
+          <div class="add-btn">
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>    
+          </div>
+        </div>
+      </div>
+     
+    <!-------image3------>
+    <div class="col-md-3">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+          <h3 class="card-title"> Card title</h3>
+          <p class="item-price">$Price</p>
+          <div class="txt-center">
+          <form class="stars">
+              <div class="rating">
+                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                <label for="star5">☆</label>
+                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                <label for="star4">☆</label>
+                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                <label for="star3">☆</label>
+                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                <label for="star2">☆</label>
+                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                <label for="star1">☆</label>
+              <div class="clear"></div>
+            </div>
+          </form>
+          </div>
+          </div>
+          <div class="add-btn">
+            <form action="cart.php">
+              <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+              <button href="#" class="card-btn">Add to Cart</button>
+            </form>   
+          </div>
+        </div>
+      </div>
+  </div>
+	
   <div class="footer">
     <br>
     <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
