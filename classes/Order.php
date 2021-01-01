@@ -1,4 +1,4 @@
-<?php require_once 'db.php';
+<?php 
 class Order{
   private $address;
   private $phone;
