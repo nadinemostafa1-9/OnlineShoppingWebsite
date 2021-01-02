@@ -145,12 +145,58 @@
     </div>
   </div>
 
-  <div class="footer">
+  <div class="rec-section">
+    <p>Recommended For You</p>
+  </div>
+
+<!------------------------------------Recommended products--------------------------------------->
+  <form class="cards-center">
+    <div class="card-group">
+      <div class="col-md-12">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"> Card title</h3>
+            <p class="item-price">$Price</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-group">
+      <div class="col-md-12">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"> Card title</h3>
+            <p class="item-price">$Price</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-group">
+      <div class="col-md-12">
+        <div class="card">
+          <a href="cardtest.html">
+            <img src="8.PNG" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+            <h3 class="card-title"> Card title</h3>
+            <p class="item-price">$Price</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+<!----------------------------------------------------------------------------------------------->
+<div class="footer">
     <br>
     <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
     <br>
     <p>All rights reserved.</p>
   </div>
-
 </body>
 </html>
