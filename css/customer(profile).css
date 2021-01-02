@@ -164,14 +164,21 @@ height:50px;
 
 
 label{display:block !important;
-margin:0px;}
+margin-bottom:5px;
+margin-top:3px;}
 .container{border:double;
 width:500px;}
-.in{width:450px;}
+.in{width:450px;}/*text input*/
 .changepass{color:#444;
 font-size:25px;
 font-family: Arial, Helvetica, sans-serif;
-height:100%;}
-/*to make navbar responsive*/
+height:100%;
+margin-top:5px;}
+
 /*edit*/
-#myDIV{display:none;}
+.ch{margin-bottom:5px;
+display:block;}/*for edit buttons*/
+.chan{margin-bottom:5px;/*submit and cancel*/
+}
+.tocenter{ text-align:center; }/*to make buttons in center)
+
