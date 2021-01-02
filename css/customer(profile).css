@@ -174,11 +174,28 @@ font-size:25px;
 font-family: Arial, Helvetica, sans-serif;
 height:100%;
 margin-top:5px;}
+.editchange{margin-bottom:10px;
+background-color:rgb(61,96,64)!important;
+color:#BBB!important;
+border-color:rgb(61,96,64)!important;}
 
 /*edit*/
 .ch{margin-bottom:5px;
-display:block;}/*for edit buttons*/
-.chan{margin-bottom:5px;/*submit and cancel*/
+display:block;
+background-color:rgb(61,96,64)!important;
+color:#BBB!important;
+border-color:rgb(61,96,64)!important;}/*for edit buttons*/
+.chancancel{margin-bottom:5px;
+background-color:#BBB!important;
+color:#333!important;
+border-color:rgb(61,96,64)!important;}
+.chan{margin-bottom:5px;
+background-color:rgb(61,96,64)!important;
+color:#BBB!important;
+border-color:rgb(61,96,64)!important;
 }
-.tocenter{ text-align:center; }/*to make buttons in center)
+/*submit and cancel*/
+.tocenter{ text-align:center; }/*to make buttons in center)*/
+button:hover{color:white !important;
+
 
