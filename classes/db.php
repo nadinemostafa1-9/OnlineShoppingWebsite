@@ -1,5 +1,5 @@
 <?php
-//extend this class whenever you need the db
+
 class db{
   private $host = "localhost";
   private $user = "proj";
@@ -14,4 +14,78 @@ class db{
     return $pdo;
 
   }
+  public function logindb($email,$password,$table){
+    if($table == 'customers')
+      $sql = "SELECT * FROM customers WHERE email=? AND password=?";
+    else
+      $sql = "SELECT * FROM sellers WHERE email=? AND password=?";
+
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute([$email, $password]);
+    $allData = $stmt->fetch();
+    return $allData;
+  }
+
+public function checkEmQuery($email,$table){
+  if($table == 'customers')
+    $sql = "SELECT * FROM customers WHERE email=?";
+  else
+    $sql = "SELECT * FROM sellers WHERE email=?";
+
+  $dbObj = new db();
+  $stmt = $dbObj->connect()->prepare($sql);
+  $stmt->execute([$email]);
+  $allData = $stmt->fetchAll();
+}
+public function setUserQuery($firstName,$lastName,$email,$password,$type,$table){
+  if($table == 'customers')
+  $insert =$this->connect()->prepare("INSERT INTO customers (first_name,last_name,email,password,type)
+  values(:first_name,:last_name,:email,:password,:type) ");
+  else {
+    $insert =$this->connect()->prepare("INSERT INTO sellers (first_name,last_name,email,password,type)
+    values(:first_name,:last_name,:email,:password,:type) ");
+  }
+  $insert->bindParam(':first_name',$firstName);
+  $insert->bindParam(':last_name',$lastName);
+  $insert->bindParam(':email',$email);
+  $insert->bindParam(':password',$password);
+  $insert->bindParam(':type',$type);
+         $insert->execute();
+         Session::set('email', $email);
+         Session::set('fname', $firstName);
+         Session::set('lname', $lastName);
+         Session::set('type', $type);
+}
+public function checkPassQuery($pass,$table,$id){
+  if($table == 'customers')
+  $sql = "SELECT * FROM customers WHERE password=? AND customer_id='$id' ";
+  else
+  $sql = "SELECT * FROM sellers WHERE password=? AND customer_id='$id' ";
+  $stmt = $this->connect()->prepare($sql);
+  $stmt->execute([$pass]);
+  $allData = $stmt->fetch();
+  return $allData;
+}
+
+public function updateQuery($fname,$lname,$email,$table,$id){
+  if ($table == 'customers')
+    $sql = "UPDATE customers SET first_name=?, last_name=?, email=? WHERE customer_id='$id' ";
+    else
+    $sql = "UPDATE sellers SET first_name=?, last_name=?, email=? WHERE customer_id='$id' ";
+
+  $stmt = $this->connect()->prepare($sql);
+  $stmt->execute([$fname,$lname,$email]);
+    Session::set('email', $email);
+    Session::set('fname',$fname);
+    Session::set('lname',$lname);
+}
+
+public function updatepassQuery($new,$table,$id){
+  if($table == 'customers')
+    $sql = "UPDATE customers SET password=?  WHERE customer_id='$id' ";
+  else
+    $sql = "UPDATE sellers SET password=?  WHERE customer_id='$id' ";
+  $stmt = $this->connect()->prepare($sql);
+  $stmt->execute([$new]);
+}
 }

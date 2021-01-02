@@ -16,131 +16,105 @@ class Seller extends User{
         parent::__construct($fname, $lname, $em, $pass, $type);
         $this->rank = 0;
     }
-    //Checking Correct login
-    public static function CheckLogin($email, $password){
-       $pass = parent::hashPwd($password);
-       $dbObj = new db();
-       $sql = "SELECT * FROM sellers WHERE email=? AND password=?";
-       $stmt = $dbObj->connect()->prepare($sql);
-       $stmt->execute([$email, $password]);
-       $data = $stmt->fetch();
 
-       if($data == false){
-           Session::set('error', "Incorrect Email or password");
-           header("Location: ../login.php");
-           return false;
-       }
-       else{
-         Session::set('email', $email);
-         Session::set('fname', htmlentities($data['first_name']));
-         Session::set('lname', htmlentities($data['last_name']));
-         Session::set('type', $data['type']);
-         Session::set('seller_id', htmlentities($data['seller_id']));
+      //check correct login
+     public static function CheckLogin($email, $password){
 
-         return true;
-       }
-    }
-    //Add new seller to database
-    public function addSeller(){
-        $sql = "INSERT INTO sellers (first_name, last_name, brand_name, email, password)
-                values(:first_name, :last_name, :brand_name, :email, :password)";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->bindParam(':first_name', $this->firstName);
-        $stmt->bindParam(':last_name', $this->lastName);
-        $stmt->bindParam(':brand_name', $this->brand);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $this->password);
-        $stmt->execute();
-    }
-    //Check if email is used or not for sign up
-    public function checkEmail(){
-        $sql = "SELECT * FROM sellers WHERE email = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$this->email]);
-        $data = $stmt->fetchAll();
-        if($data==false){
-          return true;
-        }
+        $pass = parent::hashPwd($password);
+        $db = new db();
+        $allData = $db->logindb($email, $pass, 'sellers');
+
+        if($allData == false)
+            return false;
         else {
-              Session::set('error',"This email is already used");
-              header("Location: ../signup.php");
-              return;
-        }
-    }
-    //Check if password is correct or not
-    public static function CheckPassword($pass){
-          $id = Session::get('seller_id');
-          $sql = "SELECT * FROM sellers WHERE password=? AND seller_id='$id' ";
-          $dbO = new db();
-          $pass = parent::hashPwd($pass);
-          $stmt = $dbO->connect()->prepare($sql);
-          $stmt->execute([$pass]);
-          $allData = $stmt->fetch();
-          if($allData == false)
-            return false;
-          else
-            return true;
-    }
-    public static function updateInfo($fname, $lname, $email){
-        $id = Session::get('seller_id');
-        $sql = "SELECT * FROM sellers WHERE email=? ";
-        $dbO = new db();
-        $stmt = $dbO->connect()->prepare($sql);
-        $stmt->execute([$email]);
-        $allData = $stmt->fetch();
-        if($allData==true && $allData['seller_id']!==$id)
-            return false;
-        else
-        {
-            $sql = "UPDATE sellers SET first_name=?, last_name=?, email=? WHERE seller_id='$id' ";
-            $stmt = $dbO->connect()->prepare($sql);
-            $stmt->execute([$fname, $lname, $email]);
-
             Session::set('email', $email);
-            Session::set('fname', $fname);
-            Session::set('lname', $lname);
+            Session::set('fname', htmlentities($allData['first_name']));
+            Session::set('lname', htmlentities($allData['last_name']));
+            Session::set('type', $allData['type']);
+            Session::set('seller_id', $allData['seller_id']);
             return true;
         }
     }
-    public static function updateAll($fname, $lname, $email, $pass, $new){
-        $id=Session::get('seller_id');
-        if(Seller::CheckPassword($pass)){
-            $sql = "UPDATE sellers SET first_name=?, last_name=?, email=?, password=?  WHERE seller_id='$id' ";
-            $new = parent::hashPwd($new);
+
+      public function CheckEmail(){
+          $db = new db();
+          $allData = $db->checkEmQuery($this->email,'sellers');
+          if($allData==false)
+                return true;
+            else
+                return false;
+          }
+          public function setSeller(){
+              $dbObj = new db();
+              $dbObj->setUserQuery($this->firstName,$this->lastName,
+              $this->email,self::$password,$this->type,'sellers');
+              $r = $dbObj->checkEmQuery($this->email,'sellers');
+              if($r){
+                  Session::set('seller_id', $r['seller_id']);
+                  return true;
+              }
+              else
+                return false;
+            }
+
+            public static function CheckPassword($pass){
+                $id=Session::get('seller_id');
+                $pass = parent::hashPwd($pass);
+                $dbO = new db();
+                $allData = $dbO->checkPassQuery($pass,'sellers',$id);
+                if($allData == false)
+                    return false;
+                else
+                  return true;
+              }
+              public static function update($fname,$lname,$email){
+                  $id=Session::get('seller_id');
+                  $db = new db();
+                  $allData = $db->checkEmQuery($email,'sellers');
+                  if($allData==true && $allData['seller_id']!==$id){
+                      return false;
+                  }
+                  else{
+                      $db->updateQuery($fname,$lname,$email,'sellers',$id);
+                      return true;
+                  }
+              }
+
+              public static function updateAll($fname, $lname, $email, $pass, $new){
+                  $id=Session::get('seller_id');
+                  if(Seller::CheckPassword($pass)){
+                      $dbO = new db();
+                      $dbO->updateQuery($fname,$lname,$email,'sellers',$id);
+                      $new = parent::hashPwd($new);
+                      $dbO->updatepassQuery($new,'sellers',$id);
+                      return true;
+                  }
+                  else {
+                      return false;
+                  }
+              }
+    //Seller rank methods
+        public function getRank(){
+            return $this->rank;
+        }
+        public function setRank($rnk){
+            $this->rank=$rnk;
+        }
+        public function updateRank($rnk){
+            $id = Session::get('seller_id');
+            $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
             $dbO = new db();
             $stmt = $dbO->connect()->prepare($sql);
-            $stmt->execute([$fname, $lname, $email, $new]);
-            Session::set('email', $email);
-            Session::set('fname', $fname);
-            Session::set('lname', $lname);
-            return true;
-        }
-    else
-        return false;
-
-    }
-    //Seller rank methods
-    public function getRank(){
-        return $this->rank;
-    }
-    public function setRank($rnk){
-        $this->rank=$rnk;
-    }
-    public function updateRank($rnk){
-        $id = Session::get('seller_id');
-        $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
-        $dbO = new db();
-        $stmt = $dbO->connect()->prepare($sql);
-        $stmt->execute([$rnk, $id]);
-        $allData = $stmt->fetch();
-        if($allData==true && $allData['seller_id']!==$id)
-            return false;
-        else
-        {
-            $sql = "UPDATE sellers SET rank=? WHERE seller_id='$id' ";
-            $stmt = $dbO->connect()->prepare($sql);
-            $stmt->execute([$rnk]);
-            return true;
-        }
-    }
+            $stmt->execute([$rnk, $id]);
+            $allData = $stmt->fetch();
+            if($allData==true && $allData['seller_id']!==$id)
+                return false;
+                else
+                {
+                    $sql = "UPDATE sellers SET rank=? WHERE seller_id='$id' ";
+                    $stmt = $dbO->connect()->prepare($sql);
+                    $stmt->execute([$rnk]);
+                    return true;
+                }
+            }
 }
