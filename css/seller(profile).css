@@ -1,0 +1,173 @@
+body{background-color: #DDD;
+font-family: Arial, Helvetica, sans-serif;}
+/*Bootstrap navbar*/
+div[id="main"]{
+	display: inline;
+	height: 50px;	
+}
+.bg-dark {
+	width: 100%;
+    background-color:  #333!important;
+    display: inline-block;
+}
+/*navbar items*/
+.pagetop{
+	background-color: transparent;
+	margin: 0;
+	height: 50px;
+	padding: 8px 0;
+	display: inline;
+	width: 100%;
+}
+.nav_bar{
+	display: inline-block;
+	background-color: transparent;
+	text-align: left;
+}
+.nav_bar a{
+	padding-right:20px;
+	text-decoration-line: none;
+}
+/*navbar icons*/
+svg{
+	margin-top:0px;
+	margin-left: 5px;
+	margin-right: 3px;
+	padding-right:0px;
+	color: rgb(61,96,64);
+	display: inline-block;
+}
+
+/*search bar*/
+.search_bar{
+	text-align: center;
+	display: inline-block;
+	color: transparent;
+	border:2px solid rgb(61,96,64);
+	border-radius: 60px;
+}
+.search_bar input{
+	width: 400px;
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+	border-right: none;
+	outline: 0;
+	padding-left: 20px;
+}
+form.search_bar button{
+	border-left: none;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;
+	font-size: 16px;
+}
+/*sign in & sign up*/
+.log_in{
+	width:180px;
+	margin-left: 100px;
+	display: inline-block;
+	text-align: right;
+}
+.log_in a{
+	padding-left: 20px;
+	text-decoration-line: none;
+}
+.sidebar {
+	padding-top: 30px;
+	width: 0; 
+	height: 100%;
+	position: fixed; 
+	z-index: 2; /* Stay on top */
+	left: 0;
+	top:0;
+	background-color: #333; 
+	overflow-x: hidden;
+	display: inline-block; 
+	transition: 0.5s
+}
+.category{
+	margin-top: 30px;
+	border-bottom: 1px solid #BBB;
+}
+
+/* The sidebar links */
+.sidebar a {
+	padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #BBB;
+    display: block;
+    transition: 0.3s;
+}
+.dropdown-btn{
+	margin-top: 30px;
+	border: none;
+	border-bottom: 1px solid #BBB;
+	width:100%;
+	text-align: left;
+	padding: 8px 8px 8px 32px;
+	display: block;
+	font-size: 25px;
+	background-color: #333;
+	color:#BBB;
+}
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+	color: white;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+	cursor: pointer;
+	background-color: #333;
+	color: #BBB;
+	border: 1px solid #BBB;
+}
+
+.openbtn:hover {
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #333;
+  border-bottom:1px solid #BBB;
+  padding-left: 8px;
+}
+/*link hover*/
+a:hover{
+	color: white;
+}
+a{
+	color: #BBB;
+}
+/*imag*/
+.rounded{width:150px;
+margin-top:10px;}
+/*rank*/
+.card{width:150px;
+text-align:center;
+margin-left: 700px;
+margin:auto;
+margin-top: 0px;
+background:#DDD;
+height:50px;
+}
+
+
+label{display:block !important;
+margin:0px;}
+.container{border:double;
+width:500px;}
+.in{width:450px;}
+.changepass{color:#444;
+font-size:25px;
+font-family: Arial, Helvetica, sans-serif;
+height:100%;}
