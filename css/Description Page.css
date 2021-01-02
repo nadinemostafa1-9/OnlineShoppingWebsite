@@ -1,0 +1,284 @@
+body{
+	background-color: #BBB;
+	width: 100%;
+	overflow-x: hidden;
+}
+/*Bootstrap navbar*/
+div[id="main"]{
+	display: inline;
+	height: 50px;	
+}
+.bg-dark {
+	width: 100%;
+	height: 50px;
+    background-color:  #333!important;
+    display: inline-block;
+}
+/*navbar items*/
+.pagetop{
+	background-color: transparent;
+	margin: 0;
+	height: 50px;
+	padding: 8px 0;
+	display: inline;
+	width: 100%;
+}
+.nav_bar{
+	display: inline-block;
+	background-color: transparent;
+	text-align: left;
+}
+.nav_bar a{
+	padding-right:20px;
+	text-decoration-line: none;
+}
+/*navbar icons*/
+svg{
+	margin-top:0px;
+	margin-left: 5px;
+	margin-right: 3px;
+	padding-right:0px;
+	color: rgb(61,96,64);
+	display: inline-block;
+}
+
+/*search bar*/
+.search_bar{
+	text-align: center;
+	display: inline-block;
+	color: transparent;
+	border:2px solid rgb(61,96,64);
+	border-radius: 60px;
+}
+.search_bar input{
+	
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+	border-right: none;
+	outline: 0;
+	padding-left: 20px;
+}
+form.search_bar button{
+	border-left: none;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;
+	font-size: 16px;
+}
+#search1{
+	width: 600px;
+}
+#search2{
+	width:500px;
+}
+/*sign in & sign up*/
+.log_in{
+	width:150px;
+	margin-left: 230px;
+	display: inline-block;
+	text-align: right;
+}
+.log_in a{
+	padding-left: 20px;
+	text-decoration-line: none;
+}
+.log_out{
+	width:180px;
+	margin-left: 200px;
+	display: inline;
+	text-align: right;
+}
+.log_out a{
+	padding-left: 20px;
+	text-decoration-line: none;
+}
+a{
+	color: #BBB;
+}
+/*link hover*/
+a:hover{
+	color: white;
+}
+/* The sidebar menu */
+.sidebar {
+	padding-top: 30px;
+	width: 0; 
+	height: 100%;
+	position: fixed; 
+	z-index: 2; /* Stay on top */
+	left: 0;
+	top:0;
+	background-color: #333; 
+	overflow-x: hidden;
+	display: inline-block; 
+	transition: 0.5s
+}
+.category{
+	margin-top: 30px;
+	border-bottom: 1px solid #BBB;
+}
+
+/* The sidebar links */
+.sidebar a {
+	padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #BBB;
+    display: block;
+    transition: 0.3s;
+}
+.dropdown-btn{
+	margin-top: 30px;
+	border: none;
+	border-bottom: 1px solid #BBB;
+	width:100%;
+	text-align: left;
+	padding: 8px 8px 8px 32px;
+	display: block;
+	font-size: 25px;
+	background-color: #333;
+	color:#BBB;
+}
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+	color: white;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+	cursor: pointer;
+	background-color: #333;
+	color: #BBB;
+	border: 1px solid #BBB;
+}
+
+.openbtn:hover {
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #333;
+  border-bottom:1px solid #BBB;
+  padding-left: 8px;
+}
+
+/* Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.content{
+	margin: 50px 15%;
+	width: 70%;
+	text-align: center;
+}
+.product-image{
+	width: 500px;
+	height: 500px;
+	display: inline-block;
+	box-shadow: 10px 10px 8px #333;
+}
+.product-image img{
+	width: 100%;
+	height: 100%;
+}
+.product-desc{
+	padding: 0 30px;
+	display: inline-block;
+	
+	text-align: left;
+	font-size: 25px;
+}
+.product-title{
+	display: inline-block;
+}
+.price{
+	color:rgb(61,96,64);
+	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/ 
+	font-weight: bold;
+	font-size: 25px;
+}
+.categ{
+	width: auto;
+	height: auto;
+	padding: 0px 10px 0px 10px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #333;
+	border-radius: 50px;
+}
+.txt-center{
+	width: 80%;
+	text-align: left;
+}
+.rate-btn{
+	width: 200px;
+	height: 50px;
+	border: 1px solid #333; 
+	border-radius: 30px;
+	background-color: rgb(61,96,64);
+	color: #BBB;
+}
+.rate{
+	width: 200px;
+	text-align: center;
+}
+.rate-btn:hover{
+	color: white;
+}
+/*User star rating*/
+.hide {
+    display: none;
+}
+.clear {
+    float: none;
+    clear: both;
+}
+.rating {
+    width: 200px;
+    height: 50px;
+    unicode-bidi: bidi-override;
+}
+.rating > label {
+	height: 50px;
+    float: right;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #333;
+}
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+label{
+	font-size: 35px;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";  /*star*/
+    font-size: 35px;
+    left: 0;
+    position: absolute;
+    color: #FFD700;  /*yellow*/
+}
+.footer{
+	width: 100%;
+	height: 150px;
+	background-color: #333;
+	color: #BBB;
+	text-align: center;
+}
