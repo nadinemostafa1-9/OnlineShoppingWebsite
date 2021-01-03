@@ -55,7 +55,7 @@ $sum=$cart->getTotalSum();
         if($all['card_number']==0)
           $pay='Cash';
         else $pay='Visa';
-      $data = array("dis"=>$dis,"total"=>$total,"delivery"=>$delivery,"pay"=>$pay);
+      $data = array("dis"=>$dis,"total"=>$total,"delivery"=>$delivery,"pay"=>$pay,"rank"=>$rank);
       return $data;
 }
 }
