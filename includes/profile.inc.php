@@ -2,7 +2,7 @@
 include 'class-autoload.inc.php';
 Session::init();
 if(isset($_POST['cancel'])){
-  header("Location: ../index.php");
+  header("Location: ../HOME.php");
   return;
 }
 
