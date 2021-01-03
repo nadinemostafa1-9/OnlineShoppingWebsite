@@ -103,11 +103,12 @@ require_once ("db.php");
           $stmt->execute();
           $orders = $stmt->fetch();
           $order=$orders['orders'];
+          $Rank='None';
           if($order>=5)
           $Rank='bronze';
-           else if($order>=10)
+           if($order>=10)
           $Rank='silver';
-          else if($order>=15)
+           if($order>=15)
          $Rank='gold'; 
         return $Rank;
       }
