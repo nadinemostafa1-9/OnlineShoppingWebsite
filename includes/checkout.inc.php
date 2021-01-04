@@ -1,4 +1,7 @@
 <?php
+include("cartFun.php");
+require_once("class-autoload.inc.php");
+ include('../classes/Customer.php');
 include 'class-autoload.inc.php';
 Session::init();
 if(isset($_POST['cancel'])){
