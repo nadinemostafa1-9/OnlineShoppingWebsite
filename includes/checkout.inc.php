@@ -13,4 +13,10 @@ Customer::getRank();
 }
  if(isset($_POST['place'])){
    Customer::setOrders();
+      $cart=gettingCart(Session::get('customer_id'));
+   updateCount(Session::get('customer_id'));
+   removeCart(Session::get('customer_id'),$cart);
+    echo '<script>alert("Your order has been placed successfully")
+    window.location.replace("../HOME.php");
+    </script>';
  }
