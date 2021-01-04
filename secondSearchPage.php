@@ -1,3 +1,4 @@
+
 <?php
 
 require "classes/session.php";
@@ -26,15 +27,24 @@ search engine
 require_once('Functions/searchFn.php');
 require_once('classes/db.php');
 require "classes/Customer.php";
+require "includes/productController.php";
 $mdb=new db();
 $mPDO=$mdb->connect();
 $k=$_GET['k']; // getting the search keyword
-$product_id_history=searchStart($k,$mPDO);
+$product_id_history= NULL;$i=0;
+$Search_array=searchStart($k,$mPDO,$product_id_history);
+while(count($Search_array)!=0 && $i!=count($Search_array)){
+  displayProduct($Search_array[$i]);
+  displayCartButton($Search_array[$i]);
+  $i++;
+}
+
 $cust_id=Session::get('customer_id');
 if($product_id_history!=NULL && $cust_id!=false)
 {
   Customer::setHistorySearch($product_id_history,$cust_id);
 }
+
 ?>
  </body>
 
