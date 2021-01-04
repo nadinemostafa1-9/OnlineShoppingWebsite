@@ -33,3 +33,28 @@ if(isset($_POST["add_to_cart"]))
 
 }
 }
+function displayCart($cart){
+$items=	$cart->getItems();
+foreach ($items as $value) {
+	$product = $value->getProduct();
+	echo '
+	<div class=col-md-12>
+ 	<div class="card">
+ 		<a href="cardtest.html">
+ 			<img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" alt="product">
+ 		</a>
+ 		<div class="card-body">
+ 		<h3 class="card-title">' .$product->getName().'</h3>
+ 		<p class="item-price">$'.$product->getPrice().'</p>
+ 		</div>
+ 		<div class="add-btn"  id = "card_form">
+		<form method = "post" action ="includes/cartController.php">
+		<input type ="hidden" name = "item_number" value ='.$product->getID().'>
+ 		<button type = "submit" name = "remove" class="card-btn">Remove</button></form>
+
+ 		</div>
+ 		</div>
+  </div>
+';
+}
+}
