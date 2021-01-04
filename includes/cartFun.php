@@ -16,9 +16,8 @@ require "productController.php";
 	}
 	return $cart;
 }
- function updatingCart($cart,$id,$cust_id){
+ function updatingCart($cart,$id,$cust_id,&$f){
 	$cart_items=$cart->getItems();
-	$f=1;
 	foreach (	$cart_items as $value) {
 		if($value->getProduct()->getID()==$id){
 			$f=0;
@@ -26,7 +25,7 @@ require "productController.php";
 		}
 	}
 	if($f){
-	if(isset($_POST["add_to_cart"])){
+
 	$mPDO=new db();
 	$stmt = $mPDO->connect()->prepare("INSERT INTO cart(product_id,customer_id,quantity) VALUES
 	(:product_id,:customer_id,:quantity)");
@@ -36,16 +35,10 @@ require "productController.php";
 	$stmt->execute();
 	$product=getProductBy('id',$id);
 	$cart->addProduct($product,1);
-}}
+}
 return $cart;
 }
- function displayCart($cart){
-$items=	$cart->getItems();
-foreach ($items as $value) {
-	displayProduct($value->getProduct());
 
-}
-}
 
 function removeCart($cust_id,$cart){
   $mPDO=new db();
