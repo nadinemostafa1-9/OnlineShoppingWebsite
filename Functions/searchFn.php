@@ -2,8 +2,9 @@
 <?php
 require_once('includes/productController.php');
 require_once('classes/product.php');
-function searchStart($k,$mPDO){
+function searchStart($k,$mPDO,&$history_id){
   $id=NULL;
+  $array=[];
   $i=0;
   $term=explode(" ",$k);
   $q="SELECT * FROM `products` WHERE ";
@@ -48,14 +49,17 @@ function searchStart($k,$mPDO){
       if($id==NULL){
         $id=$r['id'];
       }
+
+
     $product=new Product($r['id'],$r['name'],$r['category'],
    $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
-   displayProduct($product);
-     $f2=0;
+     array_push($array, $product);
+
+     //$f2=0;
     }
 
   }
-  if($f2==1)echo "No results for " . "$k";
-  return $id;
-
+  //if($f2==1)echo "No results for " . "$k";
+  $history_id=$id;
+  return $array;
 }
