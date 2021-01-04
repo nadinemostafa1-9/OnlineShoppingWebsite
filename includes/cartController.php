@@ -1,6 +1,6 @@
 <?php
 
-include('C:\MAMP\htdocs\e commerce proj/Functions/cartFun.php');
+include('cartController.php');
 
 Session::init();
 //pressing on removing button
