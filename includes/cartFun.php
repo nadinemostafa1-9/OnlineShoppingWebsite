@@ -58,3 +58,16 @@ function removeCart($cust_id,$cart){
     $cart->removeProduct($product);
 	return $cart;
 }
+//update count in database
+function updateCount($customer_id){
+	$mPDO=new db();
+  $cart=new Cart();
+	 $q='SELECT * FROM `cart` WHERE customer_id = ' . $customer_id;
+	 $prepare=$mPDO->connect();
+	 $prepare=$prepare->prepare($q);
+	 $prepare->execute();
+	while($r=$prepare->fetch()){
+    if($r['product_id'])
+	$product=updateProducts($r['product_id'],$r['quantity']);
+}
+}
