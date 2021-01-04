@@ -16,6 +16,12 @@ return $product;
 else
 return false;
 }
+function updateProducts($theValue,$quantity){
+  $mPDO=new db();
+  $q="UPDATE products SET count=count-$quantity WHERE id='$theValue'";
+  $prepare=$mPDO->connect()->prepare($q);
+  $prepare->execute();
+}
 function displayProduct($product){
 
    echo '<div class = "col-md-3 col-sm-6">
