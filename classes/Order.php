@@ -27,7 +27,7 @@ $id=Session::get('customer_id');
 $all=$this->ReturnData();
 $cart=gettingCart($id);
 $sum=$cart->getTotalSum();
-  if($sum>500)
+  if($sum>=500)
   $delivery=0;
   else {
     if($all['city']=='cairo')
