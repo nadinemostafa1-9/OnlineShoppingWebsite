@@ -8,16 +8,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <link rel="stylesheet" type="text/css" href="Shipping Information.css">
+  <link rel="stylesheet" type="text/css" href="css/Shipping Information.css">
 
   <title>Shipping Information</title>
 </head>
 <body>
+
   <!--BOOTSTRAP -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-   <nav class="navbar navbar-dark bg-dark">
+  <script src="js/Shipping Information.js"></script>
+  
+
+  <nav class="navbar navbar-dark bg-dark">
       
     <div class="pagetop">
       
@@ -128,11 +132,11 @@
 
   <!---------------------------------Phone Number---------------------------------->
   <label class="form-label" for="no">Phone Number:</label>
-  <input class="phone" type="text" name="no" min="11" max="11" required>
+  <input class="phone" type="text" name="no" required>
 
   <!---------------------------------Card Number---------------------------------->
   <label class="form-label" for="card" id="cardnum">Card Number:</label>
-  <input type="text" id="card"  name="card" pattern=".{16}" required>
+  <input type="text" id="card"  name="card" title="Must be 16 digits" pattern=".{16}" required>
 
   <!---------------------------------Currency---------------------------------->
   <label class="form-label" for="currency">Currency:</label>
@@ -154,21 +158,6 @@
     <button type="reset" class="cancel-btn">Cancel</button>
   </div>
 </form>
-
-  <script>
-    $(document).ready(function(){
-      $("#card").hide();
-      $("#cardnum").hide();
-      $("#visa").click(function(){
-        $("#card").show();
-        $("#cardnum").show();
-      });
-      $("#cash").click(function(){
-        $("#card").hide();
-        $("#cardnum").hide();
-      });
-    });
-</script>
   
   <div class="footer">
     <br>
