@@ -4,7 +4,7 @@ font-family: Arial, Helvetica, sans-serif;}
 /*Bootstrap navbar*/
 div[id="main"]{
 	display: inline;
-	height: 50px;	
+	height: 50px;
 }
 .bg-dark {
 	width: 100%;
@@ -62,27 +62,27 @@ form.search_bar button{
 	font-size: 16px;
 }
 /*sign in & sign up*/
-.log_in{
+.log_out{
 	width:180px;
-	margin-left: 100px;
-	display: inline-block;
+	margin-left: 50px;
+	display: inline;
 	text-align: right;
 }
-.log_in a{
+.log_out a{
 	padding-left: 20px;
 	text-decoration-line: none;
 }
 .sidebar {
 	padding-top: 30px;
-	width: 0; 
+	width: 0;
 	height: 100%;
-	position: fixed; 
+	position: fixed;
 	z-index: 2; /* Stay on top */
 	left: 0;
 	top:0;
-	background-color: #333; 
+	background-color: #333;
 	overflow-x: hidden;
-	display: inline-block; 
+	display: inline-block;
 	transition: 0.5s
 }
 .category{
@@ -174,28 +174,28 @@ font-size:25px;
 font-family: Arial, Helvetica, sans-serif;
 height:100%;
 margin-top:5px;}
-.editchange{margin-bottom:10px;
+.editchange{width:70px;
+	margin-bottom:10px;
+}/*edit*/
+
+
+/*submit and cancel*/
+.tocenter{ text-align:center; }/*to make buttons in center)*/
+button:hover{color:white !important;}
+
+.all{width:90px;
+	outline:none!important;
+	height: 45px;
+	border-radius: 12px;
+	margin-bottom:5px;
 background-color:rgb(61,96,64)!important;
 color:#BBB!important;
 border-color:rgb(61,96,64)!important;}
-
-/*edit*/
 .ch{margin-bottom:5px;
 display:block;
 background-color:rgb(61,96,64)!important;
 color:#BBB!important;
 border-color:rgb(61,96,64)!important;}/*for edit buttons*/
-.chancancel{margin-bottom:5px;
-background-color:#BBB!important;
+.chancancel{background-color:#BBB!important;
 color:#333!important;
-border-color:rgb(61,96,64)!important;}
-.chan{margin-bottom:5px;
-background-color:rgb(61,96,64)!important;
-color:#BBB!important;
-border-color:rgb(61,96,64)!important;
 }
-/*submit and cancel*/
-.tocenter{ text-align:center; }/*to make buttons in center)*/
-button:hover{color:white !important;}
-
-
