@@ -1,7 +1,7 @@
 
 <?php
-require 'classes/db.php';
-include 'class-autoload.inc.php';
+include ("class-autoload.inc.php");
+
 function getProductBy($bywhat,$theValue){
  $mPDO=new db();
   $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
@@ -24,25 +24,28 @@ function updateProducts($theValue,$quantity){
 }
 function displayProduct($product){
 
-   echo '<div class = "col-md-3 col-sm-6">
-          <div class="card">
-          <a href="cardtest.php">
-          <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="product"/>
-          </a>
-          <div class="card-body">
-          <h3 class="card-title">' .$product->getName().'</h3>
-          <p class="item-price"> $'.$product->getPrice().'</p>
-          </div>';
+     echo '<div class = "col-md-3">
+         <div class="card">
+         <a href="details.php?id='.$product->getID().'">
+         <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="product"/>
+         </a>
+         <div class="card-body">
+         <h3 class="card-title">' .$product->getName().'</h3>
+         <p class="item-price"> $'.$product->getPrice().'</p>
+         </div>';
          if(Session::get('customer_id') == false){
            echo ' </div>
           </div>';
 
          }
+
 }
+//cart button
 function displayCartButton($product){
   echo ' <div class="add-btn" id = "card_form">
-         <form method = "post" action ="firstSearchPage.php?action=add&id='.$product->getID().'"/>
-         QTY: <input type = "text" name = "qty" value = "1"/>
+         <form method = "post" action ="includes/cartController.php?action=add&id='.$product->getID().'"/>
+          <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="qty" min="1" max =
+          '.$product->getCount().'>
          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
          <input type ="hidden" name = "price" value ='.$product->getPrice().'/>
          <input type ="hidden" name = "name" value ='.$product->getName().'/>
@@ -50,11 +53,9 @@ function displayCartButton($product){
            <button type = "submit" name="add_to_cart" class="card-btn">Add to Cart</button>
          </form>
          </div>
-         </div>
+         </div></div>';
 
-       </div>
 
-  ';
 }
 function displayProductsByCategory($theValue){
  $mPDO=new db();
@@ -62,12 +63,17 @@ function displayProductsByCategory($theValue){
   $prepare=$mPDO->connect()->prepare($q);
   $prepare->execute();
   while($r=$prepare->fetch(PDO::FETCH_ASSOC)){
-    $product=new Product($r['name'],$r['category'],
+    $product=new Product($r['id'],$r['name'],$r['category'],
    $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
+   if($r['count'] != 0){
    displayProduct($product);
-   echo '<br></br>';
-    }
+   if(Session::get('customer_id') !== false){
+   displayCartButton($product);}
+}
+   }
+return true;
   }
+
   function displayAllProducts(){
  $mPDO=new db();
   $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30";
@@ -78,10 +84,11 @@ function displayProductsByCategory($theValue){
     $product = new Product($row['id'],$row['name'],$row['category'],
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
 
+  if($row['count'] != 0){
    displayProduct($product);
    if(Session::get('customer_id') !== false){
    displayCartButton($product);}
-
+}
    }
 return true;
 }
@@ -106,11 +113,4 @@ echo '  <div class="details">
 ';
 
 }
-
-
-
-
-
-
-
 
