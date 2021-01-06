@@ -6,20 +6,24 @@
   protected $email;
   protected static $password;
   protected $type;
+  protected $Rank;
 
-  public function __construct($fName,$lName,$e, $p,$type ){
-
+  public function __construct($fName = null,$lName=null,$e=null, $p=null,$type=null ){
+if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
     $this->firstName = $fName;
     $this->lastName = $lName;
     $this->email = $e;
     $this->type = $type;
     self::$password = $this->hashPwd($p);
-
+}
   }
    public static function hashPwd($password){
     $salt = 'XyZzy12*_';
     $hash=hash('md5', $salt.$password);
     self::$password = $hash;
     return $hash;
+  }
+  public static function CheckLogin($email, $password){
+
   }
 }
