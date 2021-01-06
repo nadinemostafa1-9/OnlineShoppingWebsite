@@ -1,6 +1,31 @@
 
 <?php
 include ("class-autoload.inc.php");
+//rating product
+if(isset($_POST['submit_rating']))
+{
+   $php_rating=$_POST['phprating'];
+   $cust = $_POST['cust'];
+   $id = $_POST['id'];
+     $mPDO=new db();
+     $stmt = $mPDO->connect()->prepare("SELECT id FROM star_rating WHERE customer_id='$cust' AND id ='$id'");
+     $stmt->execute();
+     $r=$stmt->fetch(PDO::FETCH_ASSOC);
+
+     if($r){
+       $stmt = $mPDO->connect()->prepare("UPDATE star_rating SET rating = ? WHERE customer_id = '$cust'");
+       $stmt->execute([$php_rating]);
+     }
+     else{
+     $stmt = $mPDO->connect()->prepare("INSERT INTO star_rating (customer_id,id,rating)VALUES
+     (:customer_id,:id,:rating)");
+
+     $stmt->bindParam(':id',$id);
+      $stmt->bindParam(':customer_id',$cust);
+     $stmt->bindParam(':rating',$php_rating);
+     $stmt->execute();
+   }
+}
 
 function getProductBy($bywhat,$theValue){
  $mPDO=new db();
