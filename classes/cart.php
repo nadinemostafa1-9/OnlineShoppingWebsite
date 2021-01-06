@@ -42,7 +42,7 @@ public function getTotalSum(){
 }
 public function removeProduct($product){
   unset($this->items[$product->getID()]);
-
+return true;
 }
   public function removeAllProducts(){
 $this->items= [];
