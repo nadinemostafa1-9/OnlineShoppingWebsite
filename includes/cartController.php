@@ -1,6 +1,6 @@
 <?php
 
-include('cartController.php');
+include('cartFun.php');
 
 Session::init();
 //pressing on removing button
@@ -19,7 +19,12 @@ if(isset($_POST["add_to_cart"]))
 {
 	$cart = $cart=gettingCart(Session::get('customer_id'));
 	$f = 1;
-	updatingCart($_GET['id'],Session::get('customer_id'),$cart,$_POST['qty'],$f);
+	if($_POST['qty'] == NULL){
+		echo '<script>alert("You have to specify the number of items")
+		window.location.replace("../HOME.php");
+		</script>';
+	}else{
+	updatingCart($_GET['id'],Session::get('customer_id'),$cart,$_POST['qty'],$f);}
 	if($f){
 	echo '<script>alert("The item has been successfully added")
 				window.location.replace("../HOME.php");
@@ -37,6 +42,8 @@ function displayCart($cart){
 $items=	$cart->getItems();
 foreach ($items as $value) {
 	$product = $value->getProduct();
+	if($product->getCount()!=0){
+
 	echo '
 	<div class=col-md-12>
  	<div class="card">
@@ -56,5 +63,6 @@ foreach ($items as $value) {
  		</div>
   </div>
 ';
+}
 }
 }
