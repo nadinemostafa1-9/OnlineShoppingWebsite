@@ -20,8 +20,7 @@ class Session{
         }
 
   public static function logged(){
-  if(!Session::get('email')){
-    die('Not logged in');
+  if(!Session::get('customer_id')){
     return false;
   }else {
     return true;
@@ -43,7 +42,7 @@ class Session{
         public static function destroy()
     {
         session_destroy();
-        header("Location:login.php");
+        header("Location:HOME.php");
     }
 }
  ?>
