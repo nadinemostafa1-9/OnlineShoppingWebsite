@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){ //name of the insert product button
 
     $temp_name1=$_FILES['product_img1']['tmp_name'];
 
-    move_uploaded_file($temp_name1, "###/$product_img1"); //instead of ### put the name of the file which contains the images
+    move_uploaded_file($temp_name1, "Downloads/$product_img1"); //instead of ### put the name of the file which contains the images
     $dbObj = new db();
     $insert_product_query="INSERT INTO products (p_cat, product_title, product_img1,
     product_price, product_desc, product_keywords, product_count) VALUES('$product_cat'

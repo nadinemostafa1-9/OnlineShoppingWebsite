@@ -122,8 +122,7 @@
   <!-----------------------------------Product image-------------------------------->
   <h3 class="form-label">Insert Image</h3>
   <div class="product-image">
-      <label class="col-md-3 control-label">Product Image</label>
-      <input type="file" name="product_img" class="form-control" required="">
+      <input type="file" name="product_img" class="form-control" required>
   </div>
 
   <!-----------------------------------Product price-------------------------------->
