@@ -111,7 +111,7 @@ require_once ("db.php");
   
   
     public static function setHistorySearch($id,$cust_id){
-          $count=0;$history=" ";
+          $count=0;$history="";
           $dbObj = new db();
           $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
           $sel =$dbObj->connect()->prepare($qry);
