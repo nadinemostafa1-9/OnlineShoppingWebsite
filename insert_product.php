@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){ //name of the insert product button
     $product_count=$_POST['product_count'];
     $product_keywords=$_POST['product_keywords'];
     $product_desc=$_POST['prod_desc'];
-    $product_img1=$_FILES['product_img1']['name'];
+    $product_img1=$_FILES['product_img']['name'];
 
     $temp_name1=$_FILES['product_img1']['tmp_name'];
 
