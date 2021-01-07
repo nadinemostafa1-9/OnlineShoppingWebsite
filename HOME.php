@@ -286,7 +286,7 @@
   </div>
   <!--------------------------------------------------------------------------------------->
   
- <form class="cards-center">
+ <div class="cards-center">
   <div class="total">
     <div class="card-group card2">
       <div class="col-md-12">
@@ -346,7 +346,7 @@
       </div>
     </div>
   </div>
-  </form>
+  </div>
   
   <div class="footer">
     <br>
