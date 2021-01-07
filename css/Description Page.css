@@ -41,7 +41,6 @@ svg{
 	color: rgb(61,96,64);
 	display: inline-block;
 }
-
 /*search bar*/
 .search_bar{
 	text-align: center;
@@ -195,6 +194,8 @@ a:hover{
 	clear:both;
 }
 .product-desc{
+	width: 50%;
+	height: 90%;
 	padding: 0 30px;
 	margin-top:40px;
 	display: inline-block;
@@ -219,6 +220,9 @@ a:hover{
 	border: 1px solid #333;
 	border-radius: 50px;
 }
+.description{
+	word-wrap:break-word;
+}
 .rec-section{
 	color: #333;
 	padding: auto;
@@ -241,23 +245,55 @@ a:hover{
 .card{
 	border:1px solid #333;
 }
-.txt-center{
-	width: 80%;
+.card-btn{
+	background-color: rgb(61,96,64);
+	outline: none !important;
+	text-align: center;
+	display: block;
+	color: #BBB;
+	width:60%;
+	height: 60px;
+	border: 1px solid #333;
+	border-radius: 50px;
+}
+.add-btn{
+	margin-top:25px;
 	text-align: left;
 }
+.card-btn{
+	margin-bottom: 10px; 
+}
+.card a{
+	color:#BBB;
+}
+.card a:hover,.card-btn:hover{
+	color: white;
+}
+.txt-center{
+	text-align: left;
+	width: 192px;
+	height: 41px;
+	border:1px solid #333;
+}
 .rate-btn{
-	width: 200px;
-	height: 50px;
-	border: 1px solid #333; 
-	border-radius: 30px;
+	width: 42px;
+	height: 40px;
+	float: right;
 	background-color: rgb(61,96,64);
 	color: #BBB;
+	clear: both;
 }
 .rate{
-	width: 200px;
+	width: 40px;
+	display: inline-block;
 	text-align: center;
 }
-.rate-btn:hover{
+#svg1{
+	margin: auto;
+	padding: auto;
+	color: #BBB;
+}
+#svg1:hover{
 	color: white;
 }
 /*User star rating*/
@@ -269,9 +305,12 @@ a:hover{
     clear: both;
 }
 .rating {
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
+    float: left;
+    display: inline-block;
     unicode-bidi: bidi-override;
+    clear: both;
 }
 .rating > label {
 	height: 50px;
@@ -289,14 +328,14 @@ a:hover{
     color: transparent;
 }
 label{
-	font-size: 35px;
+	font-size: 25px;
 }
 .rating > label:hover:before,
 .rating > label:hover ~ label:before,
 .rating > input.radio-btn:checked ~ label:before,
 .rating > input.radio-btn:checked ~ label:before {
     content: "\2605";  /*star*/
-    font-size: 35px;
+    font-size: 25px;
     left: 0;
     position: absolute;
     color: #FFD700;  /*yellow*/
