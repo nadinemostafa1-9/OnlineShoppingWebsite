@@ -1,14 +1,10 @@
 <?php
 include("cartFun.php");
 require_once("class-autoload.inc.php");
- include('../classes/Customer.php');
-include 'class-autoload.inc.php';
+
 Session::init();
-if(isset($_POST['cancel'])){
-  header("Location: ../HOME.php");
-  return;
-}
-else if(isset($_POST['checkout'])){
+
+if(isset($_POST['checkout'])){
 $order=new Order;
 $order::InsertData($_POST['address'], $_POST['no'], $_POST['city'], $_POST['card'],$_POST['cu']);
 header("Location: ../placeorder.php");
