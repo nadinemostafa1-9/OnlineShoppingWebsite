@@ -92,7 +92,7 @@ public function updatepassQuery($new,$table,$id){
   if($table == 'customers'){
     $sql ="SELECT * FROM customers WHERE  customer_id='$id'   ";
   }else {
-  /$sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
+  $sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
   }
 $stmt = $this->connect()->prepare($sql);
 $stmt->execute();
