@@ -1,6 +1,6 @@
 <?php
 //this is the model to interact with the database
-
+require "User.php";
 require_once ("db.php");
 
  class Customer extends User{
