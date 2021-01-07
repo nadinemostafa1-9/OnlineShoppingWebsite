@@ -8,20 +8,17 @@ class Order{
 
 public static function InsertData($address,$phone,$city,$card,$currency){
   $id=Session::get('customer_id');
-  $sql = "UPDATE customers SET address=?, phone_number=? , city=?, card_number=?, currency=? WHERE customer_id='$id' ";
   $dbObj = new db();
-  $stmt = $dbObj->connect()->prepare($sql);
-  $stmt->execute([$address,$phone,$city,$card,$currency]);
+  $dbObj->updateInfoQuery($id,$address,$phone,$city,$card,$currency);
+  return true;
 }
 public function ReturnData(){
   $id=Session::get('customer_id');
-  $sql = "SELECT * FROM customers WHERE customer_id='$id' ";
   $dbObj = new db();
-  $stmt = $dbObj->connect()->prepare($sql);
-  $stmt->execute();
-  $data = $stmt->fetch();
+  $data = $dbObj->idQuery($id,'customers');
   return $data;
 }
+
 public function placeorder(){
 $id=Session::get('customer_id');
 $all=$this->ReturnData();
@@ -36,7 +33,8 @@ $sum=$cart->getTotalSum();
     $delivery=80;
     else  if($all['city']=='aswan')
     $delivery=150;  }
-    $rank=Customer::getRank();
+    $cust = new Customer();
+    $rank=$cust->getRank();
     if($rank=='bronze'){
     $sum=$sum-$sum*0.05;
     $dis='5%'; }
@@ -59,3 +57,4 @@ $sum=$cart->getTotalSum();
       return $data;
 }
 }
+
