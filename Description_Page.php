@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <link rel="stylesheet" type="text/css" href="Description Page.css">
+  <link rel="stylesheet" type="text/css" href="css/Description Page.css">
 
   <title>Description Page</title>
 </head>
@@ -150,7 +150,7 @@
   </div>
 
 <!------------------------------------Recommended products--------------------------------------->
-  <form class="cards-center">
+  <div class="cards-center">
   <div class="total">
     <div class="card-group card2">
       <div class="col-md-12">
@@ -192,7 +192,7 @@
       </div>
     </div>
   </div>
-  </form>
+  </div>
 <!----------------------------------------------------------------------------------------------->
 
 <div class="footer">
