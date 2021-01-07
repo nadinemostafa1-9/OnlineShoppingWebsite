@@ -1,6 +1,5 @@
 <?php
-include ("classes/session.php");
-Session::init();
+include_once ("classes/session.php");
  ?>
 
 <script src="js/Header.js"></script>
@@ -93,7 +92,7 @@ Session::init();
       <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776;</button>
       </div>
-	    
+
       <div class="nav_bar">
        <!----------------------------Home Page---------------------->
 			 <a href="HOME.php" target="_self">
