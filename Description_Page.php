@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <link rel="stylesheet" type="text/css" href="css/Description Page.css">
+  <link rel="stylesheet" type="text/css" href="Description Page.css">
 
   <title>Description Page</title>
 </head>
@@ -124,6 +124,10 @@
       <div class="description">
         <p>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</p>
       </div>
+      <div>
+          <p class="available">Available in stock: </p>
+          <p class="items-no">10</p>
+      </div>
       <div class="txt-center">
         <form class="stars">
           <div class="rating">
@@ -150,6 +154,7 @@
       </div>
       <div class="add-btn">
         <form action="cart.php">
+          <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
           <button href="#" class="card-btn">Add to Cart</button>
         </form>    
       </div>
