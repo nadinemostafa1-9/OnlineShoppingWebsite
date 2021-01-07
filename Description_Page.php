@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <link rel="stylesheet" type="text/css" href="css/Description Page.css">
+  <link rel="stylesheet" type="text/css" href="Description Page.css">
 
   <title>Description Page</title>
 </head>
@@ -151,7 +151,8 @@
 
 <!------------------------------------Recommended products--------------------------------------->
   <form class="cards-center">
-    <div class="card-group">
+  <div class="total">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -164,7 +165,7 @@
         </div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -177,7 +178,7 @@
         </div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -190,13 +191,18 @@
         </div>
       </div>
     </div>
+  </div>
   </form>
 <!----------------------------------------------------------------------------------------------->
+
 <div class="footer">
     <br>
     <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
     <br>
     <p>All rights reserved.</p>
   </div>
+  
+
+  
 </body>
 </html>
