@@ -121,7 +121,9 @@
       <!-------------Price--------------->
       <p class="price">$Price</p>
       <!-------------Description--------->
-      <p class="description">Description</p>
+      <div class="description">
+        <p>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</p>
+      </div>
       <div class="txt-center">
         <form class="stars">
           <div class="rating">
@@ -138,9 +140,18 @@
             <div class="clear"></div>
           </div>
           <div class="rate">
-            <button href="#" class="rate-btn">Send Rating</button>
+            <button href="#" class="rate-btn">
+              <svg id="svg1" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+              <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            </button>
           </div>
         </form>
+      </div>
+      <div class="add-btn">
+        <form action="cart.php">
+          <button href="#" class="card-btn">Add to Cart</button>
+        </form>    
       </div>
     </div>
   </div>
