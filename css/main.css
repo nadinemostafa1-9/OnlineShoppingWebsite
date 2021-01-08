@@ -29,9 +29,6 @@ body{
 	padding: 0;
 	border-radius: 0;
 }
-.col-md-3:hover{
-	border: 1px solid #333;
-}
 .card{
 	border:none;
 	border-radius: 0;
@@ -40,20 +37,27 @@ body{
 	color: #333;
 	padding-bottom: 20px;
 }
+.card2{
+	padding: 20px 0;
+	margin: 0 -16px;
+	display: inline-block;
+}
+.cards-center{
+	margin: 10px auto;
+	text-align: center;
+}
 .card-title{
+	text-align: left;
 	padding-top: 10px;
 	border-top: 1px solid #333;
 	border-width: 80%;
-}
-.card-body{
-	height: 200px;
 }
 .item-price{
 	color:rgb(61,96,64);
 	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/ 
 	font-weight: bold;
 	font-size: 25px;
-	display: inline;
+	text-align: left;
 }
 .add-btn{
 	text-align: center;
@@ -62,6 +66,8 @@ body{
 	background-color: rgb(61,96,64);
 	outline: none !important;
 	text-align: center;
+	display: block;
+	margin: auto;
 	color: #BBB;
 	width:300px;
 	height: 60px;
@@ -79,7 +85,7 @@ body{
 }
 .card img{
 	width:100%;
-	height: 360px;
+	height: 310px;
 }
 
 .footer{
@@ -88,49 +94,4 @@ body{
 	background-color: #333;
 	color: #BBB;
 	text-align: center;
-}
-.txt-center{
-	width: 80%;
-	margin: 0px 20%;
-}
-/*User star rating*/
-.hide {
-    display: none;
-}
-.clear {
-    float: none;
-    clear: both;
-}
-.rating {
-    width: 200px;
-    height: 50px;
-    unicode-bidi: bidi-override;
-}
-.rating > label {
-	height: 50px;
-    float: right;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    width: 1.1em;
-    cursor: pointer;
-    color: #333;
-}
-.rating > label:hover,
-.rating > label:hover ~ label,
-.rating > input.radio-btn:checked ~ label {
-    color: transparent;
-}
-label{
-	font-size: 35px;
-}
-.rating > label:hover:before,
-.rating > label:hover ~ label:before,
-.rating > input.radio-btn:checked ~ label:before,
-.rating > input.radio-btn:checked ~ label:before {
-    content: "\2605";  /*star*/
-    font-size: 35px;
-    left: 0;
-    position: absolute;
-    color: #FFD700;  /*yellow*/
 }

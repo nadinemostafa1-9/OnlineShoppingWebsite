@@ -1,6 +1,6 @@
 <?php
 //this is the model to interact with the database
-
+require "User.php";
 require_once ("db.php");
 
  class Customer extends User{
@@ -88,34 +88,30 @@ require_once ("db.php");
               }
 
                   }
-        public static function setOrders(){
-          $id=Session::get('customer_id');
-          $sql = "UPDATE customers SET orders=orders+1 WHERE customer_id='$id' ";
-          $dbO = new db();
-          $stmt = $dbO->connect()->prepare($sql);
-          $stmt->execute();
-        }
-        public static function getRank(){
-          $id=Session::get('customer_id');
-          $sql = "SELECT * FROM customers WHERE  customer_id='$id'   ";
-          $dbO = new db();
-          $stmt = $dbO->connect()->prepare($sql);
-          $stmt->execute();
-          $orders = $stmt->fetch();
-          $order=$orders['orders'];
-          $Rank='None';
-          if($order>=5)
-          $Rank='bronze';
-           if($order>=10)
-          $Rank='silver';
-           if($order>=15)
-         $Rank='gold'; 
-        return $Rank;
-      }
+     public static function setOrders(){
+       $id=Session::get('customer_id');
+       $dbO = new db();
+       $dbO->orderQuery($id);
+     }
+
+     public function getRank(){
+       $id=Session::get('customer_id');
+       $dbObj = new db();
+       $orders = $dbObj->idQuery($id,'customers');
+       $order=$orders['orders'];
+       $this->Rank='None';
+       if($order>=5)
+       $this->Rank='bronze';
+        if($order>=10)
+       $this->Rank='silver';
+        if($order>=15)
+      $this->Rank='gold';
+     return $this->Rank;
+   }
   
   
     public static function setHistorySearch($id,$cust_id){
-          $count=0;$history=" ";
+          $count=0;$history="";
           $dbObj = new db();
           $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
           $sel =$dbObj->connect()->prepare($qry);

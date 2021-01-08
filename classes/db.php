@@ -88,4 +88,28 @@ public function updatepassQuery($new,$table,$id){
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$new]);
 }
+  public function idQuery($id,$table){
+  if($table == 'customers'){
+    $sql ="SELECT * FROM customers WHERE  customer_id='$id'   ";
+  }else {
+  $sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
+  }
+$stmt = $this->connect()->prepare($sql);
+$stmt->execute();
+$data = $stmt->fetch();
+return $data;
+}
+public function orderQuery($id){
+  $id=Session::get('customer_id');
+  $sql = "UPDATE customers SET orders=orders+1 WHERE customer_id='$id' ";
+  $stmt = $this->connect()->prepare($sql);
+  $stmt->execute();
+  return true;
+}
+public function updateInfoQuery($id,$address,$phone,$city,$card,$currency){
+  $sql = "UPDATE customers SET address=?, phone_number=? , city=?, card_number=?, currency=? WHERE customer_id='$id' ";
+  $stmt = $this->connect()->prepare($sql);
+  $stmt->execute([$address,$phone,$city,$card,$currency]);
+  return true;
+}
 }

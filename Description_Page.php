@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
+  <!--Page style sheet-->
   <link rel="stylesheet" type="text/css" href="css/Description Page.css">
+  <!--Header style sheet-->
+  <link rel="stylesheet" type="text/css" href="css/Header.css">
 
   <title>Description Page</title>
 </head>
@@ -121,7 +124,13 @@
       <!-------------Price--------------->
       <p class="price">$Price</p>
       <!-------------Description--------->
-      <p class="description">Description</p>
+      <div class="description">
+        <p>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</p>
+      </div>
+      <div>
+          <p class="available">Available in stock: </p>
+          <p class="items-no">10</p>
+      </div>
       <div class="txt-center">
         <form class="stars">
           <div class="rating">
@@ -138,9 +147,19 @@
             <div class="clear"></div>
           </div>
           <div class="rate">
-            <button href="#" class="rate-btn">Send Rating</button>
+            <button href="#" class="rate-btn">
+              <svg id="svg1" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+              <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            </button>
           </div>
         </form>
+      </div>
+      <div class="add-btn">
+        <form action="cart.php">
+          <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="quantity" min="1">
+          <button href="#" class="card-btn">Add to Cart</button>
+        </form>    
       </div>
     </div>
   </div>
@@ -150,8 +169,9 @@
   </div>
 
 <!------------------------------------Recommended products--------------------------------------->
-  <form class="cards-center">
-    <div class="card-group">
+  <div class="cards-center">
+  <div class="total">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -164,7 +184,7 @@
         </div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -177,7 +197,7 @@
         </div>
       </div>
     </div>
-    <div class="card-group">
+    <div class="card-group card2">
       <div class="col-md-12">
         <div class="card">
           <a href="cardtest.html">
@@ -190,13 +210,18 @@
         </div>
       </div>
     </div>
-  </form>
+  </div>
+  </div>
 <!----------------------------------------------------------------------------------------------->
+
 <div class="footer">
     <br>
     <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
     <br>
     <p>All rights reserved.</p>
   </div>
+  
+
+  
 </body>
 </html>
