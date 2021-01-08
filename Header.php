@@ -11,7 +11,7 @@ include_once ("classes/session.php");
 
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <button class="dropdown-btn">Clothes
+        <button class="dropdown-btn" onclick="closeNav()">Clothes
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -74,7 +74,7 @@ include_once ("classes/session.php");
 
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <button class="dropdown-btn">Clothes
+        <button class="dropdown-btn" onclick="closeNav()">Clothes
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
