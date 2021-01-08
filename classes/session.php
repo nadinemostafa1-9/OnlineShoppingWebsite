@@ -18,15 +18,13 @@ class Session{
                 return false;
             }
         }
-
-  public static function logged(){
+public static function logged(){
   if(!Session::get('customer_id')){
     return false;
   }else {
     return true;
   }
 }
-  
     public static function getMsg(){
       if ( isset($_SESSION["error"]) ) {
           // Look closely at the use of single and double quotes
