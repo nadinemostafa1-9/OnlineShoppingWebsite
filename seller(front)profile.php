@@ -136,7 +136,7 @@ Session::logged();
       <label for="new"><b>New Password</b></label>
       <input class="in" type="password" id="password" name="new" >
       <label for="psw"><b>Confirm Password</b></label>
-       <input class="in" type="password"  id="confirm_password" name="psw" required>
+       <input class="in" type="password"  id="confirm_password" name="psw" >
       </div>
      </div>
     <!-----for buttons--->
