@@ -1,16 +1,11 @@
 <?php
 require_once ("db.php");
 require_once ("User.php");
-/***
- * Seller class
- *
- * This class contains all details of seller account
- * This class encapsulates all seller information
- *
- */
+require_once ("product.php");
 class Seller extends User{
-    //Properties
+
     private $rank;
+
     //Constructor
     public function __construct($fname, $lname, $em, $pass, $type){
         parent::__construct($fname, $lname, $em, $pass, $type);
@@ -19,7 +14,6 @@ class Seller extends User{
 
       //check correct login
      public static function CheckLogin($email, $password){
-
         $pass = parent::hashPwd($password);
         $db = new db();
         $allData = $db->logindb($email, $pass, 'sellers');
@@ -35,7 +29,6 @@ class Seller extends User{
             return true;
         }
     }
-
       public function CheckEmail(){
           $db = new db();
           $allData = $db->checkEmQuery($this->email,'sellers');
@@ -100,11 +93,18 @@ class Seller extends User{
         public function setRank($rnk){
             $this->rank=$rnk;
         }
-        public function updateRank($rnk){
+        public function updateRank(){
+            $dbObj = new db();
             $id = Session::get('seller_id');
+            $rnk=0;
+            $table_sql = "SELECT * FROM products WHERE sellerID = ?"
+            $st = $dbObj->connect()->prepare($table_sql);
+            $st->execute([$id]);
+            while($row = $st->fetch(PDO::FETCH_ASSOC);){
+                $rnk += $row['count'];
+            }
             $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
-            $dbO = new db();
-            $stmt = $dbO->connect()->prepare($sql);
+            $stmt = $dbObj->connect()->prepare($sql);
             $stmt->execute([$rnk, $id]);
             $allData = $stmt->fetch();
             if($allData==true && $allData['seller_id']!==$id)
@@ -112,7 +112,7 @@ class Seller extends User{
                 else
                 {
                     $sql = "UPDATE sellers SET rank=? WHERE seller_id='$id' ";
-                    $stmt = $dbO->connect()->prepare($sql);
+                    $stmt = $dbObj->connect()->prepare($sql);
                     $stmt->execute([$rnk]);
                     return true;
                 }

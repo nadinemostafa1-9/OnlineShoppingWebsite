@@ -1,7 +1,8 @@
 <?php
 require_once "db.php";
 require_once "product.php";
-if(isset($_POST['submit'])){ 
+if(isset($_POST['submit'])){
+    $seller_id = Session::get('seller_id');
     $product_title=$_POST['product_title'];
     $product_cat=$_POST['category'];
     $product_price=$_POST['product_price'];
@@ -13,8 +14,8 @@ if(isset($_POST['submit'])){
     $temp_name=$_FILES['product_img']['tmp_name'];
 
     $dbObj = new db();
-    $insert_product_query="INSERT INTO products (p_cat, product_title,
-    product_price, product_desc, product_keywords, product_count) VALUES('$product_cat'
+    $insert_product_query="INSERT INTO products (sellerID, p_cat, product_title,
+    product_price, product_desc, product_keywords, product_count) VALUES('$seller_id', '$product_cat'
     , '$product_title', '$product_price','$product_desc','$product_keywords', '$product_count')";
     $stmt = $dbObj->connect()->prepare($insert_product_query);
     $data = $stmt->fetch();
