@@ -1,6 +1,6 @@
 <?php
 
-include('cartFun.php');
+include_once ('prodFun.php');
 
 Session::init();
 //pressing on removing button
@@ -41,9 +41,9 @@ if(isset($_POST["add_to_cart"]))
 function displayCart($cart){
 $items=	$cart->getItems();
 foreach ($items as $value) {
+	$qty = $value->getQuantity();
 	$product = $value->getProduct();
 	if($product->getCount()!=0){
-
 	echo '
 	<div class=col-md-12>
  	<div class="card">
@@ -53,6 +53,7 @@ foreach ($items as $value) {
  		<div class="card-body">
  		<h3 class="card-title">' .$product->getName().'</h3>
  		<p class="item-price">$'.$product->getPrice().'</p>
+		<p class="item-price">quantity: '.$qty.'</p>
  		</div>
  		<div class="add-btn"  id = "card_form">
 		<form method = "post" action ="includes/cartController.php">
