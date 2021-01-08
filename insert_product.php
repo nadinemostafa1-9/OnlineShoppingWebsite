@@ -2,7 +2,7 @@
 require_once "db.php";
 require_once "product.php";
 if(isset($_POST['submit'])){
-    $seller_id = Session::get('seller_id');
+    $seller_id = $_SESSION["seller_id"];
     $product_title=$_POST['product_title'];
     $product_cat=$_POST['category'];
     $product_price=$_POST['product_price'];
@@ -22,8 +22,7 @@ if(isset($_POST['submit'])){
     //to insert the image
     $img_sql = "INSERT INTO products (image) VALUES (LOAD_FILE('E:/Prog/XAMPP/htdocs/img//$temp_name'))" //place where image is saved on the web server
     move_uploaded_file($temp_name, "E:/Prog/XAMPP/htdocs/imgdump//$product_img");
-    //Construct product object!!
-    product($id,$product_title,$product_cat,$product_price,$product_count, $product_img,$product_keywords,$product_desc);
+
     if($data == false)
         return false;
     else{
