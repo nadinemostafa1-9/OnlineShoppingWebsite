@@ -1,0 +1,125 @@
+body{
+	background-color: #333;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+
+.card-group{
+	width: 70%;
+	text-align: left;
+	margin: 0 auto;
+}
+.card{
+	border:none;
+	margin: 10px;
+	background-color: white;
+	color: #333;
+	padding-bottom: 20px;
+
+}
+.card-title{
+	padding-top: 10px;
+	border-top: 1px solid #333;
+	border-width: 80%;
+}
+.card-body{
+	height: 150px;
+}
+.item-price{
+	color:rgb(61,96,64);
+	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/
+	font-weight: bold;
+	font-size: 25px;
+}
+.itemprice{
+	color:#BBB;
+	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/
+	font-weight: bold;
+	font-size: 50px;
+	margin: 10px;
+	margin-bottom: 20px;
+}
+.add-btn{
+	text-align: center;
+	outline: none;
+}
+.add-btn2{
+		text-align: center;
+}
+.card-btn{
+	background-color: rgb(61,96,64);
+	text-align: center;
+	color: #BBB;
+	width:250px;
+	height: 60px;
+	border: 1px solid #333;
+	border-radius: 50px;
+	margin-top: 30px;
+}
+
+.carde-btn{
+	background-color: #BBB;
+	text-align: center;
+	color: #333;
+	width:250px;
+	height: 60px;
+	border: 1px solid #333;
+	border-radius: 50px;
+}
+
+.card a{
+	color:#BBB;
+}
+.card a:hover,.card-btn:hover{
+	color: white;
+}
+.card a:hover,.carde-btn:hover{
+	color: white;
+}
+.card img{
+
+	width:100%;
+	height: 360px;
+}
+
+.footer{
+	width: 100%;
+	height: 150px;
+	background-color: #333;
+	color: #BBB;
+	text-align: center;
+}
+.invoice{
+   width:40%;
+   margin:0 auto;
+   margin-top:2%;
+   border-radius: 20px;
+   background-color:transparent;
+   background: rgba(0,0,0,0.4);
+   color:#DDD;
+   font-weight: bold;
+   font-size:20px;
+	 height: auto;
+  }
+
+.title{
+	text-align: center;
+	}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.quan{
+  background-color: rgb(61,96,64);
+  text-align:center;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  margin:8px;
+  outline: none;
+  border-radius: 50px;
+  width: 250px;
+}
