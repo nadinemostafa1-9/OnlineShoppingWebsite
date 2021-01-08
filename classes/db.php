@@ -31,11 +31,10 @@ public function checkEmQuery($email,$table){
     $sql = "SELECT * FROM customers WHERE email=?";
   else
     $sql = "SELECT * FROM sellers WHERE email=?";
-
-  $dbObj = new db();
-  $stmt = $dbObj->connect()->prepare($sql);
+  $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$email]);
-  $allData = $stmt->fetchAll();
+  $allData = $stmt->fetch();
+  return $allData;
 }
 public function setUserQuery($firstName,$lastName,$email,$password,$type,$table){
   if($table == 'customers')
@@ -88,11 +87,11 @@ public function updatepassQuery($new,$table,$id){
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$new]);
 }
-  public function idQuery($id,$table){
+public function idQuery($id,$table){
   if($table == 'customers'){
     $sql ="SELECT * FROM customers WHERE  customer_id='$id'   ";
   }else {
-  $sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
+    $sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
   }
 $stmt = $this->connect()->prepare($sql);
 $stmt->execute();
@@ -112,4 +111,17 @@ public function updateInfoQuery($id,$address,$phone,$city,$card,$currency){
   $stmt->execute([$address,$phone,$city,$card,$currency]);
   return true;
 }
+//update search $history
+public function updateSearch($cust_id,$history,$table){
+  if($table == 'customers')
+    $q= 'UPDATE customers SET search_history=:id WHERE customer_id =:cust_id' ;
+  else
+      $q= 'UPDATE sellers SET search_history=:id WHERE customer_id =:cust_id' ;
+
+  $insert =$this->connect()->prepare($q);
+  $insert->bindParam(':id',$history);
+  $insert->bindParam(':cust_id',$cust_id);
+  $insert->execute();
+}
+
 }
