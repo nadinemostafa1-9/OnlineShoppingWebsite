@@ -2,7 +2,7 @@
 include_once ("classes/session.php");
  ?>
 
-<script src="js/Header.js"></script>
+<script src="js/Header.js?<?php echo time();?>"></script>
   <!------------------------------------Guest navbar------------------------------------------------>
 <?php if (!Session::logged()) {?>
   <nav class="navbar navbar-dark bg-dark">
