@@ -96,10 +96,10 @@ class Seller extends User{
             $dbObj = new db();
             $id = Session::get('seller_id');
             $count=0;
-            $sql = "SELECT * FROM products WHERE sellerID = ?"
+            $sql = "SELECT * FROM products WHERE sellerID = ?";
             $stmt = $dbObj->connect()->prepare($sql);
             $stmt->execute([$id]);
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 $count += $row['count'];
             }
             if($count<5){
