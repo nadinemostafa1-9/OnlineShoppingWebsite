@@ -1,7 +1,7 @@
 body{
   background-color: rgb(217,217,217);
   background-image: url("https://cdn.shopify.com/s/files/1/0898/4708/articles/global-ecommerce-marketplace.png?v=1538348244");
-  background-size: 100% 50%;
+  background-size: 100% 550px;
   background-repeat: no-repeat;
   width: 100%;
   overflow-x: hidden;
@@ -187,13 +187,12 @@ a:hover{
 .product-image{
   margin-bottom: 20px;
 }
-.img-btn{
+.form-control{
   background-color: transparent;
+  font-size: 25px;
+  border:none;
   width: 200px;
   height: 50px;
-}
-.img-p{
-  display: inline;
 }
 .form-btns{
   text-align: center;
