@@ -95,12 +95,27 @@ class Seller extends User{
         public function updateRank(){
             $dbObj = new db();
             $id = Session::get('seller_id');
-            $rnk=0;
+            $count=0;
             $sql = "SELECT * FROM products WHERE sellerID = ?"
             $stmt = $dbObj->connect()->prepare($sql);
             $stmt->execute([$id]);
             while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
-                $rnk += $row['count'];
+                $count += $row['count'];
+            }
+            if($count<5){
+                $rnk=5;
+            }
+            else if($count>=5 && $count<20){
+                $rnk=4;
+            }
+            else if($count>=20 && $count<50){
+                $rnk=3;
+            }
+            else if($count>=50 && $count<100){
+                $rnk=2;
+            }
+            else {
+                $rnk=1;
             }
             $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
             $stmt = $dbObj->connect()->prepare($sql);
