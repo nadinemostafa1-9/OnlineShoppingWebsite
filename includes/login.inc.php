@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
   }
   else {
     Session::set('error', "Incorrect Email or password");
-    header("Location: ../login.php");
+    header("Location: ../Login.php");
     return;
   }
 }
