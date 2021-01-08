@@ -17,6 +17,8 @@ if(!Session::logged()){
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--for icons--->
 <link rel="stylesheet" type="text/css"href="css/customer(profile).css? <?php echo time(); ?>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/signup.js"></script>
 <title>customer profile</title>
 </head>
   <body>
@@ -58,11 +60,11 @@ if(!Session::logged()){
       <div id="demo" class="collapse">
       <div class="form-group">
       <label for="password"><b>Old Password</b></label>
-      <input class="in" type="password"  name="password" >
+      <input class="in" type="password" name="password" >
       <label for="new"><b>New Password</b></label>
-      <input class="in" type="password"  name="new" >
+      <input class="in" type="password" id="password" name="new" >
       <label for="psw"><b>Confirm Password</b></label>
-       <input class="in" type="password"  id="confirmPassword" name="psw" required>
+       <input class="in" type="password"  id="confirm_password" name="psw" required>
       </div>
      </div>
     <!-----for buttons--->
