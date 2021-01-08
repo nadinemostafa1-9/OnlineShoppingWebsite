@@ -1,53 +1,22 @@
 
 <?php
 include ("class-autoload.inc.php");
+include_once ("prodFun.php");
 //rating product
-if(isset($_POST['submit_rating']))
+if(isset($_POST['rate']))
 {
-   $php_rating=$_POST['phprating'];
-   $cust = $_POST['cust'];
-   $id = $_POST['id'];
-     $mPDO=new db();
-     $stmt = $mPDO->connect()->prepare("SELECT id FROM star_rating WHERE customer_id='$cust' AND id ='$id'");
-     $stmt->execute();
-     $r=$stmt->fetch(PDO::FETCH_ASSOC);
-
-     if($r){
-       $stmt = $mPDO->connect()->prepare("UPDATE star_rating SET rating = ? WHERE customer_id = '$cust'");
-       $stmt->execute([$php_rating]);
-     }
-     else{
-     $stmt = $mPDO->connect()->prepare("INSERT INTO star_rating (customer_id,id,rating)VALUES
-     (:customer_id,:id,:rating)");
-
-     $stmt->bindParam(':id',$id);
-      $stmt->bindParam(':customer_id',$cust);
-     $stmt->bindParam(':rating',$php_rating);
-     $stmt->execute();
+  $php_rating=$_POST['star'];
+  $cust = $_POST['cust'];
+  $id = $_POST['id'];
+  rating($php_rating,$cust,$id);
+     echo '<script>alert("Thank you for your rating :)")
+     window.location.replace("../details.php?id='.$id.'");
+     </script>';
    }
-}
 
-function getProductBy($bywhat,$theValue){
-  $mPDO=new db();
-  $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
-  $prepare=$mPDO->connect()->prepare($q);
-  $prepare->execute();
-  $r=$prepare->fetch(PDO::FETCH_ASSOC);
-  if($r){
- $product=new Product($r['id'],$r['name'],$r['category'],
-$r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
-return $product;
-}
-else{
-  return false;
-}
-}
-function updateProducts($theValue,$quantity){
-  $mPDO=new db();
-  $q="UPDATE products SET count=count-$quantity WHERE id='$theValue'";
-  $prepare=$mPDO->connect()->prepare($q);
-  $prepare->execute();
-}
+
+
+
  function displayProduct($product){
   echo '<div class = "col-md-3">
          <div class="card">
@@ -96,11 +65,9 @@ function displayCartButton($product){
 
 //Display all products in the main page
 function displayAllProducts(){
- $mPDO=new db();
-  $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30";
-  $run = $mPDO->connect()->prepare($get_product);
+  $run = AllProducts();
   $run->execute();
-  while ($row = $run->fetch(PDO::FETCH_ASSOC)) {
+  while ($row = $run->fetch(PDO::FETCH_ASSOC)){
 
     $product = new Product($row['id'],$row['name'],$row['category'],
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
@@ -113,9 +80,7 @@ return true;
 }
 
 function displayProductsByCategory($theValue){
- $mPDO=new db();
-  $q='SELECT * FROM `products` WHERE ' . 'category' . ' LIKE  ' . "'$theValue'";
-  $prepare=$mPDO->connect()->prepare($q);
+ $prepare = category($theValue);
   $prepare->execute();
   while($r=$prepare->fetch(PDO::FETCH_ASSOC)){
     $product=new Product($r['id'],$r['name'],$r['category'],
@@ -129,27 +94,36 @@ return true;
   }
 
 //recommended products
-function displayRecommended(){
-  $cust = new Customer();
-  $re = $cust->get_search_history_array(Session::get('customer_id'));
-  foreach ($re as $r) {
-    $product = getProductBy('id',$r);
+function displayRecommended($d){
+  $arr = Customer::get_search_history_array(Session::get('customer_id'));
+  $i = 0;
+  if(count($arr) == 0)
+  return false;
+  while($i <count($arr)) {
+    if($arr[$i] != " " && $arr[$i]!= NULL ){
+    $product = getProductBy('id',$arr[$i]);
     if($product){
     if($product->getCount()!=0){
       echo '<div class="card-group card2">
         <div class="col-md-12">
           <div class="card">
-            <a href="cardtest.html">
+            <a href="details.php">
               <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
               <h3 class="card-title"> ' .$product->getName().'</h3>
               <p class="item-price">'.$product->getPrice().' LE</p>
             </div>';
+            if($d==0){
             displayCartButton($product);
-            echo '</div>';
+            echo '</div>';}
+            else{
+              echo '</div> </div></div>';
+            }
     }
   }
+}
+$i++;
 }
   return true;
 }

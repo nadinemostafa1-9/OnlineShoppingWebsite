@@ -1,5 +1,5 @@
 <?php
-include("cartFun.php");
+include("prodFun.php");
 require_once("class-autoload.inc.php");
 
 Session::init();
