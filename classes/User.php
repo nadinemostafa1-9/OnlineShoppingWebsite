@@ -23,7 +23,11 @@ if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
     self::$password = $hash;
     return $hash;
   }
-  public static function CheckLogin($email, $password){
-
-  }
+  public static function CheckLogin($email, $password){}
+  public function CheckEmail(){}
+    public function setUser(){}
+    public static function CheckPassword($pass){}
+    public static function update($fname,$lname,$email){}
+    public static function updateAll($fname,$lname,$email,$pass,$new){}
+    public function getRank(){}
 }
