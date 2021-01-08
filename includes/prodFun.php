@@ -1,6 +1,45 @@
 <?php
 include_once ('productController.php');
 
+function getProductBy($bywhat,$theValue){
+  $mPDO=new db();
+  $q='SELECT * FROM `products` WHERE ' . $bywhat . ' = ' . $theValue;
+  $prepare=$mPDO->connect()->prepare($q);
+  $prepare->execute();
+  $r=$prepare->fetch(PDO::FETCH_ASSOC);
+  if($r){
+ $product=new Product($r['id'],$r['name'],$r['category'],
+$r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
+return $product;
+}
+else{
+  return false;
+}
+}
+
+function updateProducts($theValue,$quantity){
+  $mPDO=new db();
+  $q="UPDATE products SET count=count-$quantity WHERE id='$theValue'";
+  $prepare=$mPDO->connect()->prepare($q);
+  $prepare->execute();
+}
+
+function AllProducts(){
+	$mPDO=new db();
+   $get_product = "SELECT * FROM products ORDER BY RAND() LIMIT 30";
+   $run = $mPDO->connect()->prepare($get_product);
+  return $run;
+
+}
+function category($theValue){
+	$mPDO=new db();
+   $q='SELECT * FROM `products` WHERE ' . 'category' . ' LIKE  ' . "'$theValue'";
+   $prepare=$mPDO->connect()->prepare($q);
+	 return $prepare;
+}
+
+
+
 //items in cart
  function gettingCart($customer_id){
 	$mPDO=new db();
