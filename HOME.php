@@ -1,6 +1,7 @@
 <?php
 
  include ("includes/productController.php");
+
  Session::init();
 
  ?>
@@ -22,9 +23,6 @@
   <!--BOOTSTRAP-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-  <!--navbar script-->
-  <script type="text/javascript" src="js/Header.js"></script>
 
   <title>Home Page</title>
 </head>
@@ -74,6 +72,9 @@
 
   <?php
   if(Session::logged()){
+  $arr = Customer::get_search_history_array(Session::get('customer_id'));
+
+  if(count($arr)!=1){
    ?>
   <!--------------------------recommended products section-------------------------------->
   <div class="recommended">
@@ -83,12 +84,12 @@
 
  <div class="cards-center">
   <div class="total">
-    <?php displayRecommended(); ?>
+    <?php displayRecommended(0); ?>
 
 
   </div>
 </div>
-<?php } ?>
+<?php } }?>
   <div class="footer">
     <br>
     <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
