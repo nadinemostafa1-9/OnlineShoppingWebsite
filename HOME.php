@@ -18,7 +18,7 @@
   <!--home style sheet-->
   <link rel="stylesheet" type="text/css" href="css/main.css?<?php echo time(); ?>">
   <!--navbar style sheet-->
-  <link rel="stylesheet" type="text/css" href="css/header.css?<?php echo time(); ?>">
+  <link rel="stylesheet" type="text/css" href="css/Header.css?<?php echo time(); ?>">
 
   <!--BOOTSTRAP-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
 <body>
 
   <!--------------------------------------------------------------------navigation bar----------------------------------------------------------------->
-  <?php include ("header.php");
+  <?php include ("Header.php");
    ?>
 
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
