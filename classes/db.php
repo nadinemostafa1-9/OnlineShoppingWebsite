@@ -99,7 +99,6 @@ $data = $stmt->fetch();
 return $data;
 }
 public function orderQuery($id){
-  $id=Session::get('customer_id');
   $sql = "UPDATE customers SET orders=orders+1 WHERE customer_id='$id' ";
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute();
