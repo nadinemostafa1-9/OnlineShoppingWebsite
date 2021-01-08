@@ -1,6 +1,6 @@
 <?php
 include 'class-autoload.inc.php';
-
+//Seller Updates profile
 Session::init();
 
 if(isset($_POST['cancel'])){

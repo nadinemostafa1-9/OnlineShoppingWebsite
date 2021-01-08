@@ -1,7 +1,6 @@
 <?php
 require_once ("db.php");
 require_once ("User.php");
-require_once ("product.php");
 class Seller extends User{
 
     private $rank;
@@ -97,10 +96,10 @@ class Seller extends User{
             $dbObj = new db();
             $id = Session::get('seller_id');
             $rnk=0;
-            $table_sql = "SELECT * FROM products WHERE sellerID = ?"
-            $st = $dbObj->connect()->prepare($table_sql);
-            $st->execute([$id]);
-            while($row = $st->fetch(PDO::FETCH_ASSOC);){
+            $sql = "SELECT * FROM products WHERE sellerID = ?"
+            $stmt = $dbObj->connect()->prepare($sql);
+            $stmt->execute([$id]);
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
                 $rnk += $row['count'];
             }
             $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";

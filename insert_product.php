@@ -20,23 +20,14 @@ if(isset($_POST['submit'])){
     $stmt = $dbObj->connect()->prepare($insert_product_query);
     $data = $stmt->fetch();
     //to insert the image
-    if (is_uploaded_file($temp_name) {
-        $imgData=addslashes(file_get_contents($temp_name))
-        $imageProp=getimageSize($temp_name);
-        $img_sql="INSERT INTO products (image) VALUES('{$imgData}')";
-        $stmt=$dbObj->connect()->prepare($img_sql);
-        $data=$stmt->fetch();
-        if($data == false)
-            return false;
-    }
+    $img_sql = "INSERT INTO products (image) VALUES (LOAD_FILE('E:/Prog/XAMPP/htdocs/img//$temp_name'))" //place where image is saved on the web server
+    move_uploaded_file($temp_name, "E:/Prog/XAMPP/htdocs/imgdump//$product_img");
     //Construct product object!!
     product($id,$product_title,$product_cat,$product_price,$product_count, $product_img,$product_keywords,$product_desc);
-
     if($data == false)
         return false;
     else{
         echo "<script>alert('Product Inserted successfully')</script>";
         echo "<script>window.open('insert_product.php')</script>";
     }
-
 }

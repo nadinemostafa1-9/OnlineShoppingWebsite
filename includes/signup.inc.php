@@ -20,7 +20,24 @@ if(isset($_POST['signup'])){
     Session::set('error',"This email is already used");
     header("Location: ../signup.php");
   }
-}else {
+}
+elseif($_POST['type'] == 'seller'){
+    $user = new Seller($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'], $_POST['type']);
+    if($user->CheckEmail())
+    {
+        if($user->setSeller()){
+            if(Seller::CheckLogin($_POST['email'],$_POST['password'])){
+                header("Location: ../HOME.php");
+                return;
+            }
+        }
+    }
+    else {
+        Session::set('error',"This email is already used!");
+        header("Location: ../signup.php");
+    }
+}
+else {
   echo "Errrorrrr";
 }
 
