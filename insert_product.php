@@ -15,11 +15,11 @@ if(isset($_POST['submit'])){
 
     $dbObj = new db();
     if (count($_FILES) > 0) {
-        if (is_uploaded_file($temp_name) {
-            $imgData = addslashes(file_get_contents($temp_name);
+        if (is_uploaded_file($temp_name)){
+            $imgData = addslashes(file_get_contents($temp_name));
             $imageProperties = getimageSize($temp_name);
 
-            $img_sql = "INSERT INTO output_images(imageType ,imageData)
+            $img_sql = "INSERT INTO products (imageType ,imageData)
     	       VALUES('{$imageProperties['mime']}', '{$imgData}')";
                $stmt = $dbObj->connect()->prepare($insert_product_query);
                $data = $stmt->fetch();
@@ -30,11 +30,9 @@ if(isset($_POST['submit'])){
     , '$product_title', '$product_price','$product_desc','$product_keywords', '$product_count')";
     $stmt = $dbObj->connect()->prepare($insert_product_query);
     $data = $stmt->fetch();
-    //to insert the image
-    //$img_sql = "INSERT INTO products (image) VALUES (LOAD_FILE('E:/Prog/XAMPP/htdocs/img//$temp_name'))" //place where image is saved on the web server
-    
+
     if($data == true)
         echo "<script>alert('Product Inserted successfully')</script>";
         echo "<script>window.open('insert_product.php')</script>";
-    }
+
 }
