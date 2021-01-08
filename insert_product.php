@@ -19,8 +19,7 @@ if(isset($_POST['submit'])){
             $imgData = addslashes(file_get_contents($temp_name));
             $imageProperties = getimageSize($temp_name);
 
-            $img_sql = "INSERT INTO products (imageType ,imageData)
-    	       VALUES('{$imageProperties['mime']}', '{$imgData}')";
+            $img_sql = "INSERT INTO products (image) VALUES('{$imgData}')";
                $stmt = $dbObj->connect()->prepare($insert_product_query);
                $data = $stmt->fetch();
         }
