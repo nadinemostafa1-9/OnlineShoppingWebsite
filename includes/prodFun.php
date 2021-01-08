@@ -31,13 +31,18 @@ function AllProducts(){
   return $run;
 
 }
+function SellerProducts($id){
+    $dbObj = new db();
+    $sql = "SELECT * FROM products WHERE sellerID = ?";
+    $stmt = $dbObj->connect()->prepare($sql);
+    return $stmt;
+}
 function category($theValue){
 	$mPDO=new db();
    $q='SELECT * FROM `products` WHERE ' . 'category' . ' LIKE  ' . "'$theValue'";
    $prepare=$mPDO->connect()->prepare($q);
 	 return $prepare;
 }
-
 
 
 //items in cart

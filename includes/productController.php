@@ -31,6 +31,18 @@ if(isset($_POST['rate']))
 
 
 }
+//display seller's products
+function displaySellerProducts($id){
+    $stmt = SellerProducts($id);
+    $stmt->execute([$id]);
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $product = new Product($row['id'],$row['name'],$row['category'],
+        $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
+        if($row['count'] != 0){
+            displayProduct($product);
+        }
+    }
+}
 //cart button
 function displayCartButton($product){
   if(Session::get('customer_id') != false){
