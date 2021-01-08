@@ -1,13 +1,14 @@
 <?php
 //this is the model to interact with the database
-require "User.php";
 require_once ("db.php");
 
  class Customer extends User{
 
-   // used when registering new customers
-  public function __construct($fName,$lName,$e, $p,$type){
+    // used when registering new customers
+  public function __construct($fName = null,$lName=null,$e=null, $p=null,$type=null){
+    if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
     parent::__construct($fName,$lName,$e, $p,$type );
+  }
   }
 
   //check correct login
@@ -110,13 +111,10 @@ require_once ("db.php");
    }
   
   
-    public static function setHistorySearch($id,$cust_id){
+      public static function setHistorySearch($id,$cust_id){
           $count=0;$history="";
           $dbObj = new db();
-          $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
-          $sel =$dbObj->connect()->prepare($qry);
-          $sel->execute();
-          $r=$sel->fetch();
+          $r = $dbObj->idQuery($cust_id,'customers');
          if($r){
             $re= explode(",",$r['search_history']);
             foreach (array_reverse($re) as $value) {
@@ -133,23 +131,16 @@ require_once ("db.php");
         }
 
          $history =$history.$id;
-          $q= 'UPDATE customers SET search_history=:id WHERE customer_id =:cust_id' ;
-          $insert =$dbObj->connect()->prepare($q);
-          $insert->bindParam(':id',$history);
-          $insert->bindParam(':cust_id',$cust_id);
-          $insert->execute();
+         $dbObj->updateSearch($cust_id,$history,'customers');
+
         }
 
 public static function get_search_history_array($cust_id){
   $dbObj = new db();
-  $qry='SELECT `search_history` FROM `customers` WHERE customer_id = ' . $cust_id;
-  $sel =$dbObj->connect()->prepare($qry);
-  $sel->execute();
-  $r=$sel->fetch();
+    $r = $dbObj->idQuery($cust_id,'customers');
   if($r){
      $re= explode(",",$r['search_history']);
    }
    return $re;
 }
-
 }
