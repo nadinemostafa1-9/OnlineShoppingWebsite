@@ -8,6 +8,7 @@ if(isset($_POST['cancel'])){
   return;
 }
 else if(isset($_POST['save'])){
+    Seller:: updateRank();
     if($_POST['password']==null && $_POST['new']==null) {
 
         if(Seller::updateInfo($_POST['first_name'], $_POST['last_name'], $_POST['email'])){
