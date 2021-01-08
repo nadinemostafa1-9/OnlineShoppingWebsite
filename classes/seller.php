@@ -123,12 +123,12 @@ class Seller extends User{
             $allData = $stmt->fetch();
             if($allData==true && $allData['seller_id']!==$id)
                 return false;
-                else
-                {
-                    $sql = "UPDATE sellers SET rank=? WHERE seller_id='$id' ";
-                    $stmt = $dbObj->connect()->prepare($sql);
-                    $stmt->execute([$rnk]);
-                    return true;
-                }
+            else
+            {
+                $sql = "UPDATE sellers SET rank=? WHERE seller_id=?";
+                $stmt = $dbObj->connect()->prepare($sql);
+                $stmt->execute([$rnk, $id]);
+                return true;
             }
+        }
 }
