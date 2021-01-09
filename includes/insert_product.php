@@ -1,6 +1,6 @@
 <?php
-require_once "db.php";
-require_once "product.php";
+require_once ('db.php');
+require_once ('product.php');
 if(isset($_POST['submit'])){
     $seller_id = $_SESSION["seller_id"];
     $product_title=$_POST['product_title'];
@@ -9,10 +9,10 @@ if(isset($_POST['submit'])){
     $product_count=$_POST['product_count'];
     $product_keywords=$_POST['product_keywords'];
     $product_desc=$_POST['prod_desc'];
-    $product_img=$_FILES['product_img']['name'];
+    //$product_img=$_FILES['product_img']['name'];
 
     $temp_name=$_FILES['product_img']['tmp_name'];
-
+/*
     $dbObj = new db();
     if (count($_FILES) > 0) {
         if (is_uploaded_file($temp_name)){
@@ -24,10 +24,10 @@ if(isset($_POST['submit'])){
                $stmt = $dbObj->connect()->prepare($insert_product_query);
                $data = $stmt->fetch();
         }
-    }
+    }*/
     $insert_product_query="INSERT INTO products (sellerID, p_cat, product_title,
-    product_price, product_desc, product_keywords, product_count) VALUES('$seller_id', '$product_cat'
-    , '$product_title', '$product_price','$product_desc','$product_keywords', '$product_count')";
+    product_price, product_desc, product_keywords, product_count, img) VALUES('$seller_id', '$product_cat'
+    , '$product_title', '$product_price','$product_desc','$product_keywords', '$product_count', 'LOAD_FILE('E:/Images/$temp_name')')";
     $stmt = $dbObj->connect()->prepare($insert_product_query);
     $data = $stmt->fetch();
 
