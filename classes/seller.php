@@ -1,14 +1,11 @@
 <?php
 require_once ("db.php");
-require_once ("User.php");
 class Seller extends User{
-
-    private $rank;
-
     //Constructor
-    public function __construct($fname, $lname, $em, $pass, $type){
-        parent::__construct($fname, $lname, $em, $pass, $type);
-        $this->rank = 0;
+    public function __construct($fName = null,$lName=null,$e=null, $p=null,$type=null){
+      if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
+      parent::__construct($fName,$lName,$e, $p,$type );
+    }
     }
 
       //check correct login
@@ -31,8 +28,11 @@ class Seller extends User{
       public function CheckEmail(){
           $db = new db();
           $allData = $db->checkEmQuery($this->email,'sellers');
-          if($allData==false)
-                return true;
+          if($allData==false){
+            $data = $db->checkEmQuery($this->email,'customers');
+            if($data == false){
+              return true;}
+                }
             else
                 return false;
           }
@@ -93,42 +93,33 @@ class Seller extends User{
             $this->rank=$rnk;
         }
         public function updateRank(){
+          require_once ("includes/prodFun.php");
             $dbObj = new db();
             $id = Session::get('seller_id');
+            $stmt = getProducts($id);
+            $stmt->execute();
             $count=0;
-            $sql = "SELECT * FROM products WHERE sellerID = ?";
-            $stmt = $dbObj->connect()->prepare($sql);
-            $stmt->execute([$id]);
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                $count += $row['count'];
+                  $count += $row['checked'];
             }
-            if($count<5){
-                $rnk=5;
+
+            if($count<=3){
+                $this->rank="None";
             }
-            else if($count>=5 && $count<20){
-                $rnk=4;
+            if($count>3){
+                $this->rank="bronze";
             }
-            else if($count>=20 && $count<50){
-                $rnk=3;
+            if($count>=6){
+                $this->rank="Silver";
             }
-            else if($count>=50 && $count<100){
-                $rnk=2;
+            if($count>10){
+                $this->rank="Gold";
             }
-            else {
-                $rnk=1;
-            }
-            $sql = "UPDATE sellers SET seller_rank = ? WHERE seller_id = ?";
-            $stmt = $dbObj->connect()->prepare($sql);
-            $stmt->execute([$rnk, $id]);
-            $allData = $stmt->fetch();
-            if($allData==true && $allData['seller_id']!==$id)
-                return false;
-            else
-            {
-                $sql = "UPDATE sellers SET rank=? WHERE seller_id=?";
-                $stmt = $dbObj->connect()->prepare($sql);
-                $stmt->execute([$rnk, $id]);
-                return true;
-            }
+
+            return $this->rank;
         }
+    public static function report($email,$prob){
+      $db = new db();
+      $db->reportQuery($email,$prob,'sellers');
+    }
 }
