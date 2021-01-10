@@ -11,17 +11,22 @@ private $category;
 private $count;
 private $inOffer;
 private $outOfstock;
-public function __construct($id,$name,$category,$price,$count, $img,$keywords,$description){
-  $this->id = $id;
-  $this->name=$name;
-  $this->price=$price;
-  $this->count=$count;
-  $this->img=$img;
-  $this->keywords=$keywords;
-  $this->description=$description;
-  $this->category=$category;
-  $this->outOfstock = false;
-  $this->inOffer = false;
+public function __construct($id = null,$name = null,$category = null,$price = null,$count = null, 
+$img = null,$keywords = null,$description = null){
+  if($id != null || $name != null || $category != null || $price != null || $count != null ||  
+  $img != null || $keywords != null || $description != null)
+  {
+    $this->id = $id;
+    $this->name=$name;
+    $this->price=$price;
+    $this->count=$count;
+    $this->img=$img;
+    $this->keywords=$keywords;
+    $this->description=$description;
+    $this->category=$category;
+    $this->outOfstock = false;
+    $this->inOffer = false;
+  }
 }
 public function getName(){
   return $this->name;
@@ -58,6 +63,9 @@ public function setOutOfstock(){
 }
 public function setPrice($price){
   $this->price=$price;
+}
+public function setCount($count){
+  $this->count=$count;
 }
 public function setDescription($description){
   $this->description=$description;
