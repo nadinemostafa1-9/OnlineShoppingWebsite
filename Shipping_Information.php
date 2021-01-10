@@ -28,10 +28,11 @@ Session::init();
 
 <?php include ("header.php") ?>
 
-<form class="content" method="post" action="includes/checkout.inc.php">
-
+<form class="content">
+  
   <!---------------------------------Title---------------------------------->
   <h2 class="form-title">Shipping Information</h2>
+
   <!---------------------------------Country---------------------------------->
   <label class="form-label" for="city">City:</label>
   <select name="city" id="city">
@@ -41,31 +42,35 @@ Session::init();
     <option value="Sohag">Sohag</option>
     <option value="Suez">Suez</option>
   </select>
+
   <!---------------------------------Address---------------------------------->
   <label class="form-label">Address:</label>
   <textarea id="address"  name="address" placeholder="" required></textarea>
+
   <!---------------------------------Phone Number---------------------------------->
   <label class="form-label" for="no">Phone Number:</label>
   <input class="phone" type="text" name="no" required>
-  <!---------------------------------Card Number---------------------------------->
-  <label class="form-label" for="card" id="cardnum">Card Number:</label>
-  <input type="text" id="card"  name="card" title="Must be 16 digits" pattern=".{16}" >
+
   <!---------------------------------Currency---------------------------------->
   <label class="form-label" for="currency">Currency:</label>
   <div class="radio-btns">
     <input type="radio" id="egp" name="cu" value="egp" required>EGP
+    <br>
     <input type="radio" id="usd" name="cu" value="usd">USD
   </div>
-  <!---------------------------------Payment Method---------------------------------->
+
+  <!---------------------------------Payment Method---------------------------------->   
   <label class="form-label" for="payment">Payment Method:</label>
   <div class="radio-btns">
     <input type="radio" id="cash" name="type" value="cash" required>Cash
+    <br>
     <input type="radio" id="visa" name="type" value="visa">Visa
+    <input type="text" placeholder=" Card Number" id="card"  name="card" title="Must be 16 digits" pattern=".{16}">
   </div>
-
+  
   <!---------------------------------Form buttons---------------------------------->
   <div class="form-btns">
-    <button type="submit" name="checkout" class="add-btn">Confirm Payment</button>
+    <button type="submit"name="submit" class="a-btn">Confirm Payment</button>
     <button type="reset" class="cancel-btn">Cancel</button>
   </div>
 </form>
