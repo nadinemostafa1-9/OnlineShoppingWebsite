@@ -39,8 +39,6 @@ Session::init();
     <option value="alex">Alexandria</option>
     <option value="aswan">Aswan</option>
     <option value="cairo">Cairo</option>
-    <option value="sohag">Sohag</option>
-    <option value="suez">Suez</option>
   </select>
 
   <!---------------------------------Address---------------------------------->
