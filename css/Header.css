@@ -18,6 +18,12 @@ div[id="main"]{
 	display: inline;
 	width: 100%;
 }
+.logo{
+	background-color: transparent;
+	color: #BBB;
+	display: inline-block;
+	margin-right: 20px;
+}
 .nav_bar{
 	display: inline-block;
 	background-color: transparent;
@@ -68,7 +74,7 @@ form.search_bar button{
 /*sign in & sign up*/
 .log_in{
 	width:150px;
-	margin-left: 230px;
+	margin-left: 190px;
 	display: inline-block;
 	text-align: right;
 }
@@ -78,7 +84,7 @@ form.search_bar button{
 }
 .log_out{
 	width:180px;
-	margin-left: 200px;
+	margin-left: 170px;
 	display: inline;
 	text-align: right;
 }
