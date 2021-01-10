@@ -16,7 +16,7 @@ public function getQuantity(){
   return $this->wantedAmount;
 }
 public function setQuantity($q){
-  $wantedAmount=$q;
+  $this->$wantedAmount=$q;
 }
 public function setProduct($item){
   $product=$item;
