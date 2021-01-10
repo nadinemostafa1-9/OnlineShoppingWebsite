@@ -14,10 +14,12 @@
    <!--BOOTSTRAP stylesheet-->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!--Page style sheet-->
+
    <link rel="stylesheet" type="text/css" href="css/Description Page.css?<?php echo time();?>">
    <!--navbar style sheet-->
-   <link rel="stylesheet" type="text/css" href="css/Header.css?<?php echo time(); ?>">
+   <link rel="stylesheet" href="css/Header.css?<?php echo time();?>">
+   <?php if(Session::get('seller_id')){?>
+   <link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>"><?php } ?>
 
    <title>Description Page</title>
  </head>
@@ -30,8 +32,12 @@
   <!-- <script type="text/javascript" src="js/rating.js">  </script> -->
 
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
-  <?php include ("Header.php");
-   ?>
+  <?php if(Session::get('seller_id')){
+    include ("Seller_Header.php");}
+    else {
+      include ("Header.php");
+    }
+     ?>
 
   <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -44,7 +50,7 @@
   <div class="content">
 
     <div class="product-image">
-    <?php echo '<img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" />'; ?>
+    <?php echo '<img src="images/'.$product->getImage().'" />'; ?>
     </div>
     <div class="product-desc">
       <!-------------Title--------------->
@@ -63,6 +69,7 @@
           <p class="available">Available in stock: </p>
           <p class="items-no"><?php echo($product->getCount())?></p>
       </div>
+      <?php if(!Session::get('seller_id')){ ?>
       <div class="txt-center">
         <form class="stars" method="post" action="includes/productController.php">
           <div class="rating">
@@ -89,7 +96,9 @@
           </div>
         </form>
       </div>
-      <?php displayCartButton($product); ?>
+      <?php
+
+       displayCartButton($product); ?>
       <?php
       if(Session::logged()){
       $arr = Customer::get_search_history_array(Session::get('customer_id'));
@@ -106,8 +115,11 @@
   <?php displayRecommended(1); ?>
   </div>
   </div>
+
 <!----------------------------------------------------------------------------------------------->
-<?php } }?>
+<?php } }}?>
+</div>
+</div>
 <?php include("Footer.php")?>
 </body>
 </html>
