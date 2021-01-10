@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Shoppera is an E-commerce web application software system. Users of the system register as customers or sellers. A customer can browse the various categories of items and make an order to buy any amount of products. Categories include; Clothes (men and women), Makeup, Accessories, Toys, Baby care, Electronics, and Home & office. The system provides recommended products for each customer based on their browsing history of the system. A seller can view their stock and add new products.
+Shoppera is an E-commerce web application software system. Users of the system register as customers or sellers. A customer can browse the various categories of items and make an order to buy any amount of products. Categories include; Clothes (men and women), Makeup, Accessories, Toys, Baby care, Electronics, and Home & office. The system provides recommended products for each customer based on their browsing history of the system. The system provides a section for customers to write their reviews, and another one to report a problem. A user registered as a seller has a dashboard that enables them to view their products and the stock of each product. The system allows sellers to add new products to their profile.
 
 ## Technologies Used
 - HTML5
