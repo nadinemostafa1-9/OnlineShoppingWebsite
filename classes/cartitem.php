@@ -3,9 +3,11 @@ class CartItem{
 
 private $product;
 private $wantedAmount;
-public function __construct($product,$amount){
-  $this->product=$product;
-  $wantedAmount=$amount;
+public function __construct($product = null,$amount = null){
+  if($product != null || $amount != null){
+    $this->product=$product;
+    $wantedAmount=$amount;
+  }
 }
 public function getProduct(){
   return $this->product;
