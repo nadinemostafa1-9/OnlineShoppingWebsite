@@ -20,11 +20,7 @@ Shoppera is an E-commerce web application software system. Users of the system r
 - MySQL Database Management System
 
 # Contributors
-<a href="https://github.com/nadinemostafa1-9/SWproject/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nadinemostafa1-9/SWproject" />
-</a>
-
-Made with [contributors-img](https://contrib.rocks).
+[Salma Sherif](https://github.com/Salmasherif33), [Nouran Hussein](https://github.com/NouranHussein),
 
 # Installation
 
