@@ -18,6 +18,12 @@ div[id="main"]{
   display: inline;
   width: 100%;
 }
+.logo{
+  background-color: transparent;
+  color: #BBB;
+  display: inline-block;
+  margin-right: 20px;
+}
 .nav_bar{
   display: inline-block;
   background-color: transparent;
@@ -40,7 +46,7 @@ svg{
 /*profile & logout*/
 .log_out{
   width:180px;
-  margin-left: 800px;
+  margin-left: 750px;
   display: inline;
   text-align: right;
 }
