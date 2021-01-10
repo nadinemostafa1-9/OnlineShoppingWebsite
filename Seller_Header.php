@@ -45,28 +45,10 @@ include_once ("classes/session.php");
 <nav class="navbar navbar-dark bg-dark">
 
     <div class="pagetop">
-
-      <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <button class="dropdown-btn" onmousemove="opencat()">Clothes
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-          <a href="men-clothes.php">Men</a>
-          <a href="women-clothes.php">Women</a>
-        </div>
-        <a href="makeup.php" class="category">Makeup</a>
-        <a href="accessories.php" class="category">Accessories</a>
-        <a href="toys.php" class="category">Toys</a>
-        <a href="Baby_care.php" class="category">Baby Care</a>
-        <a href="electronics.php" class="category">Electronics</a>
-        <a href="office.php" class="category">Home and Office</a>
+       <!--The Website Logo-->
+      <div class="logo">
+        <p>Shoppera</p>
       </div>
-      <!-------open btn------>
-      <div id="main">
-        <button class="openbtn" onclick="openNav()">&#9776;</button>
-      </div>
-
       <div class="nav_bar">
        <!----------------------------Home Page---------------------->
 			 <a href="HOME.html" target="_self">
