@@ -11,8 +11,7 @@ if(isset($_POST["remove"]) && isset($_POST['item_number'])){
 			echo '<script>alert("The item has been removed")
 			window.location.replace("../Cart.php");
 			</script>';
-}
-
+		}
 
 //pressing on add to cart button
 if(isset($_POST["add_to_cart"]))
@@ -38,6 +37,9 @@ if(isset($_POST["add_to_cart"]))
 
 }
 }
+
+
+
 function displayCart($cart){
 $items=	$cart->getItems();
 foreach ($items as $value) {
@@ -48,7 +50,7 @@ foreach ($items as $value) {
 	<div class=col-md-12>
  	<div class="card">
  		<a href="cardtest.html">
- 			<img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" alt="product">
+ 			<img src="images/'.$product->getImage().'" alt="product">
  		</a>
  		<div class="card-body">
  		<h3 class="card-title">' .$product->getName().'</h3>
