@@ -24,6 +24,7 @@ $id=Session::get('customer_id');
 $all=$this->ReturnData();
 $cart=gettingCart($id);
 $sum=$cart->getTotalSum();
+    $delivery=0;
   if($sum>=500)
   $delivery=0;
   else {
