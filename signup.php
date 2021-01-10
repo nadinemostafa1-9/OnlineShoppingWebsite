@@ -15,7 +15,7 @@ Session::init();
 
                  <form action="includes/signup.inc.php"class="container" method="post" >
                      <div class="sh">
-                         <a href="#" class="sh">shopera</a>
+                         <a href="#" class="sh">shoppera</a>
                      </div>
                    <hr>
                    <?php Session::getMsg(); ?>
