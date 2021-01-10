@@ -14,10 +14,10 @@
    <!--BOOTSTRAP stylesheet-->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   <!--Page style sheet-->
    <link rel="stylesheet" type="text/css" href="css/Description Page.css?<?php echo time();?>">
    <!--navbar style sheet-->
-   <link rel="stylesheet" type="text/css" href="css/header.css?<?php echo time(); ?>">
+   <link rel="stylesheet" type="text/css" href="css/Header.css?<?php echo time(); ?>">
 
    <title>Description Page</title>
  </head>
@@ -30,7 +30,7 @@
   <!-- <script type="text/javascript" src="js/rating.js">  </script> -->
 
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
-  <?php include ("header.php");
+  <?php include ("Header.php");
    ?>
 
   <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -108,14 +108,6 @@
   </div>
 <!----------------------------------------------------------------------------------------------->
 <?php } }?>
-<div class="footer">
-    <br>
-    <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
-    <br>
-    <p>All rights reserved.</p>
-  </div>
-
-
-
+<?php include("Footer.php")?>
 </body>
 </html>
