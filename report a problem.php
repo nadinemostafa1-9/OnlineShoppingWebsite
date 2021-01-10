@@ -15,7 +15,7 @@ Session::init();
 <link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>"><?php } ?>
 <link rel="stylesheet" type="text/css"href="css/Header.css?<?php echo time();?>">
 
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <title>report a problem</title>
 </head>
@@ -60,6 +60,6 @@ Session::init();
   </div>
     </form>
  </div>
- <? php include ("Footer.php") ?>
+
   </body>
 </html>
