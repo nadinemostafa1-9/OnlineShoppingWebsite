@@ -17,8 +17,6 @@
 
   <link rel="stylesheet" type="text/css" href="css/main.css? <?php echo time(); ?>">
   <link rel="stylesheet" type="text/css" href="css/Header.css? <?php echo time(); ?>">
-
-
 	<title>Home Page</title>
 </head>
 <body>
@@ -26,26 +24,13 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-
-  <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
   <?php include ("Header.php");
    ?>
-
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
   <div class="card-group">
 
 <?php displayProductsByCategory('home') ?>
 
 </div>
-
-  <div class="footer">
-    <br>
-    <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
-    <br>
-    <p>All rights reserved.</p>
-  </div>
-
+ <? php include ("Footer.php") ?>
 </body>
 </html>
