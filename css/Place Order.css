@@ -12,10 +12,10 @@ body{
 
 .callout {
   position: fixed;
-  top: 15%;
+  top: 10%;
   right: 35%;
   left: 35%;
-  bottom: 65%;
+  bottom: 70%;
   width: 30%;
   height: 30%;
 }
