@@ -26,21 +26,21 @@ Session::init();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/Shipping Information.js"></script>
 
-<?php include ("header.php") ?>
+<?php include ("Header.php") ?>
 
 <form class="content" method="post" action="includes/checkout.inc.php">
-  
+
   <!---------------------------------Title---------------------------------->
   <h2 class="form-title">Shipping Information</h2>
 
   <!---------------------------------Country---------------------------------->
   <label class="form-label" for="city">City:</label>
   <select name="city" id="city">
-    <option value="Alexandria">Alexandria</option>
-    <option value="Aswan">Aswan</option>
-    <option value="Cairo">Cairo</option>
-    <option value="Sohag">Sohag</option>
-    <option value="Suez">Suez</option>
+    <option value="alex">Alexandria</option>
+    <option value="aswan">Aswan</option>
+    <option value="cairo">Cairo</option>
+    <option value="aswan">Sohag</option>
+    <option value="aswan">Suez</option>
   </select>
 
   <!---------------------------------Address---------------------------------->
@@ -49,7 +49,7 @@ Session::init();
 
   <!---------------------------------Phone Number---------------------------------->
   <label class="form-label" for="no">Phone Number:</label>
-  <input class="phone" type="text" name="no" required>
+  <input class="phone" type="text" name="no" title="Must be 11 digits" pattern=".{11}" required>
 
   <!---------------------------------Currency---------------------------------->
   <label class="form-label" for="currency">Currency:</label>
@@ -59,7 +59,7 @@ Session::init();
     <input type="radio" id="usd" name="cu" value="usd">USD
   </div>
 
-  <!---------------------------------Payment Method---------------------------------->   
+  <!---------------------------------Payment Method---------------------------------->
   <label class="form-label" for="payment">Payment Method:</label>
   <div class="radio-btns">
     <input type="radio" id="cash" name="type" value="cash" required>Cash
@@ -67,7 +67,7 @@ Session::init();
     <input type="radio" id="visa" name="type" value="visa">Visa
     <input type="text" placeholder=" Card Number" id="card"  name="card" title="Must be 16 digits" pattern=".{16}">
   </div>
-  
+
   <!---------------------------------Form buttons---------------------------------->
   <div class="form-btns">
     <button type="submit"name="checkout" class="a-btn">Confirm Payment</button>
