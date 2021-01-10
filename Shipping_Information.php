@@ -28,7 +28,7 @@ Session::init();
 
 <?php include ("header.php") ?>
 
-<form class="content">
+<form class="content" method="post" action="includes/checkout.inc.php">
   
   <!---------------------------------Title---------------------------------->
   <h2 class="form-title">Shipping Information</h2>
@@ -70,7 +70,7 @@ Session::init();
   
   <!---------------------------------Form buttons---------------------------------->
   <div class="form-btns">
-    <button type="submit"name="submit" class="a-btn">Confirm Payment</button>
+    <button type="submit"name="checkout" class="a-btn">Confirm Payment</button>
     <button type="reset" class="cancel-btn">Cancel</button>
   </div>
 </form>
