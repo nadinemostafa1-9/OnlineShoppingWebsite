@@ -26,7 +26,7 @@ Session::init();
 <p>Don't have an account? <a href="signup.php">Sign up</a></p>
 </form>
 </div>
-<div class="logal"><a class="logallogo"href="#">Shopera</a></div>
+<div class="logal"><a class="logallogo"href="#">Shoppera</a></div>
 <? php include ("Footer.php") ?>
 </body>
 </html>
