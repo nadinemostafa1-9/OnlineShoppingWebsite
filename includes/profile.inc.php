@@ -16,11 +16,14 @@ else if(isset($_POST['save'])){
     return;
 
   }else if (!Customer::update($_POST['first_name'],$_POST['last_name'],$_POST['email'])) {
+
     Session::set('error',"This Email is already used");
+
    header("Location: ../Profile.php");
    return;
  }
 }
+
   else if($_POST['password']!=null && $_POST['new']!=null){
     if(Customer::updateAll($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password'],$_POST['new'])){
       Session::set('success',"Password Changed");
