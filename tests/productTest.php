@@ -46,6 +46,7 @@ class ProductTest extends TestCase
         $prod6->setCount(1500);
 
         $this->assertEquals(1500, $prod6->getCount());
+        $this->assertInternalType('int', $prod6->getCount());
     }
     public function testReturnsoutOfStock() {
 
@@ -53,6 +54,7 @@ class ProductTest extends TestCase
         $prod7->setOutOfstock();
 
         $this->assertEquals(true, $prod7->isProductOutOfStock());
+        $this->assertInternalType('bool', $prod7->isProductOutOfStock());
     }
 }
 ?>
