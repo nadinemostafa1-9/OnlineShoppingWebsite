@@ -57,7 +57,7 @@ hr {
 }
 button {
   background-color: rgb(61,96,64);
-  color: white;
+  color: #333;
   padding: 14px 20px;
   border: none;
   cursor: pointer;
@@ -69,5 +69,5 @@ button:hover {
 }
 /* Extra styles for the cancel button */
 .cancelbtn {
-  background-color: #f44336;
+  background-color: #BBB;
 }
