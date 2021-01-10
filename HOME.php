@@ -1,9 +1,6 @@
 <?php
-
  include ("includes/productController.php");
-
  Session::init();
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +28,6 @@
   <!--------------------------------------------------------------------navigation bar----------------------------------------------------------------->
   <?php include ("Header.php");
    ?>
-
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
   <div class="image_slider">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -69,7 +65,6 @@
 
   </div>
 
-
   <?php
   if(Session::logged()){
   $arr = Customer::get_search_history_array(Session::get('customer_id'));
@@ -86,16 +81,10 @@
   <div class="total">
     <?php displayRecommended(0); ?>
 
-
   </div>
 </div>
 <?php } }?>
-  <div class="footer">
-    <br>
-    <p>Shoppera is an online store where you can get anything you imagine. While using Shoppera, you agree to have read and accepted our terms of use, cookie and privacy policy.</p>
-    <br>
-    <p>All rights reserved.</p>
-  </div>
+ <?php include("Footer.php")?>
 
 </body>
 </html>
