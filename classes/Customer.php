@@ -1,10 +1,11 @@
 <?php
 //this is the model to interact with the database
+
 require_once ("db.php");
 
  class Customer extends User{
 
-    // used when registering new customers
+   // used when registering new customers
   public function __construct($fName = null,$lName=null,$e=null, $p=null,$type=null){
     if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
     parent::__construct($fName,$lName,$e, $p,$type );
@@ -34,7 +35,9 @@ require_once ("db.php");
     $db = new db();
     $allData = $db->checkEmQuery($this->email,'customers');
       if($allData==false){
-        return true; }
+        $data = $db->checkEmQuery($this->email,'sellers');
+        if($data == false){
+          return true;} }
         else {
             return false;
         }
@@ -44,11 +47,12 @@ require_once ("db.php");
         $dbObj->setUserQuery($this->firstName,$this->lastName,
         $this->email,self::$password,$this->type,'customers');
         $r = $dbObj->checkEmQuery($this->email,'customers');
-               if($r){
-               Session::set('customer_id', $r['customer_id']);
-               return true;}
+               if($r == false){
+                  return false;
+              }
                else {
-                 return false;
+                 return true;
+
                }
         }
 
@@ -68,6 +72,7 @@ require_once ("db.php");
         $db = new db();
         $allData = $db->checkEmQuery($email,'customers');
         if($allData==true && $allData['customer_id']!==$id){
+
        return false;
      }
         else{
@@ -89,7 +94,8 @@ require_once ("db.php");
               }
 
                   }
-     public static function setOrders(){
+
+    public static function setOrders(){
        $id=Session::get('customer_id');
        $dbO = new db();
        $dbO->orderQuery($id);
@@ -109,9 +115,8 @@ require_once ("db.php");
       $this->Rank='gold';
      return $this->Rank;
    }
-  
-  
-      public static function setHistorySearch($id,$cust_id){
+
+   public static function setHistorySearch($id,$cust_id){
           $count=0;$history="";
           $dbObj = new db();
           $r = $dbObj->idQuery($cust_id,'customers');
@@ -142,5 +147,9 @@ public static function get_search_history_array($cust_id){
      $re= explode(",",$r['search_history']);
    }
    return $re;
+}
+public static function report($email,$prob){
+  $db = new db();
+  $db->reportQuery($email,$prob,'customers');
 }
 }
