@@ -13,27 +13,20 @@ Session::init();
 </style>
 </head>
 <body>
-
 <div>
-
-  <form  action="includes/login.inc.php"class="container" method="post">
-    <h1>Login</h1>
-    <hr>
-    <?php Session::getMsg(); ?>
-    <label for="email"><b>Email</b></label>
-    <input type="text"  name="em" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password"  name="pass" required>
-
-    <button type="submit" name="login" class="btn">Login</button>
-
-    <p>Don't have an account? <a href="signup.php">Sign up</a></p>
-  </form>
-
+<form  action="includes/login.inc.php"class="container" method="post">
+<h1>Login</h1>
+<hr>
+ <?php Session::getMsg(); ?>
+<label for="email"><b>Email</b></label>
+<input type="text"  name="em" required>
+<label for="psw"><b>Password</b></label>
+<input type="password"  name="pass" required>
+<button type="submit" name="login" class="btn">Login</button>
+<p>Don't have an account? <a href="signup.php">Sign up</a></p>
+</form>
 </div>
-
 <div class="logal"><a class="logallogo"href="#">Shopera</a></div>
-
+<? php include ("Footer.php") ?>
 </body>
 </html>
