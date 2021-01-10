@@ -143,11 +143,10 @@ Session::logged();
     <div class="tocenter">
      <button type="submit" class="chan all"  name="save">Submit</button>
     <button type="submit" class="chancancel all" name="cancel">Cancel</button>
- 
    </div>
-
-    </div>
-    </form>
+   </div>
+</form>
  </div>
+  <? php include ("Footer.php") ?>
   </body>
 </html>
