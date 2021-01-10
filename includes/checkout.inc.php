@@ -7,7 +7,7 @@ Session::init();
 if(isset($_POST['checkout'])){
 $order=new Order;
 $order::InsertData($_POST['address'], $_POST['no'], $_POST['city'], $_POST['card'],$_POST['cu']);
-header("Location: ../placeorder.php");
+header("Location: ../Place_Order.php");
 Customer::getRank();
 }
  if(isset($_POST['place'])){
