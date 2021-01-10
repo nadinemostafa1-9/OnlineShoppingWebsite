@@ -4,16 +4,13 @@ Session::init();
 if(!Session::logged()){
   die("You are not logged in");
 }
-
  ?>
-
 <!DOCTYPE html>
 <html>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--for icons--->
 <link rel="stylesheet" type="text/css"href="css/customer(profile).css? <?php echo time(); ?>">
@@ -72,12 +69,9 @@ if(!Session::logged()){
      <button type="submit" class="chan all"  name="save">Submit</button>
     <button type="submit" class="chancancel all" name="cancel">Cancel</button>
     </div>
-
     </div>
-
-
     </form>
     </div>
-
+<? php include ("Footer.php") ?>
   </body>
 </html>
