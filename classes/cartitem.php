@@ -19,7 +19,7 @@ public function setQuantity($q){
   $this->$wantedAmount=$q;
 }
 public function setProduct($item){
-  $product=$item;
+  $this->$product=$item;
 }
 public function increaseQuantity($amount=1){
   if($this->wantedAmount+$amount>$this->product->getCount()){
