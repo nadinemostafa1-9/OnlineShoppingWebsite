@@ -19,7 +19,7 @@ class Session{
             }
         }
 public static function logged(){
-  if(!Session::get('customer_id')){
+  if(!Session::get('email')){
     return false;
   }else {
     return true;
