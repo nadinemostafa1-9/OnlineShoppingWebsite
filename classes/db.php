@@ -59,7 +59,7 @@ public function checkPassQuery($pass,$table,$id){
   if($table == 'customers')
   $sql = "SELECT * FROM customers WHERE password=? AND customer_id='$id' ";
   else
-  $sql = "SELECT * FROM sellers WHERE password=? AND customer_id='$id' ";
+  $sql = "SELECT * FROM sellers WHERE password=? AND seller_id ='$id' ";
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$pass]);
   $allData = $stmt->fetch();
@@ -70,7 +70,7 @@ public function updateQuery($fname,$lname,$email,$table,$id){
   if ($table == 'customers')
     $sql = "UPDATE customers SET first_name=?, last_name=?, email=? WHERE customer_id='$id' ";
     else
-    $sql = "UPDATE sellers SET first_name=?, last_name=?, email=? WHERE customer_id='$id' ";
+    $sql = "UPDATE sellers SET first_name=?, last_name=?, email=? WHERE seller_id='$id' ";
 
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$fname,$lname,$email]);
@@ -83,7 +83,7 @@ public function updatepassQuery($new,$table,$id){
   if($table == 'customers')
     $sql = "UPDATE customers SET password=?  WHERE customer_id='$id' ";
   else
-    $sql = "UPDATE sellers SET password=?  WHERE customer_id='$id' ";
+    $sql = "UPDATE sellers SET password=?  WHERE seller_id='$id' ";
   $stmt = $this->connect()->prepare($sql);
   $stmt->execute([$new]);
 }
@@ -91,7 +91,7 @@ public function idQuery($id,$table){
   if($table == 'customers'){
     $sql ="SELECT * FROM customers WHERE  customer_id='$id'   ";
   }else {
-    $sql = "SELECT * FROM sellers WHERE  customer_id='$id'   ";
+    $sql = "SELECT * FROM sellers WHERE  seller_id='$id'   ";
   }
 $stmt = $this->connect()->prepare($sql);
 $stmt->execute();
@@ -115,12 +115,21 @@ public function updateSearch($cust_id,$history,$table){
   if($table == 'customers')
     $q= 'UPDATE customers SET search_history=:id WHERE customer_id =:cust_id' ;
   else
-      $q= 'UPDATE sellers SET search_history=:id WHERE customer_id =:cust_id' ;
+      $q= 'UPDATE sellers SET search_history=:id WHERE seller_id =:cust_id' ;
 
   $insert =$this->connect()->prepare($q);
   $insert->bindParam(':id',$history);
   $insert->bindParam(':cust_id',$cust_id);
   $insert->execute();
+}
+public function reportQuery($email,$prob,$table){
+  if($table == 'customers')
+    $insert =$this->connect()->prepare("INSERT INTO customers (problem) Values (:prob)WHERE email = '$email'") ;
+  else
+   $insert =$this->connect()->prepare("INSERT INTO sellers (problem) Values (:prob)WHERE email = '$email' ") ;
+  $insert->bindParam(':prob',$prob);
+  $insert->execute();
+return true;
 }
 
 }
