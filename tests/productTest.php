@@ -9,6 +9,7 @@ class ProductTest extends TestCase
         $prod1->setName('Jacket');
 
         $this->assertEquals('Jacket', $prod1->getName());
+        $this->assertInternalType('string', $prod1->getName());
     }
     public function testReturnsPrice() {
 
@@ -16,6 +17,7 @@ class ProductTest extends TestCase
         $prod2->setPrice(500);
 
         $this->assertEquals(500, $prod2->getPrice());
+        $this->assertInternalType('int', $prod2->getPrice());
     }
     public function testReturnsKeywords() {
 
