@@ -6,7 +6,7 @@
 - User Guide
 
 # Introduction
-_Shoppera is an online store where you can get anything you imagine. _
+*Shoppera is an online store where you can get anything you imagine.*
 
 Shoppera is an E-commerce web application software system. Users of the system register as customers or sellers. A customer can browse the various categories of items and make an order to buy any amount of products. Categories include; Clothes (men and women), Makeup, Accessories, Toys, Baby care, Electronics, and Home & office.
 
