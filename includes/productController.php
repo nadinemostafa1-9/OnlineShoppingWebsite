@@ -1,6 +1,6 @@
 
 <?php
-include ("class-autoload.inc.php");
+include_once ("class-autoload.inc.php");
 include_once ("prodFun.php");
 //rating product
 if(isset($_POST['rate']))
@@ -13,35 +13,48 @@ if(isset($_POST['rate']))
      window.location.replace("../details.php?id='.$id.'");
      </script>';
    }
+if(isset($_POST['insert'])){
 
+  insert($_POST['seller'],$_POST['product_title'],$_POST['category'],$_POST['product_price']
+,$_POST['product_count'],$_POST['product_keywords'],$_POST['prod_desc'],$_FILES['product_img']['name'],
+$_FILES['product_img']['tmp_name']);
+echo "<script>alert('Product Inserted successfully')</script>";
+         echo "<script>window.location.replace('../Seller.php')</script>";
+}
 
+//display the seller's AllProducts
+function displaySeller(){
+  $stmt = getProducts(Session::get('seller_id'));
+  $stmt->execute();
 
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $product = new Product($row['id'],$row['name'],$row['category'],
+   $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
+   if($row['count'] != 0){
+   displayProduct($product);
+   echo '</div></div>';
+ }
+  }
+  if($stmt->fetch(PDO::FETCH_ASSOC) == false){
+    echo '<p>--------------------<br><br>You have no products added<br><br>---------------</p>';
+    return false;
+  }
+  return true;
+}
 
  function displayProduct($product){
   echo '<div class = "col-md-3">
          <div class="card">
          <a href="details.php?id='.$product->getID().'">
-         <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="product"/>
+         <img src="images/'.$product->getImage().'" class="card-img-top" alt="product"/>
          </a>
          <div class="card-body">
          <h3 class="card-title">' .$product->getName().'</h3>
-         <p class="item-price"> '.$product->getPrice().' LE</p>
-         </div>';
-
-
-
-}
-//display seller's products
-function displaySellerProducts($id){
-    $stmt = SellerProducts($id);
-    $stmt->execute([$id]);
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $product = new Product($row['id'],$row['name'],$row['category'],
-        $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
-        if($row['count'] != 0){
-            displayProduct($product);
-        }
-    }
+         <p class="item-price"> '.$product->getPrice().' LE</p>';
+         if(Session::get('seller_id')){
+           echo '<p class="item-price"> available items: '.$product->getCount().' </p>';
+         }
+         echo '</div>';
 }
 //cart button
 function displayCartButton($product){
@@ -119,8 +132,8 @@ function displayRecommended($d){
       echo '<div class="card-group card2">
         <div class="col-md-12">
           <div class="card">
-            <a href="details.php">
-              <img src="data:image/jpg;base64,'.base64_encode($product->getImage()).'" class="card-img-top" alt="...">
+            <a href="details.php?id='.$product->getID().'">
+              <img src="images/'.$product->getImage().'" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
               <h3 class="card-title"> ' .$product->getName().'</h3>
