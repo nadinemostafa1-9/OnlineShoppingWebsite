@@ -1,6 +1,9 @@
 <?php
- include ("includes/productController.php");
+
+ include ("includes/prodFun.php");
+
  Session::init();
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -26,8 +29,9 @@
 <body>
 
   <!--------------------------------------------------------------------navigation bar----------------------------------------------------------------->
-  <?php include ("Header.php");
+  <?php include ("header.php");
    ?>
+
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
   <div class="image_slider">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -65,6 +69,7 @@
 
   </div>
 
+
   <?php
   if(Session::logged()){
   $arr = Customer::get_search_history_array(Session::get('customer_id'));
@@ -81,10 +86,10 @@
   <div class="total">
     <?php displayRecommended(0); ?>
 
+
   </div>
 </div>
-<?php } }?>
- <?php include("Footer.php")?>
-
+<?php }}?>
+<?php include("Footer.php")?>
 </body>
 </html>
