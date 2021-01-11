@@ -38,8 +38,8 @@ public function checkEmQuery($email,$table){
 }
 public function setUserQuery($firstName,$lastName,$email,$password,$type,$table){
   if($table == 'customers')
-  $insert =$this->connect()->prepare("INSERT INTO customers (first_name,last_name,email,password,type)
-  values(:first_name,:last_name,:email,:password,:type) ");
+  $insert =$this->connect()->prepare("INSERT INTO customers (first_name,last_name,email,password,type,orders)
+  values(:first_name,:last_name,:email,:password,:type,0) ");
   else {
     $insert =$this->connect()->prepare("INSERT INTO sellers (first_name,last_name,email,password,type)
     values(:first_name,:last_name,:email,:password,:type) ");
