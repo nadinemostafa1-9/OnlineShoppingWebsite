@@ -1,7 +1,7 @@
 <?php
 
- include ("includes/productController.php");
- require_once('includes/searchFn.php');
+include ("includes/prodFun.php");
+ require_once('includes/SearchFn.php');
  require_once('classes/db.php');
  require "classes/Customer.php";
  Session::init();
@@ -26,8 +26,8 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
-  <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
-  <?php include ("header.php");
+ 
+  <?php include ("Header.php");
    ?>
 <?php
 $k=$_GET['k']; // getting the search keyword
@@ -40,7 +40,7 @@ if($product_id_history!=NULL && $cust_id!=false)
 Customer::setHistorySearch($product_id_history,$cust_id);
 }
 ?>
-<?php include ("Footer.php")?>
+<?php include ("Footer.php") ?>
 </body>
 
 </html>
