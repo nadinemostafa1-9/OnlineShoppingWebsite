@@ -1,5 +1,5 @@
 <?php
- include ("includes/productController.php");
+include ("includes/prodFun.php");
  Session::init();
  ?>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 
 
     <!--------------------------------------------------------------------navigation bar----------------------------------------------------------------->
-  <?include("Seller_Header.php")?>
+  <?php include("Seller_Header.php")?>
   <!--------------------------------------------------------------------home page image slider using bootstrap------------------------------------------------>
   <div class="image_slider">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
