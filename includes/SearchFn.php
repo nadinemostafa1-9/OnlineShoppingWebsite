@@ -54,7 +54,8 @@ function searchStart($k){
    $r['price'],$r['count'],$r['image'],$r['keywords'],$r['description']);
    displayProduct($product);
    if(Session::get('customer_id') !== false){
-   displayCartButton($product);}
+   displayCartButton($product);}else {
+     echo '</div></div>';
      $f2=0;
     }
 
