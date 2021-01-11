@@ -1,6 +1,6 @@
 <?php
 include 'classes/Order.php';
- include 'includes/cartController.php' ;
+ include 'includes/cartFun.php' ;
  ?>
 <!DOCTYPE html>
 <html>
@@ -75,8 +75,6 @@ $data=$data->placeorder();
       </div>
     </div>
   </form>
-
 <?php include("Footer.php")?>
-
 </body>
 </html>
