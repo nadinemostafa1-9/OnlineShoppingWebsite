@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 class CartTest extends TestCase
 {
     public function testReturnsItems() {
-        require '/home/sa/Documents/SWproject/classes/cart.php';
+        require '/home/sa/Documents/SWproject/classes/cart.php'; //path of the class to be tested
 
         $cart1 = new Cart(['item1', 'item2', 'item3', 'item4']);
 

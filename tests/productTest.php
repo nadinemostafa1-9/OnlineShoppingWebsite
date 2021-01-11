@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 class ProductTest extends TestCase
 {
     public function testReturnsName() {
-        require '/home/sa/Documents/SWproject/classes/product.php';
+        require '/home/sa/Documents/SWproject/classes/product.php'; //path of the class to be tested
 
         $prod1 = new Product();
         $prod1->setName('Jacket');
