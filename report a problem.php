@@ -11,11 +11,12 @@ Session::init();
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--for icons--->
 <link rel="stylesheet" type="text/css"href="css/problem.css?<?php echo time();?>">
-<?php if(Session::get('seller_id')){?>
-<link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>"><?php } ?>
 <link rel="stylesheet" type="text/css"href="css/Header.css?<?php echo time();?>">
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<?php if(Session::get('seller_id')){?>
+<link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>"><?php } ?>
+
+
 
 <title>report a problem</title>
 </head>
@@ -39,12 +40,19 @@ Session::init();
     <div class="form-group">
       <label class="emaildesign" for="email"><b>Email</b></label>
 
-   <div class="inpu"><input class="form-control" name = "email" type="email" placeholder="Enter Email"  required></div>
-    </div><!-----write problem---->
-    <div class="form-group">
-  <label for="problem" class="prob">Write your problem:</label>
- <div class ="d"> <textarea class="form-control"  name "prob" rows="5" id="comment"></textarea></div>
-</div>
+   <div class="inpu">
+     <input class="form-control" name = "email" type="email" placeholder="Enter Email"  required/>
+     <!-----write problem---->
+       <div class="form-group">
+     <label for="prob" class="prob">Write your problem:</label>
+     <div class ="d">
+     <textarea class="form-control" name = "prob" type="text" rows="5" id="comment"  ></textarea>
+   </div>
+   </div>
+ </div>
+    </div>
+
+
     <!--------- button edit------>
  <div class="buttonsdesign">
    <button type="submit" class="sub " name = "report" data-toggle="collapse" data-target="#demo" required>Submit</button>
@@ -56,10 +64,8 @@ Session::init();
 </div>      </div>
 
      </div>
-
-  </div>
     </form>
  </div>
-  <? php include ("Footer.php") ?>
+
   </body>
 </html>
