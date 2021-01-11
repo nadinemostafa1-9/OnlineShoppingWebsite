@@ -67,9 +67,9 @@ include ("includes/prodFun.php");
           <p class="available">Available in stock: </p>
           <p class="items-no"><?php echo($product->getCount())?></p>
       </div>
-      <?php if(!Session::get('seller_id')){ ?>
+      <?php if(Session::get('customer_id')){ ?>
       <div class="txt-center">
-        <form class="stars" method="post" action="includes/productController.php">
+        <form class="stars" method="post" action="includes/prodFun.php">
           <div class="rating">
             <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
             <label for="star5">☆</label>
