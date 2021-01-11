@@ -122,11 +122,10 @@ public function updateSearch($cust_id,$history,$table){
   $insert->bindParam(':cust_id',$cust_id);
   $insert->execute();
 }
-public function reportQuery($email,$prob,$table){
-  if($table == 'customers')
-    $insert =$this->connect()->prepare("INSERT INTO customers (problem) Values (:prob)WHERE email = '$email'") ;
-  else
-   $insert =$this->connect()->prepare("INSERT INTO sellers (problem) Values (:prob)WHERE email = '$email' ") ;
+public function reportQuery($email,$prob){
+
+  $insert =$this->connect()->prepare("INSERT INTO problems (email,problems) Values (:email,:prob)") ;
+  $insert->bindParam(':email',$email);
   $insert->bindParam(':prob',$prob);
   $insert->execute();
 return true;
