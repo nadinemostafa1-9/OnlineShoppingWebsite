@@ -30,7 +30,7 @@ include_once ("classes/session.php");
        </div>
        <!--The Website Logo-->
       <div class="logo">
-        <p><b>Shoppera</b></p>
+        <p>Shoppera</p>
       </div>
        <div class="nav_bar">
         <!----------------------------Home Page---------------------->
@@ -68,7 +68,7 @@ include_once ("classes/session.php");
     <div class="pagetop">
       <!--The Website Logo-->
       <div class="logo">
-        <p><b>Shoppera</b></p>
+        <p>Shoppera</p>
       </div>
       <div class="nav_bar">
        <!----------------------------Home Page---------------------->
