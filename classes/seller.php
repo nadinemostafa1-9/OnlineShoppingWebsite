@@ -10,9 +10,9 @@ class Seller extends User{
 
       //check correct login
      public static function CheckLogin($email, $password){
-        $pass = parent::hashPwd($password);
+        $pass = parent::hashPwd(htmlentities($password));
         $db = new db();
-        $allData = $db->logindb($email, $pass, 'sellers');
+        $allData = $db->logindb(htmlentities($email), htmlentities($pass), 'sellers');
 
         if($allData == false)
             return false;
@@ -60,6 +60,9 @@ class Seller extends User{
                   return true;
               }
               public static function update($fname,$lname,$email){
+                $fname = htmlentities($fname);
+                $lname = htmlentities($lname);
+                $email = htmlentities($email);
                   $id=Session::get('seller_id');
                   $db = new db();
                   $allData = $db->checkEmQuery($email,'sellers');
@@ -73,6 +76,11 @@ class Seller extends User{
               }
 
               public static function updateAll($fname, $lname, $email, $pass, $new){
+                $fname = htmlentities($fname);
+                $lname = htmlentities($lname);
+                $email = htmlentities($email);
+                $pass = htmlentities($pass);
+                $new = htmlentities($new);
                   $id=Session::get('seller_id');
                   if(Seller::CheckPassword($pass)){
                       $dbO = new db();
@@ -85,6 +93,12 @@ class Seller extends User{
                       return false;
                   }
               }
+      public static function insert($seller_id,$product_title,$product_cat,$product_price,$product_count,
+     $product_keywords,$product_desc,$product_img,$temp_name){
+       Controller::insertQuery($seller_id,htmlentities($product_title),htmlentities($product_cat),
+       htmlentities($product_price),htmlentities($product_count),
+      htmlentities($product_keywords),htmlentities($product_desc),$product_img,$temp_name);
+      }
     //Seller rank methods
         public function getRank(){
             return $this->rank;
@@ -93,10 +107,10 @@ class Seller extends User{
             $this->rank=$rnk;
         }
         public function updateRank(){
-          require_once ("includes/prodFun.php");
+          require_once ("Controller.php");
             $dbObj = new db();
             $id = Session::get('seller_id');
-            $stmt = getProducts($id);
+            $stmt = Controller::getProducts($id);
             $stmt->execute();
             $count=0;
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -118,8 +132,5 @@ class Seller extends User{
 
             return $this->rank;
         }
-    public static function report($email,$prob){
-      $db = new db();
-      $db->reportQuery($email,$prob,'sellers');
-    }
+
 }
