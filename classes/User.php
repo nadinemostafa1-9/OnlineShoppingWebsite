@@ -1,5 +1,5 @@
 <?php
-
+require_once ("db.php");
   abstract class User{
   protected $firstName;
   protected $lastName;
@@ -32,5 +32,11 @@ if($fName != null||$lName!=null||$e!=null|| $p!=null||$type!=null ){
     public static function update($fname,$lname,$email){}
     public static function updateAll($fname,$lname,$email,$pass,$new){}
     public function getRank(){}
-    
+
+    public static function report($email,$prob){
+      $dbo = new db();
+      $dbo->reportQuery($email,$prob);
+      return true;
+    }
+
 }
