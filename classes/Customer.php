@@ -17,7 +17,7 @@ require_once ("db.php");
 
     $pass = parent::hashPwd($password);
     $db = new db();
-    $allData = $db->logindb($email, $pass, 'customers');
+    $allData = $db->logindb(htmlentities($email), htmlentities($pass), 'customers');
 
     if($allData == false){
       return false;
@@ -70,13 +70,13 @@ require_once ("db.php");
         public static function update($fname,$lname,$email){
         $id=Session::get('customer_id');
         $db = new db();
-        $allData = $db->checkEmQuery($email,'customers');
+        $allData = $db->checkEmQuery(htmlentities($email),'customers');
         if($allData==true && $allData['customer_id']!==$id){
 
        return false;
      }
         else{
-          $db->updateQuery($fname,$lname,$email,'customers',$id);
+          $db->updateQuery(htmlentities($fname),htmlentities($lname),htmlentities($email),'customers',$id);
           return true;
         }
       }
@@ -85,9 +85,9 @@ require_once ("db.php");
            $id=Session::get('customer_id');
             if(Customer::CheckPassword($pass)){
               $dbO = new db();
-              $dbO->updateQuery($fname,$lname,$email,'customers',$id);
-              $new = parent::hashPwd($new);
-              $dbO->updatepassQuery($new,'customers',$id);
+              $dbO->updateQuery(htmlentities($fname),htmlentities($lname),htmlentities($email),'customers',$id);
+              $new = parent::hashPwd(htmlentities($new));
+              $dbO->updatepassQuery(htmlentities($new),'customers',$id);
                 return true;
               }else {
                 return false;
@@ -148,8 +148,5 @@ public static function get_search_history_array($cust_id){
    }
    return $re;
 }
-public static function report($email,$prob){
-  $db = new db();
-  $db->reportQuery($email,$prob,'customers');
-}
+
 }
