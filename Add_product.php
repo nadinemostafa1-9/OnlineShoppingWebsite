@@ -9,24 +9,22 @@ if(!Session::logged()){
  <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<!--BOOTSTRAP meta-->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!--BOOTSTRAP stylesheet-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  	<!--Page style sheet-->
-  	<link rel="stylesheet" type="text/css" href="css/Add Product.css?<?php echo time();?>">
-  	<!--Navbar style sheet-->
-  	<link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>">
-	
-	<title>Add Product</title>
+  <meta charset="utf-8">
+  <!--BOOTSTRAP meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--BOOTSTRAP stylesheet-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Page style sheet-->
+  <link rel="stylesheet" type="text/css" href="css/Add Product.css?<?php echo time();?>">
+  <!--Header style sheet-->
+  <link rel="stylesheet" href="css/Seller Header.css?<?php echo time();?>">
+  <title>Add Product</title>
 </head>
 <body>
   <!--BOOTSTRAP -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
- 
   <script src="js/Add Product.js"></script>
 
   <?include ("Seller_Header.php")?>
@@ -45,13 +43,13 @@ if(!Session::logged()){
   <h3 class="form-label">Category</h3>
   <select  class="category-sel" name="category" id="category">
     <option value="women-clothes" selected="selected">Women Clothes</option>
-    <option value="men-clothes" selected="selected">Men Clothes</option>
-    <option value="makeup" selected="selected">Makeup</option>
+    <option value="Men Clothes" selected="selected">Men Clothes</option>
+    <option value="Makeup" selected="selected">Makeup</option>
     <option value="accessories" selected="selected">Accessories</option>
     <option value="toys" selected="selected">Toys</option>
     <option value="baby-care" selected="selected">Baby Care</option>
     <option value="electronics" selected="selected">Electronics</option>
-    <option value="home" selected="selected">Home and Office</option>
+    <option value="home and office" selected="selected">Home and Office</option>
   </select>
 
   <!-----------------------------------Product image-------------------------------->
