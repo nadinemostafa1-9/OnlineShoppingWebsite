@@ -1,6 +1,7 @@
 <?php
 
- include ("includes/cartController.php");
+ include ("includes/cartFun.php");
+ // include ('classes/Controller.php');
  if(!Session::logged()){
    die("You are not logged in");
  }
@@ -22,8 +23,8 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <!--------------------------------------------------------------------navigation bar----------------------------------------------------------------->
-    <?php include ("header.php");
+    
+    <?php include ("Header.php");
     ?>
 
 
@@ -36,7 +37,7 @@
   </div>
   <hr>
   <?php $cust_id=Session::get('customer_id');
-  $cart=gettingCart($cust_id); ?>
+  $cart=Controller::gettingCart($cust_id); ?>
 <div class="card-group">
   <?php
 displayCart($cart);
@@ -46,10 +47,10 @@ displayCart($cart);
   <div>
     <div class="itemprice">
       <?php $cust_id=Session::get('customer_id');
-      $cart=gettingCart($cust_id);
+      $cart=Controller::gettingCart($cust_id);
       $sum = $cart->getTotalSum();
       if($sum != 0){
-      echo 'Total = '.$sum;
+      echo 'Total = '.$sum . ' LE';
     }else {
         echo 'There is no items in the cart';
       } ?>
@@ -67,6 +68,6 @@ displayCart($cart);
 
   </div>
 
- <?php include ("Footer.php")?>
+<?php include ("Footer.php")?>
         </body>
     </html>
