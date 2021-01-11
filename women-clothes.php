@@ -1,6 +1,6 @@
 <?php
 
- include ("includes/productController.php");
+include ("includes/prodFun.php");
  Session::init();
 
  ?>
@@ -14,10 +14,11 @@
 	<!--BOOTSTRAP stylesheet-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Page style sheet-->
+
   <link rel="stylesheet" type="text/css" href="css/main.css? <?php echo time(); ?>">
-  <!--Header style sheet-->
   <link rel="stylesheet" type="text/css" href="css/Header.css? <?php echo time(); ?>">
+
+
 	<title>Home Page</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
 
   <?php include ("Header.php");
    ?>
-   
+
   <div class="card-group">
 
 <?php displayProductsByCategory('women-clothes') ?>
