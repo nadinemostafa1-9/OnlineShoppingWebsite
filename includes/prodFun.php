@@ -1,45 +1,63 @@
 
 <?php
 include_once ("class-autoload.inc.php");
-include_once ("prodFun.php");
 //rating product
 if(isset($_POST['rate']))
 {
   $php_rating=$_POST['star'];
   $cust = $_POST['cust'];
   $id = $_POST['id'];
-  rating($php_rating,$cust,$id);
+  Controller::rating($php_rating,$cust,$id);
      echo '<script>alert("Thank you for your rating :)")
      window.location.replace("../details.php?id='.$id.'");
      </script>';
    }
 if(isset($_POST['insert'])){
 
-  insert($_POST['seller'],$_POST['product_title'],$_POST['category'],$_POST['product_price']
+  Seller::insert($_POST['seller'],$_POST['product_title'],$_POST['category'],$_POST['product_price']
 ,$_POST['product_count'],$_POST['product_keywords'],$_POST['prod_desc'],$_FILES['product_img']['name'],
 $_FILES['product_img']['tmp_name']);
 echo "<script>alert('Product Inserted successfully')</script>";
          echo "<script>window.location.replace('../Seller.php')</script>";
 }
 
+//seller remove product
+if(isset($_POST['remove'])){
+Controller::sellerRemove($_POST['item_number'],$_POST['seller']);
+echo "<script>alert('Product has been deleted successfully')</script>";
+         echo "<script>window.location.replace('../Seller.php')</script>";
+}
+
 //display the seller's AllProducts
 function displaySeller(){
-  $stmt = getProducts(Session::get('seller_id'));
+  $stmt = Controller::getProducts(Session::get('seller_id'));
   $stmt->execute();
-
+  if($stmt->fetch(PDO::FETCH_ASSOC) == false){
+    echo '<p>--------------------<br><br>You have no products added<br><br>---------------</p>';
+    return false;
+  }
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $product = new Product($row['id'],$row['name'],$row['category'],
    $row['price'],$row['count'],$row['image'],$row['keywords'],$row['description']);
    if($row['count'] != 0){
    displayProduct($product);
+   removeButton($product);
    echo '</div></div>';
  }
   }
-  if($stmt->fetch(PDO::FETCH_ASSOC) == false){
-    echo '<p>--------------------<br><br>You have no products added<br><br>---------------</p>';
-    return false;
-  }
+
   return true;
+}
+function removeButton($product){
+  echo '
+  <div class="add-btn"  id = "card_form">
+  <form method = "post" action ="includes/prodFun.php">
+  <input type ="hidden" name = "item_number" value ='.$product->getID().'>
+  <input type ="hidden" name = "seller" value ='.Session::get('seller_id').'>
+  <button type = "submit" name = "remove" class="card-btn">Remove</button></form>
+
+  </div>
+';
 }
 
  function displayProduct($product){
@@ -60,7 +78,7 @@ function displaySeller(){
 function displayCartButton($product){
   if(Session::get('customer_id') != false){
   echo ' <div class="add-btn" id = "card_form">
-         <form method = "post" action ="includes/cartController.php?action=add&id='.$product->getID().'"/>
+         <form method = "post" action ="includes/cartFun.php?action=add&id='.$product->getID().'"/>
           <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="qty" min="1" max =
           '.$product->getCount().'>
          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
@@ -73,7 +91,7 @@ function displayCartButton($product){
          </div></div>';
 }else {
   echo ' <div class="add-btn" id = "card_form">
-         <form method = "post" action ="login.php"/>
+         <form method = "post" action ="Login.php"/>
           <input class="card-btn2" placeholder="Number of items" type="number" id="quantity" name="qty" min="1" max =
           '.$product->getCount().'>
          <input type ="hidden" name = "item_number" value ='.$product->getID().'/>
@@ -90,7 +108,7 @@ function displayCartButton($product){
 
 //Display all products in the main page
 function displayAllProducts(){
-  $run = AllProducts();
+  $run = Controller::AllProducts();
   $run->execute();
   while ($row = $run->fetch(PDO::FETCH_ASSOC)){
 
@@ -105,7 +123,7 @@ return true;
 }
 
 function displayProductsByCategory($theValue){
- $prepare = category($theValue);
+ $prepare = Controller::category($theValue);
   $prepare->execute();
   while($r=$prepare->fetch(PDO::FETCH_ASSOC)){
     $product=new Product($r['id'],$r['name'],$r['category'],
@@ -126,7 +144,7 @@ function displayRecommended($d){
   return false;
   while($i <count($arr)) {
     if($arr[$i] != " " && $arr[$i]!= NULL ){
-    $product = getProductBy('id',$arr[$i]);
+    $product = Controller::getProductBy('id',$arr[$i]);
     if($product){
     if($product->getCount()!=0){
       echo '<div class="card-group card2">
