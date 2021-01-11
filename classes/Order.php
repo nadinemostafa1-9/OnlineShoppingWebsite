@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Order{
   private $address;
   private $phone;
@@ -22,9 +22,10 @@ public function ReturnData(){
 public function placeorder(){
 $id=Session::get('customer_id');
 $all=$this->ReturnData();
-$cart=gettingCart($id);
+$cart=Controller::gettingCart($id);
 $sum=$cart->getTotalSum();
-    $delivery=0;
+
+$delivery=0;
   if($sum>=500)
   $delivery=0;
   else {
@@ -58,4 +59,3 @@ $sum=$cart->getTotalSum();
       return $data;
 }
 }
-
