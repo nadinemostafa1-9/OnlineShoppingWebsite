@@ -39,19 +39,19 @@ $delivery=0;
     $rank=$cust->getRank();
     if($rank=='bronze'){
     $sum=$sum-$sum*0.05;
-    $dis='5%'; }
+    $dis='5% (your rank is Bronze !)'; }
     else if($rank=='silver'){
     $sum=$sum-$sum*0.1;
-    $dis='10%'; }
+    $dis='10% (your rank is Silver !)'; }
     else if($rank=='gold'){ $sum=$sum-$sum*0.15;
-    $dis='15%'; }
-    else   $dis='No discount';
+    $dis='15% (your rank is Gold !)'; }
+    else   $dis='No discount (your rank is None !)';
     $total=$sum+$delivery;
     if($all['currency']=='usd'){
     $total=$total*0.064;
     $total=$total.'USD'; }
     else   $total=$total.'EGP';
-      if($delivery==0) $delivery='Free';
+      if($delivery==0) $delivery='Free (Your order is more than 500 LE)';
         if($all['card_number']==0)
           $pay='Cash';
         else $pay='Visa';
