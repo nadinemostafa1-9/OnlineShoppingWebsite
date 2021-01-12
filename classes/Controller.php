@@ -176,4 +176,22 @@ public static function sellerRemove($id,$seller_id){
    $prepare->execute();
    return true;
 }
+
+public static function avgRate($id){
+  $db = new db();
+  $avg = 0;
+  $sum = 0;
+  $count = 0;
+  $q = "SELECT * FROM star_rating WHERE id = '$id'";
+  $stmt = $db->connect()->prepare($q);
+  $stmt->execute();
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $count +=1;
+    $sum += $row['rating'];
+  }
+  if($sum == 0)
+    return 0;
+  $avg = $sum/$count;
+  return ($avg);
+}
 }
