@@ -66,6 +66,6 @@ Session::init();
      </div>
     </form>
  </div>
-
+ <? php include ("Footer.php") ?>
   </body>
 </html>
