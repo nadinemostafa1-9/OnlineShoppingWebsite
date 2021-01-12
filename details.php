@@ -66,6 +66,15 @@ include ("includes/prodFun.php");
       <div>
           <p class="available">Available in stock: </p>
           <p class="items-no"><?php echo($product->getCount())?></p>
+          <br>
+          <?php $avg = Controller::avgRate($pid);
+            if($avg ==0)
+            $p = "No rating yet";
+            else {
+              $p = $avg . " / 5";
+            }
+           ?>
+          <p class="items-no">Average rating: <?php echo($p)?></p>
       </div>
       <?php if(Session::get('customer_id')){ ?>
       <div class="txt-center">
