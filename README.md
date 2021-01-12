@@ -25,8 +25,8 @@ Shoppera is an E-commerce web application software system. Users of the system r
 [Salma Sherif](https://github.com/Salmasherif33), [Nouran Hussein](https://github.com/NouranHussein), [Nadine Mostafa](https://github.com/nadinemostafa1-9), [Salma Hamed](https://github.com/Salma-Hamed), [Shrouk Ashraf](https://github.com/Shrouk-hub), [Shaimaa Abdelaziz](https://github.com/shimaa88), [Nourhan Habib](https://github.com/nourhan91), [Salma Abdelfattah](https://github.com/salma77)
 
 ## Installation
-1- You need to have a local web server as a host (e.g. [XAMPP](https://www.apachefriends.org/download.html), [MAMP](https://www.mamp.info/en/downloads/) )
-2- Use the web server to create a database.
-2- Clone this repository and add it to your web server.
+1- You need to have a local web server as a host (e.g. [XAMPP](https://www.apachefriends.org/download.html), [MAMP](https://www.mamp.info/en/downloads/)) \n
+2- Use the web server to create a database.\n
+3- Clone this repository and add it to your web server.
 
 ## User Guide
