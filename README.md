@@ -26,10 +26,14 @@ Shoppera is an E-commerce web application software system. Users of the system r
 
 ## Installation Instructions
 1- You need to have a local web server as a host (e.g. [XAMPP](https://www.apachefriends.org/download.html), [MAMP](https://www.mamp.info/en/downloads/) )
-FOLLOW THIS LINK TO DOWNLOAD MAMP PROPERLY https://www.youtube.com/watch?v=0P6DEUJaVTc&t=4s
+FOLLOW THIS [LINK](https://www.youtube.com/watch?v=0P6DEUJaVTc&t=4s) TO DOWNLOAD MAMP PROPERLY 
+
 2- Download this files in the repo and extract them in a file called (htdocs) in MAMP folder in C drive on WINDOWS OS.
+
 3- Open the server of the MAMP and open phpmyadmin in the local host, then import the database uploaded in the repo.
-4- On localhost page write this to open the website (localhost/PROJECT FOLDER NAME/HOME.php
-(for any question, send  message for any of contributors).
+
+4- On localhost page write this to open the website (localhost/PROJECT FOLDER NAME/HOME.php)
+
+(for any questions, send  message for any of contributors).
 
 ## User Guide
