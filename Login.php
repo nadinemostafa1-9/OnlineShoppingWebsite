@@ -28,6 +28,6 @@ Session::init();
 </form>
 </div>
 <div class="logal"><a class="logallogo"href="#">Shoppera</a></div>
-<?php include ("Footer.php") ?>
+
 </body>
 </html>
