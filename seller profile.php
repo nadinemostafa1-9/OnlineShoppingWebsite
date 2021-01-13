@@ -19,7 +19,7 @@ if(!Session::logged()){
 
 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/signup.js"></script>
+
 <title>seller profile</title>
 </head>
   <body>
@@ -63,8 +63,7 @@ if(!Session::logged()){
       <input class="in" type="password"  name="password" >
       <label for="new"><b>New Password</b></label>
       <input class="in" type="password" id="password" name="new" >
-      <label for="psw"><b>Confirm Password</b></label>
-       <input class="in" type="password"  id="confirm_password" name="psw" >
+    
       </div>
      </div>
     <!-----for buttons--->
