@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
 font-family: Arial, Helvetica, sans-serif;
-   background-image: url("icon.jpg");
+   background-image: url("https://www.plasticstoday.com/sites/cet.com/files/PTI-ecommerce-AdobeStock_207963206.jpg");
    background-size: cover;
 
    margin:0px;
@@ -25,7 +25,7 @@ font-family: Arial, Helvetica, sans-serif;
   color:#DDD;
 }
 /* Full-width input fields */
-input[type=email], input[type=password] {
+input[type=text], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -34,7 +34,7 @@ input[type=email], input[type=password] {
   background: transparent;
   font-size: large;
   color:#DDD;
-outline:0px;
+
 }
 
 /* Set a style for the submit button */
