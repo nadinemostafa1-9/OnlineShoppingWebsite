@@ -28,13 +28,20 @@ Shoppera is an E-commerce web application software system. Users of the system r
 1- You need to have a local web server as a host (e.g. [XAMPP](https://www.apachefriends.org/download.html), [MAMP](https://www.mamp.info/en/downloads/) )
 FOLLOW THIS [LINK](https://www.youtube.com/watch?v=0P6DEUJaVTc&t=4s) TO DOWNLOAD MAMP PROPERLY 
 
-2- Download this files in the repo and extract them in a file called (htdocs) in MAMP folder in C drive on WINDOWS OS.
+2- Download this files in the repo(zip folder) and extract them in a file called (htdocs) in MAMP folder in C drive on WINDOWS OS.
 
-3- Open the server of the MAMP and open phpmyadmin in the local host, then import the database uploaded in the repo.
+3- Open the server of the MAMP and open phpmyadmin in the local host, then write this SQL query in SQL tab in phpMyAdmin to make a database connection correctly to our file
 
-4- On localhost page write this to open the website (localhost/PROJECT FOLDER NAME/HOME.php)
+CREATE DATABASE eCommerce;
+GRANT ALL ON eCommerce.* TO 'proj'@'localhost' IDENTIFIED BY 'zap';
+GRANT ALL ON eCommerce.* TO 'proj'@'127.0.0.1' IDENTIFIED BY 'zap';
+
+4-import the database uploaded in the repo inside this database which you created.
+
+5- On localhost page write this in URL tap to open the website (localhost/PROJECT FOLDER NAME/HOME.php)
 
 (for any questions, send  message for any of contributors).
+"These instructions are temporarly until the website is deployed.
 
 ## User Guide
 To open the user guide, click [HERE](https://github.com/nadinemostafa1-9/SWproject/blob/master/User%20Guide/User%20Guide.pdf).
