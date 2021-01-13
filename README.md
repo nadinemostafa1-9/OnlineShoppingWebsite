@@ -7,6 +7,7 @@
 - Contributors
 - Installation
 - User Guide
+- Presentation 
 
 ## Introduction
 
@@ -45,3 +46,6 @@ GRANT ALL ON eCommerce.* TO 'proj'@'127.0.0.1' IDENTIFIED BY 'zap';
 
 ## User Guide
 To open the user guide, click [HERE](https://github.com/nadinemostafa1-9/SWproject/blob/master/User%20Guide/User%20Guide.pdf).
+
+## Presentation
+To open the presentation click [HERE](https://docs.google.com/presentation/d/1GEdg6HjEVmTSle_ZL-gOz-3BTiGw6zBe6IUrHlsjBmI/edit#slide=id.gabdb0c576a_0_322)
