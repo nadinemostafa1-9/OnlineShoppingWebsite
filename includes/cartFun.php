@@ -49,7 +49,7 @@ foreach ($items as $value) {
 	echo '
 	<div class=col-md-12>
  	<div class="card">
- 		<a href="cardtest.html">
+ 		<a href="details.php?id='.$product->getID().'">
  			<img src="images/'.$product->getImage().'" alt="product">
  		</a>
  		<div class="card-body">
