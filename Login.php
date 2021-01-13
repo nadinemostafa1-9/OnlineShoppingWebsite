@@ -20,7 +20,7 @@ Session::init();
 <hr>
  <?php Session::getMsg(); ?>
 <label for="email"><b>Email</b></label>
-<input type="text"  name="em" required>
+<input type="email"  name="em" required>
 <label for="psw"><b>Password</b></label>
 <input type="password"  name="pass" required>
 <button type="submit" name="login" class="btn">Login</button>
