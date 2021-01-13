@@ -56,6 +56,7 @@ function searchStart($k){
    if(Session::get('customer_id') !== false){
    displayCartButton($product);}else {
      echo '</div></div>';
+   }
      $f2=0;
     }
 
