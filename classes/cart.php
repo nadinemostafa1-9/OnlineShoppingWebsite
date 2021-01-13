@@ -3,7 +3,8 @@ require "cartitem.php";
 class Cart{
 
 private  $items=array();
-public function __construct($Items){
+public function __construct($Items = null){
+  if($items != NULL)
   $this->items = $Items;
 }
 public function getItems(){
