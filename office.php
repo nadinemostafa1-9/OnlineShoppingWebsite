@@ -36,7 +36,7 @@ include ("includes/prodFun.php");
 
   <div class="card-group">
 
-<?php displayProductsByCategory('home') ?>
+<?php displayProductsByCategory('home and office') ?>
 
 </div>
 
