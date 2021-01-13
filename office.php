@@ -46,6 +46,6 @@ include ("includes/prodFun.php");
     <br>
     <p>All rights reserved.</p>
   </div>
- <? php include ("Footer.php") ?>
+ <?php include ("Footer.php") ?>
 </body>
 </html>
