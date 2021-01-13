@@ -8,8 +8,9 @@ if(isset($_POST['cancel'])){
   return;
 }
 else if(isset($_POST['save'])){
-    Seller:: updateRank();
-    if($_POST['password']==null && $_POST['new']==null) {
+$seller = new Seller();
+    $seller->updateRank();
+  if($_POST['password']==null && $_POST['new']==null) {
 
         if(Seller::update($_POST['first_name'], $_POST['last_name'], $_POST['email'])){
             Session::set('success', "Changes successfully made!");
