@@ -1,66 +1,11 @@
 body{
 	background-color: #333;
-	
+
 	width: 100%;
 	overflow-x: hidden;
 }
 
-/*Bootstrap navbar*/
-div[id="main"]{
-	display: inline;
-	height: 50px;	
-}
-.bg-dark {
-	width: 100%;
-	height: 50px;
-    background-color:  #333!important;
-    display: inline-block;
-}
-/*navbar items*/
-.pagetop{
-	background-color: transparent;
-	margin: 0;
-	height: 50px;
-	padding: 8px 0;
-	display: inline;
-	width: 100%;
-}
-.nav_bar{
-	display: inline-block;
-	background-color: transparent;
-	text-align: left;
-}
-.nav_bar a{
-	padding-right:20px;
-	text-decoration-line: none;
-}
-/*navbar icons*/
-svg{
-	margin-top:0px;
-	margin-left: 5px;
-	margin-right: 3px;
-	padding-right:0px;
-	color: rgb(61,96,64);
-	display: inline-block;
-}
 
-.log_out{
-	width:180px;
-	margin-left: 800px;
-	display: inline;
-	text-align: right;
-}
-.log_out a{
-	padding-left: 20px;
-	text-decoration-line: none;
-}
-a{
-	color: #BBB;
-}
-/*link hover*/
-a:hover{
-	color: white;
-}
 /*image slider*/
 .image_slider{
 	display: inline;
@@ -79,12 +24,13 @@ a:hover{
 	border-radius: 0;
 }
 .card{
+	height: 700px;
 	border:none;
 	border-radius: 0;
 	margin: 5px;
 	background-color: white;
 	color: #333;
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 }
 .card-title{
 	padding-top: 10px;
@@ -96,12 +42,30 @@ a:hover{
 }
 .item-price{
 	color:rgb(61,96,64);
-	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/ 
+	font-family: "Lucida Handwriting", Arial; /*second font is a backup*/
 	font-weight: bold;
 	font-size: 25px;
 }
 
+.add-btn{
+	text-align: center;
+}
+.card-btn,.card-btn2{
+	background-color: rgb(61,96,64);
+	outline: none !important;
+	text-align: center;
+	display: block;
+	margin: auto;
+	color: #BBB;
+	width:300px;
+	height: 60px;
+	border: 1px solid #333;
+	border-radius: 50px;
 
+}
+.card-btn2{
+	margin-bottom: 20px;
+}
 .card a{
 	color:#BBB;
 }
@@ -116,15 +80,15 @@ a:hover{
 /* The sidebar menu */
 .sidebar {
 	padding-top: 30px;
-	width: 0; 
+	width: 0;
 	height: 100%;
-	position: fixed; 
+	position: fixed;
 	z-index: 2; /* Stay on top */
 	left: 0;
 	top:0;
-	background-color: #333; 
+	background-color: #333;
 	overflow-x: hidden;
-	display: inline-block; 
+	display: inline-block;
 	transition: 0.5s
 }
 .category{
