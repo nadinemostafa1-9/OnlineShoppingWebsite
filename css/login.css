@@ -34,7 +34,7 @@ input[type=text], input[type=password] {
   background: transparent;
   font-size: large;
   color:#DDD;
-
+outline:none;
 }
 
 /* Set a style for the submit button */
