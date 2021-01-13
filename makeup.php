@@ -1,6 +1,6 @@
 <?php
 
- include ("includes/productController.php");
+ include ("includes/prodFun.php");
  Session::init();
 
  ?>
@@ -33,7 +33,7 @@
 
 </div>
 
- <? php include ("Footer.php") ?>
+ <?php include ("Footer.php") ?>
 
 </body>
 </html>
